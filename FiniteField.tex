@@ -146,7 +146,6 @@ We would like to show that this condition implies that $\alpha \equiv p \beta \m
 Another way of stating this is that if $s(\alpha + k(p+1)) = s(\beta+k(p+1))$ for all $0 \leq k < p-1$ then $\alpha$ and $\beta$ are in the same Frobenius orbit.
 
 We will first do a few simple cases, and then consider the general case.
-\textcolor{red}{TODO: Turn all of this to use $s(\alpha) = t$ instead of $\alpha$ as the case variable.}
 We will let $s(\alpha) = t$ be the sum of the digits of $\alpha$ in base $p$ and note that when we split into cases for different $t$, we are splitting into the cases where $S(\omega^\alpha)$ and  $S(\omega^\beta)$ have the same factorization without considering any twists.
 \\
 
@@ -156,7 +155,7 @@ These are both clearly in the same Frobenius orbit $\{1,p\}$ and no twisting is 
 
 \subsection{$t = 2$:} If $s(\alpha) = t = 2$, then the possibilities are $\alpha = 2, 1+p, 2p$. 
 We can rule out $1+p$ because $1+p \mid 1+p$ means that $\alpha = 1+p$ does not give a regular character. 
-Then $\alpha = 2, 2p$ are clearly in the same Frobenius orbit $\{2,2p\}$ and again, no twisiting is necesary. 
+Then $\alpha = 2, 2p$ are clearly in the same Frobenius orbit $\{2,2p\}$ and again, no twisting is necesary. 
 Now let us look at a case where twisting is necessary.
 \\
 
@@ -174,45 +173,50 @@ We will deal with the case of $t > p-1$ later.
 Now that we have looked at a few specific cases, let us consider the general $0 \leq t \leq p-1$. 
 Then we having the following list of possibilites of $\alpha$: \[\alpha = t, (t-1) + p, (t-2) +2 p, \cdots 2 + (t-2)p , 1 + (t-1)p, tp.\] 
 These possibilities can be indexed by some $0 \leq i \leq t$ and then we find that $\{ (t-i) + i p \mid 0 \leq i \leq t\}$ is our set of possibilites. 
-You could split into two cases, the even case and the odd case, but we can also just note that $r = \left\lfloor \frac{t}{2} \right\rfloor$ in both cases. 
-The only difference is that when $t$ is even, $\alpha = r + rp$ is a possible character that we eliminate by restricting to only regular characters.
+It will be simplest to split into two cases, the even case and the odd case.
+We will let $r = \left\lfloor \frac{t}{2} \right\rfloor$ in both cases.
+Then we have that $t = 2r$ in the even case and $t = 2r+1$ in the odd case.
+The main difference is that when $t$ is even, $\alpha = r + rp$ is a possible character that we eliminate by restricting to only regular characters.
 
+\subsection{$t = 2r$:}
 We can split into the Frobenius orbits that we wish to distinguish between. 
-They pair up nicely and we get that the orbits are \[\{t, tp\}, \{(t-1)+p, 1+(t-1)p\}, \cdots ,\left\{\left\lfloor \frac{t-1}{2} \right\rfloor + \left\lfloor \frac{t+1}{2} \right\rfloor p, \left\lfloor \frac{t+1}{2} \right\rfloor + \left\lfloor \frac{t-1}{2} \right\rfloor p\right\}.\] 
-Written more generally, the orbits for $s(\alpha) = t$ look like $\{(t-i) + ip, i + (t-i)p\}$ for integers $0 \leq i <  \frac{t}{2} $, where  would give the degenerate orbit/non-regular character and $i > \frac{t}{2}$ just repeats the list again. 
-Our goal is then to distinguish between these orbits by looking at some twists of these values. I claim that it is sufficient to consider $k = p - \ell$ for $2 \leq \ell \leq \left\lfloor\frac{t}{2} \right\rfloor$. 
-Note that we are always considering $t < p$, so $k = p - \ell \geq p - t > 0$. 
+They pair up nicely and we get that the orbits are \[\{t, tp\}, \{(t-1)+p, 1+(t-1)p\}, \cdots, \{(r-1) + (r+1) p, (r+1) + (r-1) p\}.\] 
+Written more generally, the orbits for $s(\alpha) = t$ look like $\{(t-i) + ip, i + (t-i)p\}$ for integers $0 \leq i < r $, where $i=r$ would give the degenerate orbit/non-regular character and $i > r$ just repeats the list again. 
+Our goal is then to distinguish between these orbits by looking at some twists of these values.
+I claim that it is sufficient to consider $k = p - \ell$ for $2 \leq \ell \leq r < t$.
+We are always considering $t < p$, so $k = p - \ell \geq p - t > 0$.
 \\
 
 \textcolor{red}{NOTE: It seems like $2 \leq \ell \leq r+1$ has the same distinguishing power as $r+2 \leq \ell \leq 2r=t$?}
 \\
 
-We shall proceed by direct computation. 
+We shall proceed by direct computation for $t > 3$.
 First, let us consider the two extremes. 
-We have that with $\ell = 2$ the twists have the  following digit sum: \begin{align*}
+We have that with $\ell = 2$ the twists have the following digit sum:
+\begin{align*}
  s((t-i) + (i)p + (p - 2)(p+1)) &= s((p + t - i - 2) + (p + i -2)p) \\ 
  &= \begin{cases}
-s((t-2) + (p-2+1)p) & i = 0 \\
-s((t-i-2) + (p+i-1)p)& i \neq 0
+   s((t-2) + (p-2+1)p) & i = 0 \\
+   s((t-i-2) + (p+i-1)p)& i \neq 0
  \end{cases} \\
  &= \begin{cases}
- p+t - 3 & i = 0 \\
- s((t-i-1)+(i-1)p) & i \neq 0
+   p+t - 3 & i = 0 \\
+   s((t-i-1)+(i-1)p) & i \neq 0
  \end{cases} \\
-  s((t-i) + ip + (p - 2)(p+1)) &= \begin{cases}
- p+t - 3 & i = 0 \\
- t-2 & i \neq 0
+ s((t-i) + ip + (p - 2)(p+1)) &= \begin{cases}
+   p+t - 3 & i = 0 \\
+   t-2 & i \neq 0
  \end{cases}
 \end{align*}
 All we have done here is moved a $p$ from one coefficient to the other other and turned it into a carry of $1$ whenever a coefficient was $\geq p$. 
-Note that this assumes that $t \geq 2$ to have that $p+t-2 \geq p$, but this is always satisfied for $\alpha \neq 0,1,p$, $\alpha = 0$ corresponds to the trivial character and $\{1,p\}$ are their own orbit so do not need to be distinguished.
+Note that this assumes that $t \geq 2$ to have that $p+t-2 \geq p$, but the only even $t < 2$ is $t =0$ which gives only the trivial character.
 \\
 
 On the other hand, let's see what happens for the other extreme. 
-When $\ell = \left\lfloor \frac{t}{2} \right\rfloor$, we have the following digit sums:
+When $\ell = r$, we have the following digit sums:
 \begin{align*}
- s\left((t-i) + (i)p + \left(p - \left\lfloor \frac{t}{2} \right\rfloor\right)(p+1)\right) &= s\left(\left(p + t- i - \left\lfloor \frac{t}{2} \right\rfloor\right) + \left(p + i -\left\lfloor \frac{t}{2} \right\rfloor\right)p\right) \\ 
- &=s\left(\left(p + \left\lfloor \frac{t}{2} \right\rfloor - i\right) + \left(p -\left\lfloor \frac{t}{2} \right\rfloor + i\right)p\right) \\
+ s((t-i) + (i)p + (p - r)(p+1)) &= s((p + t- i - r) +(p + i -r) p) \\ 
+ &=s((p + r - i) + (p -r + i)p) \\
  &= \begin{cases}
 s((r-i) + (p+i-r+1)p) & i < r
  \end{cases} \\
