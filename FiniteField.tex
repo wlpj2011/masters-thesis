@@ -244,21 +244,30 @@ Then we have the following possible digit sums:
 \begin{align*}
 s((2r-i) + (i)p + (p - \ell)(p+1)) &= s((p + 2r - i - \ell) + (p + i -\ell)p) \\ 
 &=\begin{cases}
-s((2r - i - \ell) + (p + 1 + i -\ell)p) & 2r -i  \geq \ell \\
-s((p + 2r - i - \ell) + (p + i -\ell)p) & 2r - i <  \ell 
+  s((2r - i - \ell) + (p + 1 + i -\ell)p) & 2r -i  \geq \ell \\
+  s((p + 2r - i - \ell) + (p + i -\ell)p) & 2r - i <  \ell 
 \end{cases}\\
 &=\begin{cases}
-s((2r + 1 - i - \ell) + ( 1 + i -\ell)p) & 2r -i  \geq \ell \text{ and } 1+i \geq \ell \\
-s((2r - i - \ell) + (p + 1 + i -\ell)p) & 2r -i  \geq \ell  \text{ and } 1 + i < \ell \\
-s((p + 2r - i - \ell) + (p + i -\ell)p) & 2r - i <  \ell \text{ and } i < \ell \\
-s((p + 2r +1 - i - \ell) + (1 + i -\ell)p) & 2r - i <  \ell \text{ and } i \geq \ell
+  s((2r + 1 - i - \ell) + ( 1 + i -\ell)p) & 2r -i  \geq \ell \text{ and } 1+i \geq \ell \\
+  s((2r - i - \ell) + (p + 1 + i -\ell)p) & 2r -i  \geq \ell  \text{ and } 1 + i < \ell \\
+  s((p + 2r - i - \ell) + (p + i -\ell)p) & 2r - i <  \ell \text{ and } i < \ell \\
+  s((p + 2r +1 - i - \ell) + (1 + i -\ell)p) & 2r - i <  \ell \text{ and } i \geq \ell
+\end{cases} \\
+s((2r-i)+(i)p + (p-\ell)(p+1))
+&= \begin{cases}
+  p+2r-2\ell + 1 & i \leq \ell - 2 \\
+  2r-2\ell + 2 & i > \ell -2
 \end{cases}
 \end{align*}
 \\
 
-\textcolor{red}{Don't need to split into even and odd cases. It is generally true that:}
+We can reduce from the four cases down to two for a few reasons.
+First, note that $1 + i \geq \ell \implies i \geq \ell - i \implies i > \ell -2$ for integers $i$.
+Additionally, $2r -i \geq \ell$ is the only possibly case because $i < r$ and $\ell \leq r$ so the smallest possible $2r-i$ is bigger than the biggest possible $\ell$.
+Finally, in the $2r - i \geq \ell$ and $1 + i < \ell$ case, $1 + i < \ell \implies i < \ell -1 \implies i \leq \ell -2$ for integers $i$; and $i \leq \ell -2$ means that $p + 1 + i - \ell \leq p-1$ so no further reduction is necessary.
 
-\[ s((t-i)+ip + (p - \ell)(p+1)) = \begin{cases} p+t-2\ell + 1 & i \leq \ell -2 \\ t - 2 \ell +2 & i > \ell -2 \end{cases}\]
+
+
 
 
 
