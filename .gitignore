@@ -12,6 +12,9 @@
 *.cb2
 .*.lb
 
+## PDFs because they don't need version control sense they can just be generated
+*.pdf
+
 ## Intermediate documents:
 *.dvi
 *.xdv

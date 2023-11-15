@@ -1,0 +1,255 @@
+\documentclass[12pt]{article}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{color}
+\usepackage{bbold}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{tkz-graph}
+\usetikzlibrary{graphs, automata, positioning, arrows}
+\usetikzlibrary{arrows, quotes,calc}
+
+\usepackage{geometry}
+\geometry{letterpaper, portrait, margin=0.925in}
+
+\newtheoremstyle{customtheorem}{}{}
+{}%font of theorem
+{}{\bf}{}{ }{\thmname{#1}\thmnumber{ #2}\textnormal{\thmnote{ (#3)}}}
+\theoremstyle{customtheorem}%italicizes text
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{cor}{Corollary}[theorem]
+\newtheorem{conj}{Conjecture}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{example}{Example}[section]
+\newtheorem*{claim}{Claim}
+\newtheorem*{question}{Question}
+\newtheorem*{conv}{Convention}
+
+\theoremstyle{remark}
+\newtheorem{exr}{Exercise}
+\newtheorem*{rmk}{Remark}
+
+\theoremstyle{definition}
+%\newtheorem*{defn}{Definition}
+\newcommand{\inter}{\textrm{int}}
+\newcommand{\adj}{\textrm{adj}}
+\newcommand{\supp}{\textrm{supp }}
+
+
+\numberwithin{equation}{section}
+\numberwithin{theorem}{section}
+
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\bone}{\mathbb{1}}
+
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cOK}{\mathcal{O}_{K}}
+\newcommand{\cF}{\mathcal{F}}
+
+\newcommand{\ord}{\textrm{ord}}
+\newcommand{\tr}{\textrm{Tr}}
+
+\newcommand{\doublerule}[1][.4pt]{%
+  \noindent
+  \makebox[0pt][l]{\rule[.7ex]{\linewidth}{#1}}%
+  \rule[.3ex]{\linewidth}{#1}}
+  
+\usepackage{etoolbox} 
+\AtBeginEnvironment{pmatrix}{\everymath{\displaystyle}}
+
+
+\onehalfspacing
+\begin{document}
+
+% Set pagestyle
+\pagestyle{fancy}{
+\lhead{MAT 699} \chead{} \rhead{William Johnson}
+\lfoot{} \cfoot{\thepage} \rfoot{}
+}
+
+
+\title{Converse Theorem for Finite Field with $n=2$}
+\author{William Johnson}
+\date{\today}
+
+%\begin{abstract}
+%Abstract stuff
+%\end{abstract}
+
+\maketitle
+\thispagestyle{empty}
+
+\numberwithin{equation}{section}
+
+
+\section{Introduction} \label{sect:1}
+
+Let $p$ be a prime and choose the nontrivial additive characater $\psi \in \hat{\F_p}$ such that $\psi(1) = \epsilon$, where $\epsilon$ is a primitive $p$-th root of unity. 
+For a character $\chi \in \F_{p^n}^\times$, define the Gauss sum $S(\chi)$ by \[S(\chi) = \sum_{x \in \F_{p^n}} \chi(x) \psi(\tr(x)) \in \Q(\mu_{p^n-1}, \mu_p)\] where $\tr$ is the trace map from $\F_{p^n} \to \F_{p}$ and $\mu_N$ is the group of all $N$-th root of unity.
+We are then interested in the following theorem.
+
+\begin{conj}[Local Converse Theorem on Gauss Sums]
+Let $\chi_1$ and $\chi_2$ be two regular charactes of $\F_{p^n}^\times$ and $n$ be a prime. If \[S(\chi_1 \cdot \sigma) = S(\chi_2 \cdot \sigma), \text{ for all } \sigma \in \hat{\F_p^\times}\] then $\chi_1 = \chi_2^{p^i}$ for some integer $i$.
+\end{conj}
+
+We define the Teichum\"uller character by \[ \omega : \F_{p^n}^\times \to \mu_{p^n-1} \text{ by } \omega(u) \equiv u \mod \mathfrak{p},\] where $\mathfrak{p}$ is a prime ideal in $\Q(\mu_{p^n-1})$ lying above the prime number $p$.
+Note that $\omega$ generates the character group of $\F_{p^n}^\times$.
+
+For an integer $k$, define its $p$-adic expansion ($\mod p^n -1$) by \[k \equiv k_0 + k_1 p + \cdots + k_{n-1}p^{n-1} \mod p^n - 1\] where $0 \leq k_i \leq p -1$. 
+Define $s(k) = k_0 + k_1 + \cdots + k_{n-1}$ and $t(k) = k_0! k_1! \cdots k_{n-1}!$.
+Then $s$ and $t$ are $p^n - 1$-periodic.
+
+\begin{theorem}[Stickelberger's Theorem] For any integer $k$, we have the following congruence: \[ S(\omega^{-k}) \equiv -\frac{(\epsilon - 1)^{s(k)}}{t(k)} \mod \mathfrak{P}\] where $\mathfrak{P}$ is a prime ideal lying above $\mathfrak{p}$ in $\Q(\mu_{p^n-1}, \mu_p)$. 
+Moreover, \[ \ord_{\mathfrak{P}}S(\omega^{-k}) = s(k)\]
+\end{theorem}
+
+For a character $\chi$ of $\F_p^\times$, we have $\omega^{-\alpha} \otimes (\chi \circ \text{Nr}_{n:1}) = \omega^{-(\alpha + \hat{k})}$ for some $0 \leq k < p-1$, where $\hat{k} = k \cdot \frac{p^n - 1}{p-1}$. This lets us rewrite the local converse theorem as follows.
+\begin{conj}
+Suppose that $\omega^{-\alpha}$ and $\omega^{-\beta}$ are regular characters of $\F_{p^n}^\times$ and $n$ is prime. If \[S(\omega^{-(\alpha + \hat{k})}) = S(\omega^{-(\beta + \hat{k})})\] for all $0 \leq k < p-1$, then $\alpha \equiv p^j \beta \mod p^n - 1$ for some $j$.
+\end{conj}
+
+\section{$n=2$} 
+
+We will consider the case of the local converse theorem when $n=2$, in which case the conjecture above reads as follows:
+
+\begin{conj}
+Suppose that $\omega^{-\alpha}$ and $\omega^{-\beta}$ are regular characters of $\F_{p^2}^\times$. If \[S(\omega^{-(\alpha + \hat{k})}) = S(\omega^{-(\beta + \hat{k})})\] for all $0 \leq k < p-1$, then $\alpha \equiv p \beta \mod p^2 - 1$ or $\alpha \equiv \beta \mod p^2 - 1$.
+\end{conj}
+
+\begin{proof}
+Note that we only need to consider the case of fixed $\alpha$ and can vary $\beta$ to find those that satisfy the equality of gauss sums. 
+Because of the twisting conditions, it is only necessary to consider $\alpha \in \{1, 2, \cdots , p\}$, $\beta \in \F_{p^2-1}^\times$. 
+For the case $n=2$ we have the $\omega^{-\alpha}$ is regular as long as $(p+1)\nmid \alpha$.
+
+In this case we find that \[S(\omega^{-(\alpha + \hat{k})}) = S(\omega^{-(\beta + \hat{k})})\] for all $0 \leq k < p-1$ clearly implies that $S(\omega^{-(\alpha+\hat{k})})$ and $S(\omega^{-(\beta + \hat{k})})$ have the same factorization for all $0 \leq k < p-1$ which by Stickelberger's theorem, is equivalent to the condition that $s(\alpha + k(p+1)) = s(\beta + k(p+1))$ for all $0 \leq k < p-1$. 
+We would like to show that this condition implies that $\alpha \equiv p \beta \mod p^2 -1$ or $\alpha \equiv \beta \mod p^2 - 1$. Another way of stating this is that if $s(\alpha + k(p+1)) = s(\beta+k(p+1))$ for all $0 \leq k < p-1$ then $\alpha$ and $\beta$ are in the same Frobenius orbit.
+
+We will first do a few simple cases, and then consider the general case.
+\textcolor{red}{TODO: Turn all of this to use $s(\alpha) = t$ instead of $\alpha$ as the case variable.}
+We will let $s(\alpha) = t$ be the sum of the digits of $\alpha$ in base $p$ and note that when we split into cases for different $t$, we are splitting into the cases where $S(\omega^\alpha)$ and  $S(\omega^\beta)$ have the same factorization without considering any twists.
+\\
+
+\subsection{$t = 1$:} If $t = 1 = s(\alpha)$, then $\alpha = 1$ and $\alpha = p$ are the only possibilities. These are both clearly in the same Frobenius orbit $\{1,p\}$ and no twisting is necessary here.
+\\
+
+\subsection{$t = 2$:} If $s(\alpha) = t = 2$, then the possibilities are $\alpha = 2, 1+p, 2p$. We can rule out $1+p$ because $1+p \mid 1+p$ means that $\alpha = 1+p$ does not give a regular character. Then $\alpha = 2, 2p$ are clearly in the same Frobenius orbit $\{2,2p\}$ and again, no twisiting is necesary. Now let us look at a case where twisting is necessary.
+\\
+
+\subsection{$t = 3$:} If $s(\alpha) = t= 3$, then the possibilites are $\alpha = 3,2+p,1+2p,3p$. We have that the two Frobenius orbits are $\{3,3p\}$ and $\{2+p, 1+2p\}$ and we would like to show that taking the digit sum of some twists will let us distinguish between them when digit sums of the $\alpha$ alone do not.
+
+ Let us consider what happens when $k = p-3$ for $p > 3$ and compute $s(\alpha + k(p+1))$ for one $\alpha$ in each Frobenius orbit. We find that \[s(3 + (p-3)(p+1)) = s(((p-3)+3)+(p-3)p) = s((p-3+1)p) = s((p-2)p) = p-2.\] On the other hand, we have that \[s((p+2)+(p-3)(p+1)) = ((p-3)+1) + ((p-3)+2) =2p-3\]
+ Since $p-2 \neq 2p-3$ for all $p \neq 1$ (and therefore all primes) we have that twisting by $k = p-3$ enables us to differentiate between the two Frobenius orbits having $t = 3$ for $p > 3$. For $p = 2,3$, the case of $t = 3$ is not a concern because $t =3 > p-1$ which is not under consideration right now. We will deal with the case of $t > p-1$ later.
+\\
+
+Now that we have looked at a few specific cases, let us consider the general $0 \leq t \leq p-1$. Then we having the following list of possibilites of $\alpha$: \[\alpha = t, (t-1) + p, (t-2) +2 p, \cdots 2 + (t-2)p , 1 + (t-1)p, tp.\] These possibilities can be indexed by some $0 \leq i \leq t$ and then we find that $\{ (t-i) + i p \mid 0 \leq i \leq t\}$ is our set of possibilites. You could split into two cases, the even case and the odd case, but we can also just note that $r = \left\lfloor \frac{t}{2} \right\rfloor$ in both cases. The only difference is that when $t$ is even, $\alpha = r + rp$ is a possible character that we eliminate by restricting to only regular characters.
+
+We can split into the Frobenius orbits that we wish to distinguish between. They pair up nicely and we get that the orbits are \[\{t, tp\}, \{(t-1)+p, 1+(t-1)p\}, \cdots ,\left\{\left\lfloor \frac{t-1}{2} \right\rfloor + \left\lfloor \frac{t+1}{2} \right\rfloor p, \left\lfloor \frac{t+1}{2} \right\rfloor + \left\lfloor \frac{t-1}{2} \right\rfloor p\right\}.\] Written more generally, the orbits for $s(\alpha) = t$ look like $\{(t-i) + ip, i + (t-i)p\}$ for integers $0 \leq i <  \frac{t}{2} $, where  would give the degenerate orbit/non-regular character and $i > \frac{t}{2}$ just repeats the list again. Our goal is then to distinguish between these orbits by looking at some twists of these values. I claim that it is sufficient to consider $k = p - \ell$ for $2 \leq \ell \leq \left\lfloor\frac{t}{2} \right\rfloor$. Note that we are always considering $t < p$, so $k = p - \ell \geq p - t > 0$. 
+\\
+
+\textcolor{red}{NOTE: It seems like $2 \leq \ell \leq r+1$ has the same distinguishing power as $r+2 \leq \ell \leq 2r=t$?}
+\\
+
+We shall proceed by direct computation. First, let us consider the two extremes. We have that with $\ell = 2$ the twists have the  following digit sum: \begin{align*}
+ s((t-i) + (i)p + (p - 2)(p+1)) &= s((p + t - i - 2) + (p + i -2)p) \\ 
+ &= \begin{cases}
+s((t-2) + (p-2+1)p) & i = 0 \\
+s((t-i-2) + (p+i-1)p)& i \neq 0
+ \end{cases} \\
+ &= \begin{cases}
+ p+t - 3 & i = 0 \\
+ s((t-i-1)+(i-1)p) & i \neq 0
+ \end{cases} \\
+  s((t-i) + ip + (p - 2)(p+1)) &= \begin{cases}
+ p+t - 3 & i = 0 \\
+ t-2 & i \neq 0
+ \end{cases}
+\end{align*}
+All we have done here is moved a $p$ from one coefficient to the other other and turned it into a carry of $1$ whenever a coefficient was $\geq p$. Note that this assumes that $t \geq 2$ to have that $p+t-2 \geq p$, but this is always satisfied for $\alpha \neq 0,1,p$, $\alpha = 0$ corresponds to the trivial character and $\{1,p\}$ are their own orbit so do not need to be distinguished.
+\\
+
+On the other hand, let's see what happens for the other extreme. When $\ell = \left\lfloor \frac{t}{2} \right\rfloor$, we have the following digit sums:
+\begin{align*}
+ s\left((t-i) + (i)p + \left(p - \left\lfloor \frac{t}{2} \right\rfloor\right)(p+1)\right) &= s\left(\left(p + t- i - \left\lfloor \frac{t}{2} \right\rfloor\right) + \left(p + i -\left\lfloor \frac{t}{2} \right\rfloor\right)p\right) \\ 
+ &=s\left(\left(p + \left\lfloor \frac{t}{2} \right\rfloor - i\right) + \left(p -\left\lfloor \frac{t}{2} \right\rfloor + i\right)p\right) \\
+ &= \begin{cases}
+s((r-i) + (p+i-r+1)p) & i < r
+ \end{cases} \\
+ &= \begin{cases}
+s((r-i) + (p+i-r+1)p) & i < r-1 \\
+ s((r-i+1) + (i-r+1)p) & i = r-1
+ \end{cases} \\
+  s((2r-i) + ip + (p - r)(p+1)) &= \begin{cases}
+p+1 & i < r-1 \\
+2 & i = r-1
+ \end{cases}
+\end{align*}
+Here, we use $i < r$, but we already mentioned above that this is just choosing the element of the orbit with the smaller coefficient for $p$ and is not actually limiting the cases computed. We also implicitly assume $r < p$, but this is fine, because for now we are dealing with the case of $t < p$ and $t = 2r$ so $ r < p/2$.
+\\
+
+There are two interesting things we see in these computations. The first is that depending on what $\ell$ is, twisting by $k = p - \ell$ seems to split into two separate cases which have distinct digit sums (and note that $p+1 \neq 2$ and $p+2r-3 \neq 2r-2$ for all primes $p$). The second is that twisting with $\ell = 2$, the smallest $\ell$ we can twist by distinguishes the orbit with $i = 0$, the smallest orbit, and likewise, $\ell = r$, the largest $\ell$ we choose to twist by distinguishes the orbit with $i = r-1$, the largest $i$ necessary to consider. It is too much to hope that each $\ell$ we use to twist will distinguish a single orbit, but we will see that each $\ell$ separates the orbits in to two classes, and taken together, they can be used to distinguish all the orbits.
+\\
+
+The general case here will just be to twist by $k = p- \ell$ with $2 \leq \ell \leq r$. Then we have the following possible digit sums:
+\begin{align*}
+s((2r-i) + (i)p + (p - \ell)(p+1)) &= s((p + 2r - i - \ell) + (p + i -\ell)p) \\ 
+&=\begin{cases}
+s((2r - i - \ell) + (p + 1 + i -\ell)p) & 2r -i  \geq \ell \\
+s((p + 2r - i - \ell) + (p + i -\ell)p) & 2r - i <  \ell 
+\end{cases}\\
+&=\begin{cases}
+s((2r + 1 - i - \ell) + ( 1 + i -\ell)p) & 2r -i  \geq \ell \text{ and } 1+i \geq \ell \\
+s((2r - i - \ell) + (p + 1 + i -\ell)p) & 2r -i  \geq \ell  \text{ and } 1 + i < \ell \\
+s((p + 2r - i - \ell) + (p + i -\ell)p) & 2r - i <  \ell \text{ and } i < \ell \\
+s((p + 2r +1 - i - \ell) + (1 + i -\ell)p) & 2r - i <  \ell \text{ and } i \geq \ell
+\end{cases}
+\end{align*}
+\\
+
+\textcolor{red}{Don't need to split into even and odd cases. It is generally true that:}
+
+\[ s((t-i)+ip + (p - \ell)(p+1)) = \begin{cases} p+t-2\ell + 1 & i \leq \ell -2 \\ t - 2 \ell +2 & i > \ell -2 \end{cases}\]
+
+
+
+
+
+
+\textcolor{red}{TODO: Turn this bit into a lemma.}
+
+
+Finally, we need to show that this still holds for $p \leq \alpha \leq 2p - 2$. Note that we have that $s(p^2 - \alpha) = 2p-1  - s(\alpha)$ because if $\alpha = ip+j$ then \[s(p^2 -\alpha) = s((p-i)p -j) = s((p -i - 1)p + (p-j) )= 2p-1 - (i+j) = 2p - 1 - s(\alpha).\]
+\end{proof}
+
+This means that if $s(\alpha) \geq p$, then $s(p^2 - \alpha) = s(-\alpha) < p$, which will allow us to finish distinguishing between the different $\alpha$'s. Specifically, suppose that $\omega^{-\alpha}$ and $\omega^{-\beta}$ satisfy the conditions of the conjecture and $s(\alpha) \geq p$. Then $S(\omega^{-\alpha}) = S(\omega^{-\beta}) \implies s(\alpha) = s(\beta) \geq p$. Then we also have that $s(p^2 - \alpha) = s(p^2 - \beta) < p$. By our lemma \textcolor{red}{??? a(because $S(\omega^{-\alpha}) = \omega^{\alpha}(-1)S(\omega^{\alpha})$)}, $S(\omega^\alpha) = S(\omega^\beta)$ if and only if $S(\omega^{-\alpha}) = S(\omega^{-\beta})$ and so using the prior part of the theorem to distinguish between $p^2 - \alpha$ and $p^2 - \beta$, we can also distinguish between $\alpha$ and $\beta$ since twisting $-\alpha$ by $k$ is the same as twisting $\alpha$ by $-k$ 
+
+\textcolor{red}{TODO: Write in terms of $\gamma(\alpha)$ instead of $s(\alpha)$}
+
+\[ \gamma((t-i)+ip + (p - \ell)(p+1)) \equiv_p \begin{cases} (t-i-\ell)!(p+i-\ell+1)! & i \leq \ell -2 \\ (1+t-i-\ell)!(i-\ell+1)!& i > \ell -2 \end{cases}\]
+
+\section{$n>2$}
+
+For $n > 2$ the procedure described above starts to fail. Consider the case of $n = 3$ and $t = 4$, then we have $5$ Frobenius orbits and can arrange the $\alpha$ under consideration as follows:
+
+The coloring describes the Frobenius orbits. Now, let us compute the sums of the digits of each of the twists, and recall that we are doing this, because this gives us all the information we need from Stickelberger \textcolor{red}{TODO: What about the $t$/$!$ part of Stickelberger?}. Then we find that $[3+p,3p+p^2,1+3p^2]$ and $[3+p^2, 1+3p, p+3p^2]$ are two Frobenius orbits with all the same factorizations of their twists according to Stickelberger. This tells us that Stickelberger's theorem will not be effective as the main tool for $n > 2$, and so we must use a more powerful tool, perhaps the Gross-Koblitz theorem
+
+%\bibliographystyle{plain}
+%\bibliography{thesisbibliography}
+
+
+\end{document}
