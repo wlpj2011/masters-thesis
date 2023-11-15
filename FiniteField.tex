@@ -266,15 +266,47 @@ First, note that $1 + i \geq \ell \implies i \geq \ell - i \implies i > \ell -2$
 Additionally, $2r -i \geq \ell$ is the only possibly case because $i < r$ and $\ell \leq r$ so the smallest possible $2r-i$ is bigger than the biggest possible $\ell$.
 Finally, in the $2r - i \geq \ell$ and $1 + i < \ell$ case, $1 + i < \ell \implies i < \ell -1 \implies i \leq \ell -2$ for integers $i$; and $i \leq \ell -2$ means that $p + 1 + i - \ell \leq p-1$ so no further reduction is necessary.
 
+\subsection{$t = 2r+1$:}
+For the case when $t$ is odd, much of the same analysis follows through in the same way with a few $+1$'s scattered throughout.
+Again, we can split into the Frobenius orbits that we wish to distinguish between. 
+They pair up nicely, this time with no degeneracy and we get that the orbits are \[\{t, tp\}, \{(t-1)+p, 1+(t-1)p\}, \cdots, \{r + (r+1) p, (r+1) + r p\}.\] 
+Written more generally, the orbits for $s(\alpha) = t$ look like $\{(t-i) + ip, i + (t-i)p\}$ for integers $0 \leq i \leq r $ where $i > r$ just repeats the same list again.
+Our goal is then to distinguish between these orbits by looking at some twists of these values.
+I claim that it is sufficient to consider $k = p - \ell$ for $2 \leq \ell \leq r + 1 < t$ (this last equality only true for odd $t > 1$).
+We are always considering $t < p$, so $k = p - \ell \geq p - t > 0$.
+\\
 
+We shall proceed by direct computation for $t \geq 3$, and deal only with the general case.
+The general case here will just be to twist by $k = p- \ell$ with $2 \leq \ell \leq r+1$. 
+Then we have the following possible digit sums:
+\begin{align*}
+s((2r+1-i) + ip + (p - \ell)(p+1)) &= s((p + 2r+1 - i - \ell) + (p + i -\ell)p) \\ 
+&=\begin{cases}
+  s((2r +1- i - \ell) + (p + 1 + i -\ell)p) & 2r+1-i  \geq \ell \\
+\end{cases}\\
+&=\begin{cases}
+  s((2r + 1 - i - \ell) + ( 1 + i -\ell)p) &  1+i \geq \ell \\
+  s((2r +1- i - \ell) + (p + 1 + i -\ell)p) & 1 + i < \ell \\
+\end{cases} \\
+s((2r+1-i)+ip + (p-\ell)(p+1))
+&= \begin{cases}
+  p+2r+1-2\ell + 1 & i \leq \ell - 2 \\
+  2r+1-2\ell + 2 & i > \ell -2
+\end{cases}
+\end{align*}
+\\
 
-
+As before, we only have the $2r+1-e \geq \ell$ case because $i < r$ and $\ell \leq r+1$ so the smallest possible $2r+1-i$ is bigger than the biggest possible $\ell$.
+Then, note that $1 + i \geq \ell \implies i \geq \ell - i \implies i > \ell -2$ for integers $i$.
+Finally, in the $1 + i < \ell$ case, $1 + i < \ell \implies i < \ell -1 \implies i \leq \ell -2$ for integers $i$; and $i \leq \ell -2$ means that $p + 1 + i - \ell \leq p-1$ so no further reduction is necessary.
 
 
 
 
 
 \textcolor{red}{TODO: Turn this bit into a lemma.}
+\\
+\textcolor{red}{TODO: It would be cleaner to separate out the equivalence for $s((t-i)+ip+(p-\ell)(p+1))$ into it's own lemma with the even and odd casework moved into that portion, or even two lemmas with a joint corollary.}
 
 
 Finally, we need to show that this still holds for $p \leq \alpha \leq 2p - 2$. 
