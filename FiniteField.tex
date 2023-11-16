@@ -299,16 +299,26 @@ s((2r+1-i)+ip + (p-\ell)(p+1))
 As before, we only have the $2r+1-e \geq \ell$ case because $i < r$ and $\ell \leq r+1$ so the smallest possible $2r+1-i$ is bigger than the biggest possible $\ell$.
 Then, note that $1 + i \geq \ell \implies i \geq \ell - i \implies i > \ell -2$ for integers $i$.
 Finally, in the $1 + i < \ell$ case, $1 + i < \ell \implies i < \ell -1 \implies i \leq \ell -2$ for integers $i$; and $i \leq \ell -2$ means that $p + 1 + i - \ell \leq p-1$ so no further reduction is necessary.
+\\
 
 
+\textcolor{red}{TODO: It would be cleaner to separate out the equivalence for $s((t-i)+ip+(p-\ell)(p+1))$ into it's own lemma with the even and odd casework moved into that portion, or even two lemmas with a joint corollary.}
+\\
 
-
-
+\subsection{rest of the proof}
+Now that we have (what will be a lemma) our main idea:
+\[ s((t-i)+ip+(p-\ell)(p+1)) = \begin{cases} p + t-2\ell+1 & i \leq \ell - 2 \\ t - 2 \ell + 2 & i > \ell -2\end{cases},\]
+we can finish up the rest of the proof.
+The idea here is that as we twist by more $\ell$'s, we distinguish one additional orbit each time.
+Recall for the $\ell = 2$ twist we had that the $i = 0$ orbit was distinguished from all the others because it has a different digit sum after the twist.
+Then, for the $\ell = 3$ twist, we find that $i=0,1$ are separated from $i > 1$, but since $i =0$ is already distinguished, we do not have to distinguish it agin, and so we have distinguished $i = 1$.
+It is clear that the $\ell$ twist will separate the orbits into those with $i \leq \ell - 2$ and those with $i > \ell -2$.
+Then we have that if we consider all the twists $2 \leq \ell \leq m \leq \left\lceil \frac{t}{2} \right\rceil$, then we have fully distinguished all the $i \leq m-2$ but cannot tell apart any of the $m-2 < i < \left\lceil \frac{t}{2} \right\rfloor$ orbits.
+With $m = \left\lceil \frac{t}{2} \right\rceil$, we are able to fully distinguish all of the orbits with a given $t < p$.
+\\
 \textcolor{red}{TODO: Turn this bit into a lemma.}
 \\
-\textcolor{red}{TODO: It would be cleaner to separate out the equivalence for $s((t-i)+ip+(p-\ell)(p+1))$ into it's own lemma with the even and odd casework moved into that portion, or even two lemmas with a joint corollary.}
-
-
+\textcolor{red}{TODO: Make this use $t$ instead of $\alpha$.}
 Finally, we need to show that this still holds for $p \leq \alpha \leq 2p - 2$. 
 Note that we have that $s(p^2 - \alpha) = 2p-1  - s(\alpha)$ because if $\alpha = ip+j$ then \[s(p^2 -\alpha) = s((p-i)p -j) = s((p -i - 1)p + (p-j) )= 2p-1 - (i+j) = 2p - 1 - s(\alpha).\]
 \end{proof}
