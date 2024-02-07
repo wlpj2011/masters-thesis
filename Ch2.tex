@@ -44,19 +44,52 @@ The primary trace we are interested in is the trace for the extension $\bbF_q / 
 %rephrase this to remove defn environment; only want defn env when will refer to it later
 \begin{defn}
 The trace from $\bbF_q / \bbF_p$ for $q = p^n$ is defined by $\tr : \bbF_q \to \bbF_p$
- \[ \tr : x \mapsto \sum_{i=0}^{n-1} x^{p^i} = x + x^p + x^{p^2} + \cdots + x^{p^{n-1}}\]
+ \[ \tr : x \mapsto \sum_{i=0}^{n-1} x^{p^i} = x + x^p + x^{p^2} + \cdots + x^{p^{n-1}}.\]
 \end{defn}
 \noindent Then we can define an additive character $\lambda : \bbF_q \to \mu_p$ by $\lambda(x) = \epsilon^{\tr(x)}$.
 It takes a bit more to define the Teichm\"uller character.\\
 
 Consider the field $\bbQ(\mu_{q-1})$ and let $\fp$ be the prime ideal lying over $p$.
-Then the residue field of $\bbQ(\mu_{q-1})$ mod $\fp$ is isomoprhic to $\mu_{q-1}$ which in turn is isomorphic to $\bbF_q^\times$.
+Then the residue field of $\bbQ(\mu_{q-1})$ mod $\fp$ is isomorphic to $\mu_{q-1}$ which in turn is isomorphic to $\bbF_q^\times$.
 \begin{defn}\label{Teichmuller}
-We define the Teichm\"uller character by $\omega : \bbF_q^\times \to \mu_{q-1}$ by $\omega (u) \equiv  u \mod \fp$.
+We define the Teichm\"uller character $\omega : \bbF_q^\times \to \mu_{q-1}$ by \[\omega (u) \equiv  u \mod \fp.\]
 \end{defn}
 \noindent This character generates the character group of $\bbF_q^\times$; so for all multiplicative characters $\chi$ of $\bbF_q^\times$ there is some integer $k$ such that $\chi = \omega^k$.\\
+When we have two multiplicative character $\chi_1$ and $\chi_2$, we say that the twist of $\chi_1$ by $\chi_2$ is $\chi_1 \otimes \chi_2$.
+When written in terms of the Techm\"uller character, we have $\omega^{k_1} \otimes \omega^{k_2} = \omega^{k_1+k_2}$.
+
+Now we can define Gauss sums for finite fields, which depend upon a choice of an additive character and a multiplicative one. 
+For finite fields, we will always use the additive character $\lambda$ defined above.
+\begin{defn}\label{GSumFF}
+The Gauss sum for a multiplicative character $\chi$ is denoted $S(\chi)$ or $S(\chi, \lambda)$ and is defined by \[S(\chi, \lambda) = \sum_{u \in \bbF_q^\times} \chi(u) \lambda(u).\]
+\end{defn}
+\noindent There are a few useful properties of Gauss sums that can be easily proven.
+\begin{prop}
+For a nontrivial multiplicative character $\chi$ on a finite field $\bbF_q$, we have that $|S(\chi)| = q^{1/2}$.
+\end{prop}
+\begin{prop}
+For a multiplicative character $\chi$ on a finite field $\bbF_q$ with $q = p^n$, we have that $S(\chi^p) = S(\chi)$.
+\end{prop}
+This second proposition is because raising to the $p^\text{th}$ power only permutes the elements of the sum. 
+For this reason we collect together the characters $\{\chi, \chi^{p}, \ldots, \chi^{p^{n-1}}\}$ together into a set we call the Frobenius orbit.
+The converse theorem for Gauss sums of finite fields concerns separating the multiplicative characters of a finite field $\bbF_q$ into their Frobenius orbits.\\
+
+However, first we separate out the characters that live in degenerate Frobenius orbits. 
+These are the non-regular characters of $\bbF_q$ and are characterized by having $\chi = \chi^{p^k}$ for some $k \mid n-1$. 
+If we write $\chi = \omega^k$, then $\chi$ is non-regular when there is some $k' \mid \frac{q-1}{p-1}$ with $k' \neq 1$ such that $k' \mid k$.
+It suffices to check $k' = \frac{p^m - 1}{p-1}$ for $m \mid n$ and $m \neq 1$.
+If a character is not non-regular, then it is regular. 
+The regular characters are those with Frobenius orbits of size $n$ when $q = p^n$.\\
+
+We can now state the conjectured converse theorem for Gauss sums of finite fields.
+\begin{conj}[Nien]
+Let $\chi_1$ and $\chi_2$ be two regular multiplicative characters of $\bbF_q$ with $q = p^n$ and $n$ prime. If \[S(\chi_1 \otimes \sigma) = S(\chi_2 \otimes \sigma)\text{, for all } \sigma \in \hat{\bbF_p}\] then $\chi_1 = \chi_2^{p^i}$ for some integer $i$.
+\end{conj}
+\noindent \textcolor{red}{What we end up proving is the case of $n = 2$.}
 
 
-
+\section{Stickelberger's Theorem}
+Before we set out to prove our converse theorem for finite fields; it is simplest to reframe the problem as a question about the $p$-adic expansions of integers.
+The tool that allows us to do this is Stickelberger's theorem which we shall introduce and prove in this section.
 
 \endinput
