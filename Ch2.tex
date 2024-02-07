@@ -2,7 +2,7 @@
 \begin{itemize}
 \item Finite Fields 
 \begin{itemize}
-\item additive characters of $\hat{\mathbb{F}}_p$
+\item additive characters of $\hat{\bbF}_p$
 \item multiplicative characters of $\mathbb{F}_p^\times$ and $\mathbb{F}_{p^n}^\times$
 \item Trace $\mathbb{F}_{p^n}^\times \to \mathbb{F}_{p}^\times$
 \item Regular characters
@@ -24,4 +24,39 @@
 \item If necessary, converse for characters of $\mathbb{F}_{q^2}^\times$ twisted by characters of $\mathbb{F}_{q}^\times$; need to look into a proof of this.
 \item If possible, converse for characters of $\mathbb{F}_{p^3}^\times$ twisted by characters of $\mathbb{F}_{p}^\times$ 
 \end{itemize}
+
+\section{Gauss Sums for Finite Fields}
+\noindent We will use the following notation in this chapter.\\
+$\bbF_p$ will be the finite field with $p$ elements.\\
+$\bbF_q$ will be the finite field with $q = p^n$ elements for some $n \geq 1$.\\
+For any finite field $\bbF_q$, $\bbF_q^\times$ will be the multiplicative unit group of the field.\\
+$\varepsilon$ will be a primitive $p^\text{th}$ root of unity. For $\varepsilon \in \bbC$, we use $\varepsilon = e^{2 \pi i /p}$.\\
+$\mu_N$ will be the group of $N^\text{th}$ roots of unity.\\
+
+We will be dealing only with complex representations of finite fields.
+Since $\bbF_q$ is a field, all representations are $1$ dimensional characters.
+An additive character of $\bbF_q$ is a function $\xi : \bbF_q \to \bbC^\times$ with $\xi(a + b) = \xi(a)\xi(b)$.
+A multiplicative character of $\bbF$ is a function $\chi : \bbF_q^\times \to \bbC^\times$ with $\chi(ab) = \chi(a)\chi(b)$.
+If we ever need to evaluate a multiplicative character $\chi$ at $0 \not \in \bbF_q^\times$ then we use $\chi(0) = 0$. \\
+
+The two most important characters in this setting are the additive character defined by the trace and the multiplicative character called the Teichm\"uller character. 
+The primary trace we are interested in is the trace for the extension $\bbF_q / \bbF_p$ which is defined in the following way.
+%rephrase this to remove defn environment; only want defn env when will refer to it later
+\begin{defn}
+The trace from $\bbF_q / \bbF_p$ for $q = p^n$ is defined by $\tr : \bbF_q \to \bbF_p$
+ \[ \tr : x \mapsto \sum_{i=0}^{n-1} x^{p^i} = x + x^p + x^{p^2} + \cdots + x^{p^{n-1}}\]
+\end{defn}
+\noindent Then we can define an additive character $\lambda : \bbF_q \to \mu_p$ by $\lambda(x) = \epsilon^{\tr(x)}$.
+It takes a bit more to define the Teichm\"uller character.\\
+
+Consider the field $\bbQ(\mu_{q-1})$ and let $\fp$ be the prime ideal lying over $p$.
+Then the residue field of $\bbQ(\mu_{q-1})$ mod $\fp$ is isomoprhic to $\mu_{q-1}$ which in turn is isomorphic to $\bbF_q^\times$.
+\begin{defn}\label{Teichmuller}
+We define the Teichm\"uller character by $\omega : \bbF_q^\times \to \mu_{q-1}$ by $\omega (u) \equiv  u \mod \fp$.
+\end{defn}
+\noindent This character generates the character group of $\bbF_q^\times$; so for all multiplicative characters $\chi$ of $\bbF_q^\times$ there is some integer $k$ such that $\chi = \omega^k$.\\
+
+
+
+
 \endinput
