@@ -26,7 +26,7 @@
 \end{itemize}
 
 \section{Gauss Sums for Finite Fields}
-\noindent We will use the following notation in this chapter; mostly following the notation choices in\cite{Lang1990}.\\
+\noindent We will use the following notation in this chapter; mostly following the notation choices in \cite{Lang1990}.\\
 $\bbF_p$ will be the finite field with $p$ elements.\\
 $\bbF_q$ will be the finite field with $q = p^n$ elements for some $n \geq 1$.\\
 For any finite field $\bbF_q$, $\bbF_q^\times$ will be the multiplicative unit group of the field.\\
@@ -46,12 +46,19 @@ The primary trace we are interested in is the trace for the extension $\bbF_q / 
 The trace from $\bbF_q / \bbF_p$ for $q = p^n$ is defined by $\tr : \bbF_q \to \bbF_p$
  \[ \tr : x \mapsto \sum_{i=0}^{n-1} x^{p^i} = x + x^p + x^{p^2} + \cdots + x^{p^{n-1}}.\]
 \end{defn}
-\noindent Then we can define an additive character $\lambda : \bbF_q \to \mu_p$ by $\lambda(x) = \epsilon^{\tr(x)}$.
+We can also define a trace for any extension; specifically, for the extension $\bbF_{q^n}/\bbF_q$ we have a trace defined by \[\tr_{\bbF_{q^n}/\bbF_q} : x \mapsto \sum_{i=0}^{n-1} x^{q^i}.\] 
+We can unify these definitions of trace in the following way.
+\begin{defn}
+Let $E/F$ be a Galois field extension and let $G = \gal(E/F)$ be the Galois group of automorphisms of $E$ fixing $F$. 
+Then the trace $\tr : E \to F$ is defined by \[\tr : x \mapsto \sum_{\sigma \in G} \sigma x.\]
+\end{defn}
+
+\noindent Then we can define an additive character $\lambda : \bbF_q \to \mu_p$ by $\lambda(x) = \varepsilon^{\tr(x)}$.
 It takes a bit more to define the Teichm\"uller character.\\
 
 Consider the field $\bbQ(\mu_{q-1})$ and let $\fp$ be the prime ideal lying over $p$.
 Then the residue field of $\bbQ(\mu_{q-1})$ mod $\fp$ is isomorphic to $\mu_{q-1}$ which in turn is isomorphic to $\bbF_q^\times$.
-\begin{defn}\label{Teichmuller}
+\begin{defn}\label{def:Teichmuller-char}
 We define the Teichm\"uller character $\omega : \bbF_q^\times \to \mu_{q-1}$ by \[\omega (u) \equiv  u \mod \fp.\]
 \end{defn}
 \noindent This character generates the character group of $\bbF_q^\times$; so for all multiplicative characters $\chi$ of $\bbF_q^\times$ there is some integer $k$ such that $\chi = \omega^k$.\\
@@ -60,7 +67,7 @@ When written in terms of the Techm\"uller character, we have $\omega^{k_1} \otim
 
 Now we can define Gauss sums for finite fields, which depend upon a choice of an additive character and a multiplicative one. 
 For finite fields, we will always use the additive character $\lambda$ defined above.
-\begin{defn}\label{GSumFF}
+\begin{defn}\label{def:Gsum-FF}
 The Gauss sum for a multiplicative character $\chi$ is denoted $S(\chi)$ or $S(\chi, \lambda)$ and is defined by \[S(\chi, \lambda) = \sum_{u \in \bbF_q^\times} \chi(u) \lambda(u).\]
 \end{defn}
 \noindent There are a few useful properties of Gauss sums that can be easily proven.
@@ -82,10 +89,14 @@ If a character is not non-regular, then it is regular.
 The regular characters are those with Frobenius orbits of size $n$ when $q = p^n$.\\
 
 We can now state the conjectured converse theorem for Gauss sums of finite fields.
-\begin{conj}[Nien]
+\begin{conj}[Nien]\label{conj:local-converse-FF}
 Let $\chi_1$ and $\chi_2$ be two regular multiplicative characters of $\bbF_q$ with $q = p^n$ and $n$ prime. If \[S(\chi_1 \otimes \sigma) = S(\chi_2 \otimes \sigma)\text{, for all } \sigma \in \hat{\bbF_p^\times}\] then $\chi_1 = \chi_2^{p^i}$ for some integer $i$.
 \end{conj}
-\noindent \textcolor{red}{What we end up proving is the case of $n = 2$.}
+
+For $n=2$; this becomes our theorem 
+\begin{theorem}\label{thm:local-converse-FF}
+Let $\chi_1$ and $\chi_2$ be two regular multiplicative characters of $\bbF_{p^2}$. If \[S(\chi_1 \otimes \sigma) = S(\chi_2 \otimes \sigma)\text{, for all } \sigma \in \hat{\bbF_p^\times}\] then $\chi_1 = \chi_2^{p}$ or $\chi_1 = \chi_2$.
+\end{theorem}
 
 
 \section{Stickelberger's Theorem}
@@ -96,7 +107,7 @@ Working in the field $\bbQ(\mu_{q-1}, \mu_p)$, Stickelberger's theorem gives as 
 
 As above; we will consider the case when $\bbF_q$ is a field of size $q = p^n$. 
 We will let $\fp$ be a prime ideal in $\bbQ(\mu_{q-1})$ lying above $p$. 
-Then we shall consider another extension $\bbQ(\mu_{q-1}, \mu_p)$ with $\fP$ being a prime ideal lying above $\fp$. Additionally; when it is useful for emphasis, we will let $\pi = \epsilon - 1$
+Then we shall consider another extension $\bbQ(\mu_{q-1}, \mu_p)$ with $\fP$ being a prime ideal lying above $\fp$. Additionally; when it is useful for emphasis, we will let $\pi = \varepsilon - 1$
 \\
 
 Recall that the Teichm\"uller character generates $\hat{\bbF_q}$, so for any $\chi \in \hat{\bbF_q}$ we have $\chi = \omega^k$ for some $0 \leq k \leq q-1$, or equivalently, $\chi = \omega^{-k}$ for some $0 \leq k \leq q-1$, which will be more convenient when phrasing Stickelberger's theorem.
@@ -111,9 +122,9 @@ for $0 \leq k < q-1$ and requiring that $s$ and $\gamma$ are $q-1$ periodic for 
 \\
 
 Our first step towards Stickelberger's theorem will be the following theorem which tells how many times one prime appears in the factorization of a Gauss sum.
-\begin{theorem}
+\begin{theorem}\label{thm:Stickelberger}
 For any integer $k$, we have the congruence 
-\[\frac{S(\omega^{-k}, \epsilon^\tr)}{(\epsilon - 1)^{s(k)}} \equiv \frac{-1}{\gamma(k)} \mod \fP.\]
+\[\frac{S(\omega^{-k}, \varepsilon^\tr)}{(\varepsilon - 1)^{s(k)}} \equiv \frac{-1}{\gamma(k)} \mod \fP.\]
 In particular, $\ord_\fP S(\omega^{-k}) = s(k)$.
 \end{theorem}
 To get the full factorization of $S(\omega^{-k})$, we need a few more definitions.\\
@@ -127,17 +138,32 @@ We define the Stickelberger element in the group ring $\bbQ[G]$ as
 \end{defn}
 Then we can get a full factorization of the ideal generated by $S(\omega^{-k})$. Using $\fa \sim \fb$ to mean that $\fa / \fb$ is the unit ideal, we have the following theorem.
 \begin{theorem}
-The factorization of the ideal generated by $S(\omega^{-k}, \epsilon^\tr)$ is \[S(\omega^{-k}) \sim \fP^{(p-1)\theta(k, \fp)} \sim \fp^{\theta(k,\fp)}.\]
+The factorization of the ideal generated by $S(\omega^{-k}, \varepsilon^\tr)$ is \[S(\omega^{-k}) \sim \fP^{(p-1)\theta(k, \fp)} \sim \fp^{\theta(k,\fp)}.\]
 \end{theorem}
 
 
 
 \section{The $n=2$ Local Converse Theorem for Finite Fields}
-Recall that the theorem we are proving is that if $\chi_1$ and $\chi_2$ are regular multiplicative characters of $\bbF_{p^2}$ and $S(\chi_1 \otimes \sigma) = S(\chi_2 \otimes \sigma)$ for all $\sigma \in \hat{\bbF_p^\times}$, then $\chi_1 = \chi_2$ or $\chi_1 = \chi_2^p$.
-By using the fact that $\exists k$ such that $\chi = \omega^k$, we can rewrite this theorem in the following way.
+Recall that we would like to prove Conjecture \ref{conj:local-converse-FF} for the case of $n=2$.
+By using the fact that $\exists k$ such that $\chi = \omega^k$, we can use Stickelberger's theorem rewrite the conjecture in the following way.
 
-\begin{theorem}
+\begin{theorem}\label{thm:local-converse-FF-rewrite}
 Suppose that $\alpha, \beta \in \bbZ/(p^2 -1)\bbZ$ with $p+1 \nmid \alpha, \beta$ and \[s(\alpha + k(p+1)) = s(\beta + k(p+1))\] for all $0 \leq k < p-1$. Then we have that $\alpha \equiv \beta \mod p^2 - 1$ or $\alpha \equiv p \beta \mod p^2 -1$.
 \end{theorem}
 
+\begin{prop}
+Theorem \ref{thm:local-converse-FF} and Theorem \ref{thm:local-converse-FF-rewrite} are equivalent.
+\end{prop}
+
+\begin{proof}
+Suppose the conditions of Theorem \ref{thm:local-converse-FF} hold. 
+If we write $\chi_1 = \omega^\alpha$ and $\chi_2 = \omega^\beta$ and use the fact that all the twists can be written as $\sigma = \omega^{k (p+1)}$ for $0 \leq k < p-1$; then we are claiming that $S(\omega^{\alpha + k(p+1)}) = S(\omega^{\beta+k(p+1)})$ for all $0 \leq k < p-1$. 
+However, by Theorem \ref{thm:Stickelberger} if $S(\omega^{\alpha + k(p+1)}) = S(\omega^{\beta+k(p+1)})$ for all $0 \leq k < p-1$ then $s(\omega^{\alpha + k(p+1)}) = s(\omega^{\beta+k(p+1)})$ for all $0 \leq k < p-1$. 
+This implies the conditions of Theorem \ref{thm:local-converse-FF-rewrite}.
+\\
+
+In the other direction, suppose that the conditions of Theorem \ref{thm:local-converse-FF-rewrite} hold. 
+Then $p+1 \nmid \alpha, \beta$ ensures that $\chi_1 = \omega^\alpha$ and $\chi_2 = \omega^\beta$ are regular characters of $\bbF_{p^2}$. Then $s(\alpha + k(p+1)) = s(\beta + k(p+1))$ for all $0 \leq k < p-1$ only provides that $\ord_{\fP} S(\chi_1 \otimes \sigma) = \ord_{\fP} S(\chi_2 \otimes \sigma)$ for all twists $\sigma$. \textcolor{red}{Rewrite this! Have actual proof on paper.}
+
+\end{proof}
 \endinput
