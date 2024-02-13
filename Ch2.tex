@@ -1,0 +1,364 @@
+\chapter{Local Converse Theorem for Finite Fields}	%Chapter title
+\begin{itemize}
+\item Finite Fields 
+\begin{itemize}
+\item additive characters of $\hat{\bbF}_p$
+\item multiplicative characters of $\mathbb{F}_p^\times$ and $\mathbb{F}_{p^n}^\times$
+\item Trace $\mathbb{F}_{p^n}^\times \to \mathbb{F}_{p}^\times$
+\item Regular characters
+\end{itemize}
+\item Gauss Sums 
+\item Teichmuller Characters 
+\item Stickelberger Theorem 
+\begin{itemize}
+\item A description of the prime ideals involved?
+\item $p$-adic expansions and how they relate to Gauss sums on a first order of approximation, especially if Gross-Koblitz gets included
+\end{itemize}
+\item Gross-Koblitz Formula if necessary 
+\begin{itemize}
+\item If I include this, then I need $p$-adic gamma function
+\end{itemize}
+\item Restate the converse theorem in terms of $s(k)$ instead of $S(\omega^{-k})$.
+\item Do I need a $1$D analog converse for characters of $\mathbb{F}_p^\times$ or $\mathbb{F}_q^\times$ 
+\item $2$D analog converse for characters of $\mathbb{F}_{p^2}^\times$ twisted by characters of $\mathbb{F}_{p}^\times$ 
+\item If necessary, converse for characters of $\mathbb{F}_{q^2}^\times$ twisted by characters of $\mathbb{F}_{q}^\times$; need to look into a proof of this.
+\item If possible, converse for characters of $\mathbb{F}_{p^3}^\times$ twisted by characters of $\mathbb{F}_{p}^\times$ 
+\end{itemize}
+
+\section{Gauss Sums for Finite Fields}
+\noindent We will use the following notation in this chapter; mostly following the notation choices in \cite{Lang1990}.\\
+$\bbF_p$ will be the finite field with $p$ elements.\\
+$\bbF_q$ will be the finite field with $q = p^n$ elements for some $n \geq 1$.\\
+For any finite field $\bbF_q$, $\bbF_q^\times$ will be the multiplicative unit group of the field.\\
+$\varepsilon$ will be a primitive $p^\text{th}$ root of unity. For $\varepsilon \in \bbC$, we use $\varepsilon = e^{2 \pi i /p}$.\\
+$\mu_N$ will be the group of $N^\text{th}$ roots of unity.\\
+
+We will be dealing only with complex representations of finite fields.
+Since $\bbF_q$ is a field, all representations are $1$ dimensional characters.
+An additive character of $\bbF_q$ is a function $\xi : \bbF_q \to \bbC^\times$ with $\xi(a + b) = \xi(a)\xi(b)$.
+A multiplicative character of $\bbF$ is a function $\chi : \bbF_q^\times \to \bbC^\times$ with $\chi(ab) = \chi(a)\chi(b)$.
+If we ever need to evaluate a multiplicative character $\chi$ at $0 \not \in \bbF_q^\times$ then we use $\chi(0) = 0$. \\
+
+The two most important characters in this setting are the additive character defined by the trace and the multiplicative character called the Teichm\"uller character. 
+The primary trace we are interested in is the trace for the extension $\bbF_q / \bbF_p$ which is defined in the following way.
+%rephrase this to remove defn environment; only want defn env when will refer to it later
+\begin{defn}
+The trace from $\bbF_q / \bbF_p$ for $q = p^n$ is defined by $\tr : \bbF_q \to \bbF_p$
+ \[ \tr : x \mapsto \sum_{i=0}^{n-1} x^{p^i} = x + x^p + x^{p^2} + \cdots + x^{p^{n-1}}.\]
+\end{defn}
+We can also define a trace for any extension; specifically, for the extension $\bbF_{q^n}/\bbF_q$ we have a trace defined by \[\tr_{\bbF_{q^n}/\bbF_q} : x \mapsto \sum_{i=0}^{n-1} x^{q^i}.\] 
+We can unify these definitions of trace in the following way.
+\begin{defn}
+Let $E/F$ be a Galois field extension and let $G = \gal(E/F)$ be the Galois group of automorphisms of $E$ fixing $F$. 
+Then the trace $\tr : E \to F$ is defined by \[\tr : x \mapsto \sum_{\sigma \in G} \sigma x.\]
+\end{defn}
+
+\noindent Then we can define an additive character $\lambda : \bbF_q \to \mu_p$ by $\lambda(x) = \varepsilon^{\tr(x)}$.
+It takes a bit more to define the Teichm\"uller character.\\
+
+Consider the field $\bbQ(\mu_{q-1})$ and let $\fp$ be the prime ideal lying over $p$.
+Then the residue field of $\bbQ(\mu_{q-1})$ mod $\fp$ is isomorphic to $\mu_{q-1}$ which in turn is isomorphic to $\bbF_q^\times$.
+\begin{defn}\label{def:Teichmuller-char}
+We define the Teichm\"uller character $\omega : \bbF_q^\times \to \mu_{q-1}$ by \[\omega (u) \equiv  u \mod \fp.\]
+\end{defn}
+\noindent This character generates the character group of $\bbF_q^\times$; so for all multiplicative characters $\chi$ of $\bbF_q^\times$ there is some integer $k$ such that $\chi = \omega^k$.\\
+When we have two multiplicative character $\chi_1$ and $\chi_2$, we say that the twist of $\chi_1$ by $\chi_2$ is $\chi_1 \otimes \chi_2$.
+When written in terms of the Techm\"uller character, we have $\omega^{k_1} \otimes \omega^{k_2} = \omega^{k_1+k_2}$.
+
+Now we can define Gauss sums for finite fields, which depend upon a choice of an additive character and a multiplicative one. 
+For finite fields, we will always use the additive character $\lambda$ defined above.
+\begin{defn}\label{def:Gsum-FF}
+The Gauss sum for a multiplicative character $\chi$ is denoted $S(\chi)$ or $S(\chi, \lambda)$ and is defined by \[S(\chi, \lambda) = \sum_{u \in \bbF_q^\times} \chi(u) \lambda(u).\]
+\end{defn}
+\noindent There are a few useful properties of Gauss sums that can be easily proven.
+\begin{prop}
+For a nontrivial multiplicative character $\chi$ on a finite field $\bbF_q$, we have that $|S(\chi)| = q^{1/2}$.
+\end{prop}
+\begin{prop}
+For a multiplicative character $\chi$ on a finite field $\bbF_q$ with $q = p^n$, we have that $S(\chi^p) = S(\chi)$.
+\end{prop}
+This second proposition is because raising to the $p^\text{th}$ power only permutes the elements of the sum. 
+For this reason we collect together the characters $\{\chi, \chi^{p}, \ldots, \chi^{p^{n-1}}\}$ together into a set we call the Frobenius orbit.
+The converse theorem for Gauss sums of finite fields concerns separating the multiplicative characters of a finite field $\bbF_q$ into their Frobenius orbits.\\
+
+However, first we separate out the characters that live in degenerate Frobenius orbits. 
+These are the non-regular characters of $\bbF_q$ and are characterized by having $\chi = \chi^{p^k}$ for some $k \mid n-1$. 
+If we write $\chi = \omega^k$, then $\chi$ is non-regular when there is some $k' \mid \frac{q-1}{p-1}$ with $k' \neq 1$ such that $k' \mid k$.
+It suffices to check $k' = \frac{p^m - 1}{p-1}$ for $m \mid n$ and $m \neq 1$.
+If a character is not non-regular, then it is regular. 
+The regular characters are those with Frobenius orbits of size $n$ when $q = p^n$.\\
+
+We can now state the conjectured converse theorem for Gauss sums of finite fields.
+\begin{conj}[Nien]\label{conj:local-converse-FF}
+Let $\chi_1$ and $\chi_2$ be two regular multiplicative characters of $\bbF_q$ with $q = p^n$ and $n$ prime. If \[S(\chi_1 \otimes \sigma) = S(\chi_2 \otimes \sigma)\text{, for all } \sigma \in \hat{\bbF_p^\times}\] then $\chi_1 = \chi_2^{p^i}$ for some integer $i$.
+\end{conj}
+
+For $n=2$; this becomes our theorem 
+\begin{theorem}\label{thm:local-converse-FF}
+Let $\chi_1$ and $\chi_2$ be two regular multiplicative characters of $\bbF_{p^2}$. If \[S(\chi_1 \otimes \sigma) = S(\chi_2 \otimes \sigma)\text{, for all } \sigma \in \hat{\bbF_p^\times}\] then $\chi_1 = \chi_2^{p}$ or $\chi_1 = \chi_2$.
+\end{theorem}
+
+
+\section{Stickelberger's Theorem}
+Before we set out to prove our converse theorem for finite fields; it is simplest to reframe the problem as a question about the $p$-adic expansions of integers.
+The tool that allows us to do this is Stickelberger's theorem which we shall introduce and prove in this section.
+Working in the field $\bbQ(\mu_{q-1}, \mu_p)$, Stickelberger's theorem gives as a factorization of the ideal generated by $S(\omega^{-k})$ in terms of the the prime ideals over $p$ and the sum of the $p$-adic digits of $k$.
+\\
+
+As above; we will consider the case when $\bbF_q$ is a field of size $q = p^n$. 
+We will let $\fp$ be a prime ideal in $\bbQ(\mu_{q-1})$ lying above $p$. 
+Then we shall consider another extension $\bbQ(\mu_{q-1}, \mu_p)$ with $\fP$ being a prime ideal lying above $\fp$. Additionally; when it is useful for emphasis, we will let $\pi = \varepsilon - 1$
+\\
+
+Recall that the Teichm\"uller character generates $\hat{\bbF_q}$, so for any $\chi \in \hat{\bbF_q}$ we have $\chi = \omega^k$ for some $0 \leq k \leq q-1$, or equivalently, $\chi = \omega^{-k}$ for some $0 \leq k \leq q-1$, which will be more convenient when phrasing Stickelberger's theorem.
+For such a $k$, we can write the $p$-adic expansion of $k$ as
+\[k = k_0 + k_1 p + \cdots + k_{n-1}p^{n-1}\]
+with $0 \leq k_i \leq p-1$. Then we can define the functions $s, \gamma : \bbZ \to \bbZ^+$ by 
+\begin{align*}
+s(k) &= k_0 + k_1 + \cdots + k_{n-1} \\
+\gamma(k) &= k_0! k_1!  \cdots  k_{n-1}!
+\end{align*}
+for $0 \leq k < q-1$ and requiring that $s$ and $\gamma$ are $q-1$ periodic for other $k$.
+\\
+
+Our first step towards Stickelberger's theorem will be the following theorem which tells how many times one prime appears in the factorization of a Gauss sum.
+\begin{theorem}\label{thm:Stickelberger}
+For any integer $k$, we have the congruence 
+\[\frac{S(\omega^{-k}, \varepsilon^\tr)}{(\varepsilon - 1)^{s(k)}} \equiv \frac{-1}{\gamma(k)} \mod \fP.\]
+In particular, $\ord_\fP S(\omega^{-k}) = s(k)$.
+\end{theorem}
+To get the full factorization of $S(\omega^{-k})$, we need a few more definitions.\\
+
+For $t \in \bbR$, we will let $0 \leq \langle t \rangle < 1$ be the representative of $t$ in $ \bbR / \bbZ$. 
+Then let $G = \gal(\bbQ(\mu_m)/\bbQ) \cong (\bbZ / m\bbZ)^\times$ and let $\sigma_c \in G$ be defined by $\sigma_c : \zeta \mapsto \zeta^c$ and $\sigma_c|_{\mu_p}  = \id$; where $\zeta \in \mu_{q-1}$.
+Then we make the following definition: 
+\begin{defn}
+We define the Stickelberger element in the group ring $\bbQ[G]$ as 
+\[\theta(k,\fp) = \sum_{c \in (\bbZ/m\bbZ)^\times} \langle \frac{kc}{q-1}\rangle \sigma_c^{-1}\]
+\end{defn}
+Then we can get a full factorization of the ideal generated by $S(\omega^{-k})$. Using $\fa \sim \fb$ to mean that $\fa / \fb$ is the unit ideal, we have the following theorem.
+\begin{theorem}
+The factorization of the ideal generated by $S(\omega^{-k}, \varepsilon^\tr)$ is \[S(\omega^{-k}) \sim \fP^{(p-1)\theta(k, \fp)} \sim \fp^{\theta(k,\fp)}.\]
+\end{theorem}
+
+
+
+\section{The $n=2$ Local Converse Theorem for Finite Fields}
+Recall that we would like to prove Conjecture \ref{conj:local-converse-FF} for the case of $n=2$.
+By using the fact that $\exists k$ such that $\chi = \omega^k$, we can use Stickelberger's theorem rewrite the conjecture in the following way.
+
+\begin{theorem}\label{thm:local-converse-FF-rewrite}
+Suppose that $\alpha, \beta \in \bbZ/(p^2 -1)\bbZ$ with $p+1 \nmid \alpha, \beta$ and \[s(\alpha + k(p+1)) = s(\beta + k(p+1))\] for all $0 \leq k < p-1$. Then we have that $\alpha \equiv \beta \mod p^2 - 1$ or $\alpha \equiv p \beta \mod p^2 -1$.
+\end{theorem}
+
+\begin{prop}
+Theorem \ref{thm:local-converse-FF} and Theorem \ref{thm:local-converse-FF-rewrite} are equivalent.
+\end{prop}
+
+\begin{proof}
+Suppose the conditions of Theorem \ref{thm:local-converse-FF} hold. 
+If we write $\chi_1 = \omega^\alpha$ and $\chi_2 = \omega^\beta$ and use the fact that all the twists can be written as $\sigma = \omega^{k (p+1)}$ for $0 \leq k < p-1$; then we are claiming that $S(\omega^{\alpha + k(p+1)}) = S(\omega^{\beta+k(p+1)})$ for all $0 \leq k < p-1$. 
+However, by Theorem \ref{thm:Stickelberger} if $S(\omega^{\alpha + k(p+1)}) = S(\omega^{\beta+k(p+1)})$ for all $0 \leq k < p-1$ then $s(\omega^{\alpha + k(p+1)}) = s(\omega^{\beta+k(p+1)})$ for all $0 \leq k < p-1$. 
+This implies the conditions of Theorem \ref{thm:local-converse-FF-rewrite}.
+\\
+
+In the other direction, suppose that the conditions of Theorem \ref{thm:local-converse-FF-rewrite} hold. 
+Then $p+1 \nmid \alpha, \beta$ ensures that $\chi_1 = \omega^\alpha$ and $\chi_2 = \omega^\beta$ are regular characters of $\bbF_{p^2}$. Then $s(\alpha + k(p+1)) = s(\beta + k(p+1))$ for all $0 \leq k < p-1$ only provides that $\ord_{\fP} S(\chi_1 \otimes \sigma) = \ord_{\fP} S(\chi_2 \otimes \sigma)$ for all twists $\sigma$. \textcolor{red}{Rewrite this! Have actual proof on paper.}
+
+\end{proof}
+
+Now that we only need to prove Theorem \ref{thm:local-converse-FF-rewrite}, we shall prove the $n=2$ local converse theorem for finite fields.
+
+\begin{proof}
+Note that we only need to consider the case of fixed $\alpha$ and can vary $\beta$ to find those that satisfy the equality of gauss sums. 
+For the case $n=2$ we have the $\omega^{-\alpha}$ is regular as long as $(p+1)\nmid \alpha$.
+
+In this case we find that \[S(\omega^{-(\alpha + \hat{k})}) = S(\omega^{-(\beta + \hat{k})})\] for all $0 \leq k < p-1$ clearly implies that $S(\omega^{-(\alpha+\hat{k})})$ and $S(\omega^{-(\beta + \hat{k})})$ have the same factorization for all $0 \leq k < p-1$ which by Stickelberger's theorem, is equivalent to the condition that $s(\alpha + k(p+1)) = s(\beta + k(p+1))$ for all $0 \leq k < p-1$. 
+We would like to show that this condition implies that $\alpha \equiv p \beta \mod p^2 -1$ or $\alpha \equiv \beta \mod p^2 - 1$. 
+Another way of stating this is that if $s(\alpha + k(p+1)) = s(\beta+k(p+1))$ for all $0 \leq k < p-1$ then $\alpha$ and $\beta$ are in the same Frobenius orbit.
+
+We will first do a few simple cases, and then consider the general case.
+We will let $s(\alpha) = t$ be the sum of the digits of $\alpha$ in base $p$ and note that when we split into cases for different $t$, we are splitting into the cases where $S(\omega^\alpha)$ and  $S(\omega^\beta)$ have the same factorization without considering any twists.
+\\
+
+\subsection{$t = 1$:} If $t = 1 = s(\alpha)$, then $\alpha = 1$ and $\alpha = p$ are the only possibilities. 
+These are both clearly in the same Frobenius orbit $\{1,p\}$ and no twisting is necessary here.
+\\
+
+\subsection{$t = 2$:} If $s(\alpha) = t = 2$, then the possibilities are $\alpha = 2, 1+p, 2p$. 
+We can rule out $1+p$ because $1+p \mid 1+p$ means that $\alpha = 1+p$ does not give a regular character. 
+Then $\alpha = 2, 2p$ are clearly in the same Frobenius orbit $\{2,2p\}$ and again, no twisting is necesary. 
+Now let us look at a case where twisting is necessary.
+\\
+
+\subsection{$t = 3$:} If $s(\alpha) = t= 3$, then the possibilites are $\alpha = 3,2+p,1+2p,3p$. 
+We have that the two Frobenius orbits are $\{3,3p\}$ and $\{2+p, 1+2p\}$ and we would like to show that taking the digit sum of some twists will let us distinguish between them when digit sums of the $\alpha$ alone do not.
+
+Let us consider what happens when $k = p-3$ for $p > 3$ and compute $s(\alpha + k(p+1))$ for one $\alpha$ in each Frobenius orbit. 
+We find that \[s(3 + (p-3)(p+1)) = s(((p-3)+3)+(p-3)p) = s((p-3+1)p) = s((p-2)p) = p-2.\] 
+On the other hand, we have that \[s((p+2)+(p-3)(p+1)) = ((p-3)+1) + ((p-3)+2) =2p-3\]
+Since $p-2 \neq 2p-3$ for all $p \neq 1$ (and therefore all primes) we have that twisting by $k = p-3$ enables us to differentiate between the two Frobenius orbits having $t = 3$ for $p > 3$. 
+For $p = 2,3$, the case of $t = 3$ is not a concern because $t =3 > p-1$ which is not under consideration right now. 
+We will deal with the case of $t > p-1$ later.
+\\
+
+Now that we have looked at a few specific cases, let us consider the general $0 \leq t \leq p-1$. 
+Then we having the following list of possibilites of $\alpha$: \[\alpha = t, (t-1) + p, (t-2) +2 p, \cdots 2 + (t-2)p , 1 + (t-1)p, tp.\] 
+These possibilities can be indexed by some $0 \leq i \leq t$ and then we find that $\{ (t-i) + i p \mid 0 \leq i \leq t\}$ is our set of possibilites. 
+It will be simplest to split into two cases, the even case and the odd case.
+We will let $r = \left\lfloor \frac{t}{2} \right\rfloor$ in both cases.
+Then we have that $t = 2r$ in the even case and $t = 2r+1$ in the odd case.
+The main difference is that when $t$ is even, $\alpha = r + rp$ is a possible character that we eliminate by restricting to only regular characters.
+
+\subsection{$t = 2r$:}
+We can split into the Frobenius orbits that we wish to distinguish between. 
+They pair up nicely and we get that the orbits are \[\{t, tp\}, \{(t-1)+p, 1+(t-1)p\}, \cdots, \{(r-1) + (r+1) p, (r+1) + (r-1) p\}.\] 
+Written more generally, the orbits for $s(\alpha) = t$ look like $\{(t-i) + ip, i + (t-i)p\}$ for integers $0 \leq i < r $, where $i=r$ would give the degenerate orbit/non-regular character and $i > r$ just repeats the list again. 
+Our goal is then to distinguish between these orbits by looking at some twists of these values.
+I claim that it is sufficient to consider $k = p - \ell$ for $2 \leq \ell \leq r < t$.
+We are always considering $t < p$, so $k = p - \ell \geq p - t > 0$.
+\\
+
+\textcolor{red}{NOTE: It seems like $2 \leq \ell \leq r+1$ has the same distinguishing power as $r+2 \leq \ell \leq 2r=t$?}
+\\
+
+We shall proceed by direct computation for $t > 3$.
+First, let us consider the two extremes. 
+We have that with $\ell = 2$ the twists have the following digit sum:
+\begin{align*}
+ s((t-i) + (i)p + (p - 2)(p+1)) &= s((p + t - i - 2) + (p + i -2)p) \\ 
+ &= \begin{cases}
+   s((t-2) + (p-2+1)p) & i = 0 \\
+   s((t-i-2) + (p+i-1)p)& i \neq 0
+ \end{cases} \\
+ &= \begin{cases}
+   p+t - 3 & i = 0 \\
+   s((t-i-1)+(i-1)p) & i \neq 0
+ \end{cases} \\
+ s((t-i) + ip + (p - 2)(p+1)) &= \begin{cases}
+   p+t - 3 & i = 0 \\
+   t-2 & i \neq 0
+ \end{cases}
+\end{align*}
+All we have done here is moved a $p$ from one coefficient to the other other and turned it into a carry of $1$ whenever a coefficient was $\geq p$. 
+Note that this assumes that $t \geq 2$ to have that $p+t-2 \geq p$, but the only even $t < 2$ is $t =0$ which gives only the trivial character.
+\\
+
+On the other hand, let's see what happens for the other extreme. 
+When $\ell = r$, we have the following digit sums:
+\begin{align*}
+ s((t-i) + (i)p + (p - r)(p+1)) &= s((p + t- i - r) +(p + i -r) p) \\ 
+ &=s((p + r - i) + (p -r + i)p) \\
+ &= \begin{cases}
+s((r-i) + (p+i-r+1)p) & i < r
+ \end{cases} \\
+ &= \begin{cases}
+s((r-i) + (p+i-r+1)p) & i < r-1 \\
+ s((r-i+1) + (i-r+1)p) & i = r-1
+ \end{cases} \\
+  s((2r-i) + ip + (p - r)(p+1)) &= \begin{cases}
+p+1 & i < r-1 \\
+2 & i = r-1
+ \end{cases}
+\end{align*}
+Here, we use $i < r$, but we already mentioned above that this is just choosing the element of the orbit with the smaller coefficient for $p$ and is not actually limiting the cases computed. 
+We also implicitly assume $r < p$, but this is fine, because for now we are dealing with the case of $t < p$ and $t = 2r$ so $ r < p/2$.
+\\
+
+There are two interesting things we see in these computations. 
+The first is that depending on what $\ell$ is, twisting by $k = p - \ell$ seems to split into two separate cases which have distinct digit sums (and note that $p+1 \neq 2$ and $p+2r-3 \neq 2r-2$ for all primes $p$). 
+The second is that twisting with $\ell = 2$, the smallest $\ell$ we can twist by distinguishes the orbit with $i = 0$, the smallest orbit, and likewise, $\ell = r$, the largest $\ell$ we choose to twist by distinguishes the orbit with $i = r-1$, the largest $i$ necessary to consider. 
+It is too much to hope that each $\ell$ we use to twist will distinguish a single orbit, but we will see that each $\ell$ separates the orbits in to two classes, and taken together, they can be used to distinguish all the orbits.
+\\
+
+The general case here will just be to twist by $k = p- \ell$ with $2 \leq \ell \leq r$. 
+Then we have the following possible digit sums:
+\begin{align*}
+s((2r-i) + (i)p + (p - \ell)(p+1)) &= s((p + 2r - i - \ell) + (p + i -\ell)p) \\ 
+&=\begin{cases}
+  s((2r - i - \ell) + (p + 1 + i -\ell)p) & 2r -i  \geq \ell \\
+  s((p + 2r - i - \ell) + (p + i -\ell)p) & 2r - i <  \ell 
+\end{cases}\\
+&=\begin{cases}
+  s((2r + 1 - i - \ell) + ( 1 + i -\ell)p) & 2r -i  \geq \ell \text{ and } 1+i \geq \ell \\
+  s((2r - i - \ell) + (p + 1 + i -\ell)p) & 2r -i  \geq \ell  \text{ and } 1 + i < \ell \\
+  s((p + 2r - i - \ell) + (p + i -\ell)p) & 2r - i <  \ell \text{ and } i < \ell \\
+  s((p + 2r +1 - i - \ell) + (1 + i -\ell)p) & 2r - i <  \ell \text{ and } i \geq \ell
+\end{cases} \\
+s((2r-i)+(i)p + (p-\ell)(p+1))
+&= \begin{cases}
+  p+2r-2\ell + 1 & i \leq \ell - 2 \\
+  2r-2\ell + 2 & i > \ell -2
+\end{cases}
+\end{align*}
+\\
+
+We can reduce from the four cases down to two for a few reasons.
+First, note that $1 + i \geq \ell \implies i \geq \ell - i \implies i > \ell -2$ for integers $i$.
+Additionally, $2r -i \geq \ell$ is the only possibly case because $i < r$ and $\ell \leq r$ so the smallest possible $2r-i$ is bigger than the biggest possible $\ell$.
+Finally, in the $2r - i \geq \ell$ and $1 + i < \ell$ case, $1 + i < \ell \implies i < \ell -1 \implies i \leq \ell -2$ for integers $i$; and $i \leq \ell -2$ means that $p + 1 + i - \ell \leq p-1$ so no further reduction is necessary.
+
+\subsection{$t = 2r+1$:}
+For the case when $t$ is odd, much of the same analysis follows through in the same way with a few $+1$'s scattered throughout.
+Again, we can split into the Frobenius orbits that we wish to distinguish between. 
+They pair up nicely, this time with no degeneracy and we get that the orbits are \[\{t, tp\}, \{(t-1)+p, 1+(t-1)p\}, \cdots, \{r + (r+1) p, (r+1) + r p\}.\] 
+Written more generally, the orbits for $s(\alpha) = t$ look like $\{(t-i) + ip, i + (t-i)p\}$ for integers $0 \leq i \leq r $ where $i > r$ just repeats the same list again.
+Our goal is then to distinguish between these orbits by looking at some twists of these values.
+I claim that it is sufficient to consider $k = p - \ell$ for $2 \leq \ell \leq r + 1 < t$ (this last equality only true for odd $t > 1$).
+We are always considering $t < p$, so $k = p - \ell \geq p - t > 0$.
+\\
+
+We shall proceed by direct computation for $t \geq 3$, and deal only with the general case.
+The general case here will just be to twist by $k = p- \ell$ with $2 \leq \ell \leq r+1$. 
+Then we have the following possible digit sums:
+\begin{align*}
+s((2r+1-i) + ip + (p - \ell)(p+1)) &= s((p + 2r+1 - i - \ell) + (p + i -\ell)p) \\ 
+&=\begin{cases}
+  s((2r +1- i - \ell) + (p + 1 + i -\ell)p) & 2r+1-i  \geq \ell \\
+\end{cases}\\
+&=\begin{cases}
+  s((2r + 1 - i - \ell) + ( 1 + i -\ell)p) &  1+i \geq \ell \\
+  s((2r +1- i - \ell) + (p + 1 + i -\ell)p) & 1 + i < \ell \\
+\end{cases} \\
+s((2r+1-i)+ip + (p-\ell)(p+1))
+&= \begin{cases}
+  p+2r+1-2\ell + 1 & i \leq \ell - 2 \\
+  2r+1-2\ell + 2 & i > \ell -2
+\end{cases}
+\end{align*}
+\\
+
+As before, we only have the $2r+1-e \geq \ell$ case because $i < r$ and $\ell \leq r+1$ so the smallest possible $2r+1-i$ is bigger than the biggest possible $\ell$.
+Then, note that $1 + i \geq \ell \implies i \geq \ell - i \implies i > \ell -2$ for integers $i$.
+Finally, in the $1 + i < \ell$ case, $1 + i < \ell \implies i < \ell -1 \implies i \leq \ell -2$ for integers $i$; and $i \leq \ell -2$ means that $p + 1 + i - \ell \leq p-1$ so no further reduction is necessary.
+\\
+
+
+\textcolor{red}{TODO: It would be cleaner to separate out the equivalence for $s((t-i)+ip+(p-\ell)(p+1))$ into it's own lemma with the even and odd casework moved into that portion, or even two lemmas with a joint corollary.}
+\\
+
+\subsection{rest of the proof}
+Now that we have (what will be a lemma) our main idea:
+\[ s((t-i)+ip+(p-\ell)(p+1)) = \begin{cases} p + t-2\ell+1 & i \leq \ell - 2 \\ t - 2 \ell + 2 & i > \ell -2\end{cases},\]
+we can finish up the rest of the proof.
+The idea here is that as we twist by more $\ell$'s, we distinguish one additional orbit each time.
+Recall for the $\ell = 2$ twist we had that the $i = 0$ orbit was distinguished from all the others because it has a different digit sum after the twist.
+Then, for the $\ell = 3$ twist, we find that $i=0,1$ are separated from $i > 1$, but since $i =0$ is already distinguished, we do not have to distinguish it agin, and so we have distinguished $i = 1$.
+It is clear that the $\ell$ twist will separate the orbits into those with $i \leq \ell - 2$ and those with $i > \ell -2$.
+Then we have that if we consider all the twists $2 \leq \ell \leq m \leq \left\lceil \frac{t}{2} \right\rceil$, then we have fully distinguished all the $i \leq m-2$ but cannot tell apart any of the $m-2 < i < \left\lceil \frac{t}{2} \right\rfloor$ orbits.
+With $m = \left\lceil \frac{t}{2} \right\rceil$, we are able to fully distinguish all of the orbits with a given $t < p$.
+\\
+\textcolor{red}{TODO: Turn this bit into a lemma.}
+\\
+\textcolor{red}{TODO: Make this use $t$ instead of $\alpha$.}
+Finally, we need to show that this still holds for $p \leq \alpha \leq 2p - 2$. 
+Note that we have that $s(p^2 - \alpha) = 2p-1  - s(\alpha)$ because if $\alpha = ip+j$ then \[s(p^2 -\alpha) = s((p-i)p -j) = s((p -i - 1)p + (p-j) )= 2p-1 - (i+j) = 2p - 1 - s(\alpha).\]
+\end{proof}
+
+This means that if $s(\alpha) \geq p$, then $s(p^2 - \alpha) = s(-\alpha) < p$, which will allow us to finish distinguishing between the different $\alpha$'s. 
+Specifically, suppose that $\omega^{-\alpha}$ and $\omega^{-\beta}$ satisfy the conditions of the conjecture and $s(\alpha) \geq p$. 
+Then $S(\omega^{-\alpha}) = S(\omega^{-\beta}) \implies s(\alpha) = s(\beta) \geq p$. 
+Then we also have that $s(p^2 - \alpha) = s(p^2 - \beta) < p$. 
+By our lemma \textcolor{red}{??? (because $S(\omega^{-\alpha}) = \omega^{\alpha}(-1)S(\omega^{\alpha})$)}, $S(\omega^\alpha) = S(\omega^\beta)$ if and only if $S(\omega^{-\alpha}) = S(\omega^{-\beta})$ and so using the prior part of the theorem to distinguish between $p^2 - \alpha$ and $p^2 - \beta$, we can also distinguish between $\alpha$ and $\beta$ since twisting $-\alpha$ by $k$ is the same as twisting $\alpha$ by $-k$ 
+
+\endinput

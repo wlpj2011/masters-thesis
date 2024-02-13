@@ -1,0 +1,65 @@
+%  wlpjbase.sty   William Johnson February 2024
+%
+%  William's style file for base shortcuts for writing math
+
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+
+% Set up environmentts for theorem, lemma, corollary, etc...
+\newtheoremstyle{customtheorem}{}{}
+{}%font of theorem
+{}{\bf}{}{ }{\thmname{#1}\thmnumber{ #2}\textnormal{\thmnote{ (#3)}}}
+\theoremstyle{customtheorem}%italicizes text
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{cor}{Corollary}[theorem]
+\newtheorem{conj}[theorem]{Conjecture}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{example}{Example}[section]
+\newtheorem*{claim}{Claim}
+\newtheorem*{question}{Question}
+\newtheorem*{conv}{Convention}
+
+\theoremstyle{remark}
+\newtheorem{exr}{Exercise}
+\newtheorem*{rmk}{Remark}
+
+\theoremstyle{definition}
+%\newtheorem*{defn}{Definition}
+\newcommand{\inter}{\textrm{int}}
+\newcommand{\adj}{\textrm{adj}}
+\newcommand{\supp}{\textrm{supp }}
+
+
+\numberwithin{equation}{section}
+\numberwithin{theorem}{section}
+
+% Other symbols
+\newcommand{\gal}{\textrm{Gal}}
+\newcommand{\ord}{\textrm{ord}}
+\newcommand{\tr}{\textrm{Tr}}
+\newcommand{\id}{\textrm{id}}
+
+% Defining shortcuts for special symbols
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bone}{\mathbb{1}}
+
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cOK}{\mathcal{O}_{K}}
+\newcommand{\cF}{\mathcal{F}}
+
+
+\newcommand{\fa}{\mathfrak{a}}
+\newcommand{\fb}{\mathfrak{b}}
+\newcommand{\fp}{\mathfrak{p}}
+\newcommand{\fP}{\mathfrak{P}}
