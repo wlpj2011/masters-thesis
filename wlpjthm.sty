@@ -1,0 +1,36 @@
+%  wlpjthm.sty   William Johnson February 2024
+%
+%  William's style file for theorems for writing math
+
+
+\usepackage{amsthm}
+
+% Set up environmentts for theorem, lemma, corollary, etc...
+\newtheoremstyle{customtheorem}{}{}
+{}%font of theorem
+{}{\bf}{}{ }{\thmname{#1}\thmnumber{ #2}\textnormal{\thmnote{ (#3)}}}
+\theoremstyle{customtheorem}%italicizes text
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{cor}{Corollary}[theorem]
+\newtheorem{conj}[theorem]{Conjecture}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{example}{Example}[section]
+\newtheorem*{claim}{Claim}
+\newtheorem*{question}{Question}
+\newtheorem*{conv}{Convention}
+
+\theoremstyle{remark}
+\newtheorem{exr}{Exercise}
+\newtheorem*{rmk}{Remark}
+
+\theoremstyle{definition}
+%\newtheorem*{defn}{Definition}
+\newcommand{\inter}{\textrm{int}}
+\newcommand{\adj}{\textrm{adj}}
+\newcommand{\supp}{\textrm{supp }}
+
+
+\numberwithin{equation}{section}
+\numberwithin{theorem}{section}
