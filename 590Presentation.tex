@@ -1,0 +1,132 @@
+\documentclass[presentation, t]{beamer}
+%\documentclass[handout, t]{beamer}
+\usetheme{default}
+\usecolortheme{rose}
+\usetheme{Singapore}
+\setbeamertemplate{caption}[numbered]
+%\useinnertheme[shadow]{rounded}
+\useoutertheme{default}
+\usepackage{tikz,amssymb,float}
+\newcommand{\highlight}[1]{%
+  \colorbox{blue!25}{$\displaystyle#1$}}
+\usetikzlibrary{arrows.meta,calc}
+\usepackage{graphicx}
+\makeatletter
+\newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
+\newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+\makeatother
+\usepackage{amssymb}
+\usepackage{amsmath,amsfonts,enumerate}
+\usetikzlibrary{positioning, shapes.geometric}
+%\usepackage{tkz-graph}
+%\usetikzlibrary{knots,shapes,arrows,angles,quotes,decorations.markings}
+%\usepackage{pgfplots}
+%\usepackage{subfigure}
+%\usepackage{hyperref}
+%\usepackage[linesnumbered,ruled]{algorithm2e}
+%\usepackage{animate}
+%\usepackage{amscd}
+%\usepackage{verbatim}
+%\usepackage{tkz-graph}
+%\usetikzlibrary{calc}
+%\usepackage{xmpmulti}
+%\usepackage{caption}	
+%\usepackage{amscd}	
+
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}	% Lets you have different shaped nodes as the trees
+%\usepackage{stix}  %Let's you use \circlerighthalfblack for the node that is half-white & half-black
+%\usepackage{mathdots} 
+
+
+%\newcommand{\tikzcircle}[2][red,fill=red]{\tikz[baseline=-0.5ex]\draw[#1,radius=#2] (0,0) circle ;}%
+
+
+\newcommand{\tcr}[1]{\textcolor{red}{#1}}
+\newcommand{\tcb}[1]{\textcolor{blue}{#1}}
+\newcommand{\tcm}[1]{\textcolor{magenta}{#1}}
+\newcommand{\tcg}[1]{\textcolor{green}{#1}}
+\newcommand{\mP}{\mathcal{P}}
+\newcommand{\ol}{\overline}
+\usepackage[most]{tcolorbox}
+%\setbeamertemplate{navigation symbols}{} 
+\usepackage[english]{babel}  % or whatever
+\usepackage[latin1]{inputenc} % or whatever
+\usepackage{times}
+\usepackage{color}
+\usepackage{verbatim}
+
+\usepackage[T1]{fontenc}  
+\usepackage{booktabs}
+
+\newcommand{\p}{}  % for pausing itemized lists
+%\usepackage{cancel}
+%\usepackage{wrapfig,hyperref}
+%\usepackage{authblk}
+%\usepackage{mathtools}
+%\usepackage{fullpage}
+%\usepackage{subfig}
+%\usepackage{color}
+%\usepackage[normalem]{ulem}
+%\usepackage{tikz}
+%\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
+
+
+\setlength{\tabcolsep}{3pt} % changes spacing between columns of a table
+
+
+\title[] % (optional, use only with long paper titles)
+{Stickelberger's Theorem and Factorization of Gauss Sums
+}
+
+
+\author[WJ]
+{William Johnson
+}
+
+\institute[2024] 
+{
+ University of Maine
+}
+\date[Thesis 2024]
+{\\ February 27, 2024}
+\begin{document}
+
+\frame{\titlepage}
+%\begin{frame}
+ % \titlepage
+%\end{frame}
+
+
+\begin{frame}{Introduction}
+\bigskip
+In this presentation I will:
+\begin{itemize}
+    \item 
+\end{itemize}
+\bigskip
+This is presentation includes foundational material for my thesis advised by Gil Moss. 
+\end{frame}
+
+
+
+
+
+\begin{frame}{Thank You!}
+Thank you for coming to my talk! Many thanks to Professor Gil Moss for advising my thesis, which this presentation uses material from.\\
+\medskip
+References:
+\medskip
+    \bibliographystyle{plain}
+\bibliography{Bibliography.bib}
+\end{frame}
+
+
+
+\end{document}
