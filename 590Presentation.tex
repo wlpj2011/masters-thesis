@@ -1,5 +1,7 @@
-\documentclass[presentation, t]{beamer}
+\documentclass[presentation]{beamer}
 \usepackage{wlpjbase}
+
+\setbeamercovered{invisible}
 
 %\documentclass[handout, t]{beamer}
 \usetheme{default}
@@ -111,7 +113,7 @@ In this presentation I will discuss:
     \item the basics of the theory of Gauss sums for finite fields
     \item an application of Stickelberger's theorem for factoring Gauss sums
     \item a proof of Stickelberger's theorem 
-    \item time permitting; a generalizations of Stickelberger's theorem
+    \item time permitting; generalizations of Stickelberger's theorem
 \end{itemize}
 \bigskip
 This is presentation includes foundational material for my thesis advised by Gil Moss. 
@@ -119,8 +121,94 @@ This is presentation includes foundational material for my thesis advised by Gil
 
 
 \begin{frame}{Finite Fields}
+We let $\bbF_p$ be a finite field with $p$ elements. This is typically presented as $(\bbZ / p \bbZ, +, \times)$.\\
+
+%\pause
+
+Then we have the finite fields $\bbF_q$ where $q = p^n$ for some $n$. 
+
+%\pause
+
+These are $\bbF_p[X]/\langle f \rangle$ for some irreducible degree $n$ polynomial $f \in \bbF_p[X]$. \\
+This is not the same as the ring $(\bbZ/ q \bbZ, +, \times)$. For $q = p^n$, $(\bbZ/q\bbZ)^\times$ has $\phi(q) = \phi(p^n) = (p-1)p^{n-1}$ elements; $(\bbF_q)^\times$ has $q-1 = p^n - 1$ elements.
 \end{frame}
 
+\begin{frame}{Additive Characters}
+An \textbf{additive character} of $\bbF_q$ is a homomprhism from the group $(\bbF_q, +)$ to $\bbC^\times$. \\
+
+%\pause 
+
+We use the trace map $\tr : \bbF_q \to \bbF_p$ to define a canonical additive character. For $q = p^n$ the trace is \[\tr x \mapsto \sum_{i=0}^{n-1} x^{p^i}.\]\\
+
+%\pause 
+
+We then define an additive character $\lambda : \bbF_q \to \bbC^\times$ by $\lambda : x \mapsto \varepsilon^{\tr x}$ where $\varepsilon = e^{2 \pi i /p}$. 
+
+\end{frame}
+
+\begin{frame}{Multiplicative Characters}
+A \textbf{multiplicative character} of $\bbF_q$ is a homomorphism from the group $(\bbF_q^\times, \times)$ to $\bbC^\times$. 
+\\
+
+%\pause
+
+$(\bbF_q^\times, \times)$ is a cyclic group isomorphic to $\bbZ/(q - 1)\bbZ$ and so is $\widehat{\bbF_q^\times}$. So any mulitplicative character $\chi = \omega^k$ for some $0 \leq k < q-1$.
+\\
+
+%\pause
+
+There is some multiplicative character $\omega$ that generates the multiplicative character group of $\bbF_q$.
+
+\end{frame}
+
+\begin{frame}{Cyclotomic Extensions of $\bbQ$}
+
+\end{frame}
+
+\begin{frame}{Prime Ideals in Cyclotomic Extensions of $\bbQ$}
+
+\end{frame}
+
+
+\begin{frame}{The Teichm\"uller Character}
+
+\end{frame}
+
+\begin{frame}{Gauss Sums}
+
+\end{frame}
+
+\begin{frame}{Properties of Gauss Sums}
+
+\end{frame}
+
+\begin{frame}{Properties of Gauss Sums}
+
+\end{frame}
+
+\begin{frame}{$p$-adic digits}
+
+\end{frame}
+
+\begin{frame}{Stickelberger's Theorem}
+
+\end{frame}
+
+\begin{frame}{A Proof of Stickelberger's Theorem}
+
+\end{frame}
+
+\begin{frame}{An Application of Stickelberger's Theorem}
+
+\end{frame}
+
+\begin{frame}{Gross-Koblitz Theorem}
+
+\end{frame}
+
+\begin{frame}{$p$-adic Gamma Function}
+
+\end{frame}
 
 \begin{frame}{Thank You!}
 Thank you for coming to my talk! Many thanks to Professor Gil Moss for advising my thesis, which this presentation uses material from.\\
