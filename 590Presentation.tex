@@ -10,7 +10,7 @@
 \setbeamertemplate{caption}[numbered]
 %\useinnertheme[shadow]{rounded}
 \useoutertheme{default}
-\usepackage{tikz,float}
+\usepackage{tikz-cd,float}
 \newcommand{\highlight}[1]{%
   \colorbox{blue!25}{$\displaystyle#1$}}
 \usetikzlibrary{arrows.meta,calc}
@@ -162,36 +162,99 @@ There is some multiplicative character $\omega$ that generates the multiplicativ
 \end{frame}
 
 \begin{frame}{Cyclotomic Extensions of $\bbQ$}
+An additive character of $\bbF_q$ takes values $\mu_p$ and multipicative character of $\bbF_q$ takes values in $\mu_{q-1}$.\\
+
+We consider the fields $\bbQ(\mu_p)$ and $\bbQ(\mu_{q-1})$.
+\\
+
+When we take sums and products of the values of an additive character and a multiplicative character, this places us in the mutual extension $\bbQ(\mu_p, \mu_{q-1})$. 
+\\
+This is where the Gauss sums for $\bbF_q$ will live.
+
 
 \end{frame}
 
 \begin{frame}{Prime Ideals in Cyclotomic Extensions of $\bbQ$}
 
+We are mainly interested in the primes laying above $\langle p \rangle = p\bbZ = p \cO_\bbQ$ in our extensions of interest. We let $\fp \subset \cO_{\bbQ(\mu_{q-1})}$ be a prime lying above $p\cO_\bbQ$ and $\fP \subset \cO_{\bbQ(\mu_p, \mu_{q-1})}$ lay above $\fp$.
+\[\begin{tikzcd}[ampersand replacement=\&, column sep=small]
+	\& {\mathbb{Q}(\mu_p,\mu_{q-1})} \&\&\& {\mathfrak{P}} \\
+	{\mathbb{Q}(\mu_p)} \&\& {\mathbb{Q}(\mu_{q-1})} \& {p\mathcal{O}_{\mathbb{Q}(\mu_p)}} \&\& {\mathfrak{p}} \\
+	\& {\mathbb{Q}} \&\&\& {\langle p \rangle}
+	\arrow[no head, from=3-2, to=2-3]
+	\arrow[no head, from=3-2, to=2-1]
+	\arrow[no head, from=2-3, to=1-2]
+	\arrow[no head, from=2-1, to=1-2]
+	\arrow[no head, from=3-5, to=2-6]
+	\arrow[no head, from=2-6, to=1-5]
+	\arrow[no head, from=3-5, to=2-4]
+	\arrow[no head, from=2-4, to=1-5]
+\end{tikzcd}\]
+
 \end{frame}
 
+\begin{frame}{Prime Ideals in Cyclotomic Extensions of $\bbQ$}
+Because the minimal polynomial of $\varepsilon - 1$ is a degree $p-1$ irreducible polynomial that is Eisenstein at $p$, we find that $\fp$ is fully ramified in the extension $\bbQ(\mu_p, \mu_{q-1}) / \bbQ(\mu_{q-1})$ and so \[\fp \cO_{\bbQ(\mu_q-1)} = \fP^{p-1}.\]
+\end{frame}
 
 \begin{frame}{The Teichm\"uller Character}
+The \textbf{Teichm\"uller character} is a canonical example of a multiplicative character that generates $\widehat{\bbF_q^\times}$.\\
 
+We have that $\cO_{\bbQ(\mu_{q-1})} / \fp$ is isomorphic to $\mu_{q-1}$ which is in turn isomorphic to $\bbF_q^\times$. This gives us a unique character $\omega$ with $\omega(u) \equiv u \mod \fp$, which we call the Teichm\"uller character.
+\\
+As mentioned, for all $\chi \in \widehat{\bbF_q^\times}$ we have that there is an integer $k$ with $0 \leq k < q-1$ such that $\chi = \omega^k$.
 \end{frame}
 
 \begin{frame}{Gauss Sums}
+We define a \textbf{Gauss sum} of an additive character $\lambda$ and a multiplicative character $\chi$ as \[S(\chi, \lambda) = S(\chi) = \sum_{u \in \bbF_q^\times} \chi(u) \lambda(u).\]
+\\
 
+We will always fix the additive character $\lambda = \varepsilon^{\tr}$ and as mentioned before, in this case $S(\chi) \in \bbQ(\mu_p, \mu_{q-1})$. 
 \end{frame}
 
 \begin{frame}{Properties of Gauss Sums}
+If $\chi_1 = 1$ is the trivial character on $\bbF_q^\times$, then $S(\chi_1) = -1$.\\
 
+We have $S(\overline{\chi}) = \chi(-1)\overline{S(\chi)}$ and for $\chi \neq 1$, we have $S(\chi) S(\overline{\chi}) = \chi(-1) q$.
+\\
+
+This gives us a magnitude for non-trivial gauss sums: 
+\[ |S(\chi)| = q^{1/2}.\]
 \end{frame}
 
-\begin{frame}{Properties of Gauss Sums}
-
-\end{frame}
 
 \begin{frame}{$p$-adic digits}
+For any integer $k$ with $0 \leq k < q-1$, we can write \[k = k_0 + k_1 p + \cdots k_{n-1} p^{n-1}.\]
+Then we define the $q-1$ periodic functions $s$ and $\gamma$ on the interval $0 \leq k < q-1$ by
+\[s(k) = k_0 + k_1 + \cdots +k_{n-1} \]
+\[\gamma(k) = k_0! k_1! \cdots k_{n-1}!.\]
+\end{frame}
+
+\begin{frame}{A First Approximation to Stickelberger's Theorem}
+\begin{theorem}[Kummer's Approximation]
+For any integer $k$, we have \[\frac{S(\omega^{-k}, \varepsilon^{\tr})}{(\varepsilon - 1)^{s(k)}} \equiv \frac{-1}{\gamma(k)} \mod \fP.\]
+So \[\ord_{\fP} S(\omega^{-k} )= s(k).\]
+\end{theorem}
+\end{frame}
+
+\begin{frame}{The Galois Group of $\bbQ(\mu_p, \mu_{q-1})$}
+
+\end{frame}
+
+\begin{frame}{More Properties of Gauss Sums }
+Using properties of the Galois groups of $\bbQ(\mu_p, \mu_{q-1})$ and it's subextensions, we have that \[S(\chi^p) = S(\chi)\] More generally; we have that \[\sigma_{c,1}S(\chi) = S(\chi^c) \text{ and } \sigma_{1,v} S(\chi) = \overline{\chi}(v)S(\chi)\]
+\end{frame}
+
+\begin{frame}{Proof of Kummer's Approximation}
 
 \end{frame}
 
 \begin{frame}{Stickelberger's Theorem}
-
+For $m$ coprime to $p$, $k$ such that $q-1 \mid km$, $G = \gal(\bbQ(\mu_m)/\bbQ)$, and $\langle t \rangle$ the smallest postive real congruent to $t$ mod $\bbZ$; we define the \textbf{Stickelberger element} by \[\theta(k,\fp) = \sum_{c \in (\bbZ/m\bbZ)^\times} \left \langle \frac{kc}{q-1}\right \rangle \sigma_c^{-1} \in \bbQ[G]\]
+\\
+\begin{theorem}[Stickelberger's Theorem]
+We have the factorization of the ideal generated by $S(\omega^{-k})$ as \[\langle S(\omega^{-k})\rangle = \fP^{(p-1)\theta(k, \fp)} = \fp^{\theta(k,\fp)}.\]
+\end{theorem}
 \end{frame}
 
 \begin{frame}{A Proof of Stickelberger's Theorem}
