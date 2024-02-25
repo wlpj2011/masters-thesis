@@ -111,9 +111,14 @@
 In this presentation I will discuss:
 \begin{itemize}
     \item the basics of the theory of Gauss sums for finite fields
+    
+    \pause
+    
+    \item a sketch of proof of Stickelberger's theorem 
+    \pause 
+    
     \item an application of Stickelberger's theorem for factoring Gauss sums
-    \item a proof of Stickelberger's theorem 
-    \item time permitting; generalizations of Stickelberger's theorem
+    \pause 
 \end{itemize}
 \bigskip
 This is presentation includes foundational material for my thesis advised by Gil Moss. 
@@ -123,24 +128,32 @@ This is presentation includes foundational material for my thesis advised by Gil
 \begin{frame}{Finite Fields}
 We let $\bbF_p$ be a finite field with $p$ elements. This is typically presented as $(\bbZ / p \bbZ, +, \times)$.\\
 
-%\pause
+\pause
+\vspace{0.5cm}
 
 Then we have the finite fields $\bbF_q$ where $q = p^n$ for some $n$. 
 
-%\pause
+\pause
+\vspace{0.5cm}
 
 These are $\bbF_p[X]/\langle f \rangle$ for some irreducible degree $n$ polynomial $f \in \bbF_p[X]$. \\
+
+\pause
+\vspace{0.5cm}
+
 This is not the same as the ring $(\bbZ/ q \bbZ, +, \times)$. For $q = p^n$, $(\bbZ/q\bbZ)^\times$ has $\phi(q) = \phi(p^n) = (p-1)p^{n-1}$ elements; $(\bbF_q)^\times$ has $q-1 = p^n - 1$ elements.
 \end{frame}
 
 \begin{frame}{Additive Characters}
 An \textbf{additive character} of $\bbF_q$ is a homomprhism from the group $(\bbF_q, +)$ to $\bbC^\times$. \\
 
-%\pause 
+\pause 
+\vspace{0.5cm}
 
 We use the trace map $\tr : \bbF_q \to \bbF_p$ to define a canonical additive character. For $q = p^n$ the trace is \[\tr x \mapsto \sum_{i=0}^{n-1} x^{p^i}.\]\\
 
-%\pause 
+\pause 
+\vspace{0.5cm}
 
 We then define an additive character $\lambda : \bbF_q \to \bbC^\times$ by $\lambda : x \mapsto \varepsilon^{\tr x}$ where $\varepsilon = e^{2 \pi i /p}$. 
 
@@ -150,12 +163,14 @@ We then define an additive character $\lambda : \bbF_q \to \bbC^\times$ by $\lam
 A \textbf{multiplicative character} of $\bbF_q$ is a homomorphism from the group $(\bbF_q^\times, \times)$ to $\bbC^\times$. 
 \\
 
-%\pause
+\pause
+\vspace{0.5cm}
 
 $(\bbF_q^\times, \times)$ is a cyclic group isomorphic to $\bbZ/(q - 1)\bbZ$ and so is $\widehat{\bbF_q^\times}$. So any mulitplicative character $\chi = \omega^k$ for some $0 \leq k < q-1$.
 \\
 
-%\pause
+\pause
+\vspace{0.5cm}
 
 There is some multiplicative character $\omega$ that generates the multiplicative character group of $\bbF_q$.
 
@@ -166,9 +181,13 @@ An additive character of $\bbF_q$ takes values $\mu_p$ and multipicative charact
 
 We consider the fields $\bbQ(\mu_p)$ and $\bbQ(\mu_{q-1})$.
 \\
+\pause 
+\vspace{0.5cm}
 
 When we take sums and products of the values of an additive character and a multiplicative character, this places us in the mutual extension $\bbQ(\mu_p, \mu_{q-1})$. 
 \\
+\pause
+\vspace{0.5cm}
 This is where the Gauss sums for $\bbF_q$ will live.
 
 
@@ -177,6 +196,8 @@ This is where the Gauss sums for $\bbF_q$ will live.
 \begin{frame}{Prime Ideals in Cyclotomic Extensions of $\bbQ$}
 
 We are mainly interested in the primes laying above $\langle p \rangle = p\bbZ = p \cO_\bbQ$ in our extensions of interest. We let $\fp \subset \cO_{\bbQ(\mu_{q-1})}$ be a prime lying above $p\cO_\bbQ$ and $\fP \subset \cO_{\bbQ(\mu_p, \mu_{q-1})}$ lay above $\fp$.
+\pause
+
 \[\begin{tikzcd}[ampersand replacement=\&, column sep=small]
 	\& {\mathbb{Q}(\mu_p,\mu_{q-1})} \&\&\& {\mathfrak{P}} \\
 	{\mathbb{Q}(\mu_p)} \&\& {\mathbb{Q}(\mu_{q-1})} \& {p\mathcal{O}_{\mathbb{Q}(\mu_p)}} \&\& {\mathfrak{p}} \\
@@ -194,30 +215,46 @@ We are mainly interested in the primes laying above $\langle p \rangle = p\bbZ =
 \end{frame}
 
 \begin{frame}{Prime Ideals in Cyclotomic Extensions of $\bbQ$}
-Because the minimal polynomial of $\varepsilon - 1$ is a degree $p-1$ irreducible polynomial that is Eisenstein at $p$, we find that $\fp$ is fully ramified in the extension $\bbQ(\mu_p, \mu_{q-1}) / \bbQ(\mu_{q-1})$ and so \[\fp \cO_{\bbQ(\mu_q-1)} = \fP^{p-1}.\]
+Because the minimal polynomial of $\varepsilon - 1$ is a degree $p-1$ irreducible polynomial that is Eisenstein at $p$, we find that $\fp$ is fully ramified in the extension $\bbQ(\mu_p, \mu_{q-1}) / \bbQ(\mu_{q-1})$ (see \cite{Serre1979}) and so \[\fp \cO_{\bbQ(\mu_q-1)} = \fP^{p-1}.\]
+
+\pause
+\vspace{0.5cm}
+The minimal polynomial of $\varepsilon - 1$ is \[f(x) = \frac{(x+1)^p -1}{x}.\]
 \end{frame}
+
 
 \begin{frame}{The Teichm\"uller Character}
 The \textbf{Teichm\"uller character} is a canonical example of a multiplicative character that generates $\widehat{\bbF_q^\times}$.\\
+\pause
+\vspace{0.5cm}
 
 We have that $\cO_{\bbQ(\mu_{q-1})} / \fp$ is isomorphic to $\mu_{q-1}$ which is in turn isomorphic to $\bbF_q^\times$. This gives us a unique character $\omega$ with $\omega(u) \equiv u \mod \fp$, which we call the Teichm\"uller character.
 \\
+\pause
+\vspace{0.5cm}
 As mentioned, for all $\chi \in \widehat{\bbF_q^\times}$ we have that there is an integer $k$ with $0 \leq k < q-1$ such that $\chi = \omega^k$.
+
 \end{frame}
 
 \begin{frame}{Gauss Sums}
 We define a \textbf{Gauss sum} of an additive character $\lambda$ and a multiplicative character $\chi$ as \[S(\chi, \lambda) = S(\chi) = \sum_{u \in \bbF_q^\times} \chi(u) \lambda(u).\]
 \\
+\pause
+\vspace{0.5cm}
 
-We will always fix the additive character $\lambda = \varepsilon^{\tr}$ and as mentioned before, in this case $S(\chi) \in \bbQ(\mu_p, \mu_{q-1})$. 
+We will always fix the additive character $\lambda = \varepsilon^{\tr}$ and as mentioned before, in this case $S(\chi) \in \bbQ(\mu_p, \mu_{q-1})$.\\
+\vspace{0.5cm}
+
+For the rest of the talk, we will only use $S(\chi)$ to mean $S(\chi, \lambda)$
 \end{frame}
 
 \begin{frame}{Properties of Gauss Sums}
 If $\chi_1 = 1$ is the trivial character on $\bbF_q^\times$, then $S(\chi_1) = -1$.\\
-
+\vspace{0.5cm}
 We have $S(\overline{\chi}) = \chi(-1)\overline{S(\chi)}$ and for $\chi \neq 1$, we have $S(\chi) S(\overline{\chi}) = \chi(-1) q$.
 \\
-
+\pause
+\vspace{0.5cm}
 This gives us a magnitude for non-trivial gauss sums: 
 \[ |S(\chi)| = q^{1/2}.\]
 \end{frame}
@@ -225,6 +262,8 @@ This gives us a magnitude for non-trivial gauss sums:
 
 \begin{frame}{$p$-adic digits}
 For any integer $k$ with $0 \leq k < q-1$, we can write \[k = k_0 + k_1 p + \cdots k_{n-1} p^{n-1}.\]
+\pause
+\vspace{0.5cm}
 Then we define the $q-1$ periodic functions $s$ and $\gamma$ on the interval $0 \leq k < q-1$ by
 \[s(k) = k_0 + k_1 + \cdots +k_{n-1} \]
 \[\gamma(k) = k_0! k_1! \cdots k_{n-1}!.\]
@@ -232,46 +271,99 @@ Then we define the $q-1$ periodic functions $s$ and $\gamma$ on the interval $0 
 
 \begin{frame}{A First Approximation to Stickelberger's Theorem}
 \begin{theorem}[Kummer's Approximation]
-For any integer $k$, we have \[\frac{S(\omega^{-k}, \varepsilon^{\tr})}{(\varepsilon - 1)^{s(k)}} \equiv \frac{-1}{\gamma(k)} \mod \fP.\]
+For any integer $k$, we have \[\frac{S(\omega^{-k})}{(\varepsilon - 1)^{s(k)}} \equiv \frac{-1}{\gamma(k)} \mod \fP.\]
 So \[\ord_{\fP} S(\omega^{-k} )= s(k).\]
 \end{theorem}
+
+We will frequently use $\pi = \epsilon - 1$ to simplify things.
 \end{frame}
 
 \begin{frame}{The Galois Group of $\bbQ(\mu_p, \mu_{q-1})$}
+The Galois group $\gal(\bbQ(\mu_p, \mu_{q-1})/\bbQ)$ has $\gal(\bbQ(\mu_p)/\bbQ)$ and $\gal(\bbQ(\mu_{q-1})/\bbQ)$ as subgroups in a natural way; and the are the automorphisms that we find most useful for studying Gauss sums. 
 
+We name the following automorphisms:\\
+\pause
+\vspace{0.5cm}
+
+For $c$ coprime to $q-1$, we have $\sigma_{c,1}$ naturally included in $\gal(\bbQ(\mu_{q-1})/\bbQ)$.
+\[\sigma_{c,1} : \zeta \mapsto \zeta^c \text{ and } \sigma_{c,1} \text{ is identity on } \mu_p\]
+\pause
+\vspace{0.5cm}
+For $v$ coprime to $p$, we have $\sigma_{1,v}$ naturally included in $\gal(\bbQ(\mu_{p}/\bbQ)$.
+\[\sigma_{1,v} : \varepsilon \mapsto \varepsilon^v \text{ and } \sigma_{1,v} \text{ is identity on } \mu_{q-1}\]
 \end{frame}
 
 \begin{frame}{More Properties of Gauss Sums }
-Using properties of the Galois groups of $\bbQ(\mu_p, \mu_{q-1})$ and it's subextensions, we have that \[S(\chi^p) = S(\chi)\] More generally; we have that \[\sigma_{c,1}S(\chi) = S(\chi^c) \text{ and } \sigma_{1,v} S(\chi) = \overline{\chi}(v)S(\chi)\]
+Using properties of the Galois groups of $\bbQ(\mu_p, \mu_{q-1})$ and it's subextensions, we have that \[S(\chi^p) = S(\chi)\] 
+\pause
+\vspace{0.5cm}
+
+More generally; we have that \[\sigma_{c,1}S(\chi) = S(\chi^c) \text{ and } \sigma_{1,v} S(\chi) = \overline{\chi}(v)S(\chi)\]
 \end{frame}
 
-\begin{frame}{Proof of Kummer's Approximation}
+\begin{frame}{(sketch) Proof of Kummer's Approximation}
+For $k =0$; $\omega^k = 1$ and we have $-1$ on both sides of the congruence.\\
+\pause
+\vspace{0.5cm}
+For $k=1$; we have \begin{align*}
+S(\omega^{-1}) &= \sum_u \omega(u)^{-1} \varepsilon^{\tr u} \\
+&= \sum_u \omega(u)^{-1} (1 + \pi)^{\tr u} \\
+&= \sum_u \omega(u)^{-1} ( 1 + \pi \tr u + O(\pi^2))
+\end{align*}
+\pause
+\vspace{0.5cm}
+So looking mod $\fP$ we find that \[\omega(u)^{-1} \tr u \equiv 1 + u^{p-1} + \cdots + u^{p^{n-1} -1} \mod \fP\]
+\end{frame}
+
+\begin{frame}{(sketch) Proof of Kummer's Approximation}
+Summing the $\omega(u)^{-1} \tr u$ over $u$ and rearranging; we get \[ \frac{S(\omega^{-1})}{\pi} \equiv -1 \mod \fP\]\\
+\pause
+\vspace{0.5cm}
+
+The rest of the proof proceeds by induction on $k$. 
+\\
+\pause
+\vspace{0.5cm}
+We split into an easy case where $p \mid k$ so $pk' = k$ with $k' < k$ a case we have dealt with already, and a hard case where $p \nmid k$.
+
+For a full proof see Lang's \textit{Cyclotomic Fields} \cite{Lang1990}.
 
 \end{frame}
 
 \begin{frame}{Stickelberger's Theorem}
-For $m$ coprime to $p$, $k$ such that $q-1 \mid km$, $G = \gal(\bbQ(\mu_m)/\bbQ)$, and $\langle t \rangle$ the smallest postive real congruent to $t$ mod $\bbZ$; we define the \textbf{Stickelberger element} by \[\theta(k,\fp) = \sum_{c \in (\bbZ/m\bbZ)^\times} \left \langle \frac{kc}{q-1}\right \rangle \sigma_c^{-1} \in \bbQ[G]\]
+For  $k$ a positive integer, $G = \gal(\bbQ(\mu_{q-1})/\bbQ)$, and $\langle t \rangle$ the smallest postive real congruent to $t$ mod $\bbZ$; we define the \textbf{Stickelberger element} by \[\theta(k,\fp) = \sum_{c \in (\bbZ/(q-1)\bbZ)^\times} \left \langle \frac{kc}{q-1}\right \rangle \sigma_c^{-1} \in \bbQ[G]\]
 \\
+\pause
+\vspace{0.5cm}
 \begin{theorem}[Stickelberger's Theorem]
 We have the factorization of the ideal generated by $S(\omega^{-k})$ as \[\langle S(\omega^{-k})\rangle = \fP^{(p-1)\theta(k, \fp)} = \fp^{\theta(k,\fp)}.\]
 \end{theorem}
 \end{frame}
 
-\begin{frame}{A Proof of Stickelberger's Theorem}
-
+\begin{frame}{A (sketch) Proof of Stickelberger's Theorem}
+We have that \[\ord_{\sigma_{c,1}^{-1} \fP} \langle S(\omega^{-k})\rangle = \ord_{ \fP} \sigma_{c,1}\langle S(\omega^{-k})\rangle \] so $\ord_{\sigma_{c,1}^{-1} \fP} \langle S(\omega^{-k})\rangle = s(kc)$. And the isotropy group of $\fp$ in $G$ is the powers of $\sigma_{p^i,1}$ for $i = 0, \ldots, n-1$. 
+\\
+\pause
+\vspace{0.5cm}
+So $\sigma_{c,1}^{-1} \fp$ has multiplicity $\sum_{i=0}^{n-1} \left\langle \frac{kcp^i}{q-1} \right\rangle$ in $\fp^{\theta(k)}$.
+\\
+\pause
+\vspace{0.5cm}
+It suffices to prove \[s(k) = (p-1)\sum_{i=0}^{n-1} \left \langle \frac{k p^i}{q-1} \right \rangle.\]
 \end{frame}
 
 \begin{frame}{An Application of Stickelberger's Theorem}
-
+One application of of Stickelberger's theorem is as a step in proving a local converse theorem for finite fields.\\
+\pause
+\vspace{0.5cm}
+Such a local converse theorem says roughly that if $\chi_1$ and $\chi_2$ are characters of $\bbF_q^\times$; and $S(\chi_1 \otimes \sigma) = S(\chi_2 \otimes \sigma)$ for all characters $\sigma$ of $\bbF_p^\times$ then $\chi_1 = \chi_2^{p^i}$ for some $0 \leq p^i \leq p^{n-1}$.
+\\
+\pause
+\vspace{0.5cm}
+Stickelberger's theorem lets us reduce this question about Gauss sums to a question about sums of digits; saying for instance that if \[s\left(\alpha + k\frac{q-1}{p-1}\right) = s\left(\beta + k \frac{q-1}{p-1}\right)\] for all $0 \leq k < q-1$ then $\alpha \equiv \beta^{p^i} \mod q-1$ for some $i$.
 \end{frame}
 
-\begin{frame}{Gross-Koblitz Theorem}
 
-\end{frame}
-
-\begin{frame}{$p$-adic Gamma Function}
-
-\end{frame}
 
 \begin{frame}{Thank You!}
 Thank you for coming to my talk! Many thanks to Professor Gil Moss for advising my thesis, which this presentation uses material from.\\
@@ -279,7 +371,7 @@ Thank you for coming to my talk! Many thanks to Professor Gil Moss for advising 
 References:
 \medskip
     \bibliographystyle{plain}
-\bibliography{Bibliography.bib}
+\bibliography{thesisbibliography.bib}
 \end{frame}
 
 
