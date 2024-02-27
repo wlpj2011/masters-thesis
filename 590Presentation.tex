@@ -114,14 +114,14 @@ In this presentation I will discuss:
     
     \pause
     
-    \item a sketch of proof of Stickelberger's theorem 
+    \item a sketch of the proof of Stickelberger's theorem 
     \pause 
     
-    \item an application of Stickelberger's theorem for factoring Gauss sums
+    \item an application of Stickelberger's theorem to factoring Gauss sums
     \pause 
 \end{itemize}
 \bigskip
-This is presentation includes foundational material for my thesis advised by Gil Moss. 
+This presentation includes foundational material for my thesis advised by Gil Moss. 
 \end{frame}
 
 
@@ -177,7 +177,7 @@ There is some multiplicative character $\omega$ that generates the multiplicativ
 \end{frame}
 
 \begin{frame}{Cyclotomic Extensions of $\bbQ$}
-An additive character of $\bbF_q$ takes values $\mu_p$ and multipicative character of $\bbF_q$ takes values in $\mu_{q-1}$, where $\mu_m$ means the set of $m^\text{th}$ roots of unity in $\bbC^\times$.\\
+An additive character of $\bbF_q$ takes values in $\mu_p$ and a multipicative character of $\bbF_q$ takes values in $\mu_{q-1}$, where $\mu_m$ means the set of $m^\text{th}$ roots of unity in $\bbC^\times$.\\
 
 We consider the fields $\bbQ(\mu_p)$ and $\bbQ(\mu_{q-1})$.
 \\
@@ -195,13 +195,13 @@ This is where the Gauss sums for $\bbF_q$ will live.
 
 \begin{frame}{Prime Ideals in Cyclotomic Extensions of $\bbQ$}
 
-We are mainly interested in the primes laying above $\langle p \rangle = p\bbZ = p \cO_\bbQ$ in our extensions of interest. We let $\fp \subset \cO_{\bbQ(\mu_{q-1})}$ be a prime lying above $p\cO_\bbQ$ and $\fP \subset \cO_{\bbQ(\mu_p, \mu_{q-1})}$ lay above $\fp$.
+We are mainly interested in the primes lying above $\langle p \rangle = p\bbZ $ in our extensions of interest. We let $\fp \subset \cO_{\bbQ(\mu_{q-1})}$ be a prime lying above $p\bbZ$ and $\fP \subset \cO_{\bbQ(\mu_p, \mu_{q-1})}$ lying above $\fp$. ($\cO_K$ is the ring of integers in the field $K$).
 \pause
 
 \[\begin{tikzcd}[ampersand replacement=\&, column sep=small]
 	\& {\mathbb{Q}(\mu_p,\mu_{q-1})} \&\&\& {\mathfrak{P}} \\
 	{\mathbb{Q}(\mu_p)} \&\& {\mathbb{Q}(\mu_{q-1})} \& {p\mathcal{O}_{\mathbb{Q}(\mu_p)}} \&\& {\mathfrak{p}} \\
-	\& {\mathbb{Q}} \&\&\& {\langle p \rangle}
+	\& {\mathbb{Q}} \&\&\& {p\bbZ}
 	\arrow[no head, from=3-2, to=2-3]
 	\arrow[no head, from=3-2, to=2-1]
 	\arrow[no head, from=2-3, to=1-2]
@@ -215,7 +215,7 @@ We are mainly interested in the primes laying above $\langle p \rangle = p\bbZ =
 \end{frame}
 
 \begin{frame}{Prime Ideals in Cyclotomic Extensions of $\bbQ$}
-Because the minimal polynomial of $\varepsilon - 1$ is a degree $p-1$ irreducible polynomial that is Eisenstein at $p$, we find that $\fp$ is fully ramified in the extension $\bbQ(\mu_p, \mu_{q-1}) / \bbQ(\mu_{q-1})$ (see \cite{Serre1979}) and so \[\fp \cO_{\bbQ(\mu_q-1)} = \fP^{p-1}.\]
+Because the minimal polynomial of $\varepsilon - 1$ is a degree $p-1$ irreducible polynomial that is Eisenstein at $p$, we find that $\fp$ is fully ramified in the extension $\bbQ(\mu_p, \mu_{q-1}) / \bbQ(\mu_{q-1})$ (see \cite{Serre1979}) and so \[\fp \cO_{\bbQ(\mu_p,\mu_{q-1})} = \fP^{p-1}.\]
 
 \pause
 \vspace{0.5cm}
@@ -228,7 +228,7 @@ The \textbf{Teichm\"uller character} is a canonical example of a multiplicative 
 \pause
 \vspace{0.5cm}
 
-We have that $\cO_{\bbQ(\mu_{q-1})} / \fp$ is isomorphic to $\mu_{q-1}$ which is in turn isomorphic to $\bbF_q^\times$. This gives us a unique character $\omega$ with $\omega(u) \equiv u \mod \fp$, which we call the Teichm\"uller character.
+We have that $\cO_{\bbQ(\mu_{q-1})} / \fp$ is a field with multiplicative group isomorphic to $\mu_{q-1}$ which is in turn isomorphic to $\bbF_q^\times$. This gives us a unique character $\omega$ with $\omega(u) \equiv u \mod \fp$, for all units $u \in \bbF_q^\times$. We call $\omega$ the Teichm\"uller character.
 \\
 \pause
 \vspace{0.5cm}
@@ -275,13 +275,13 @@ For any integer $k$, we have \[\frac{S(\omega^{-k})}{(\varepsilon - 1)^{s(k)}} \
 So \[\ord_{\fP} \langle S(\omega^{-k} ) \rangle= s(k).\]
 \end{theorem}
 
-We will frequently use $\pi = \epsilon - 1$ to simplify things.
+We will frequently use $\pi = \varepsilon - 1$ to simplify things.
 \end{frame}
 
 \begin{frame}{The Galois Group of $\bbQ(\mu_p, \mu_{q-1})$}
-The Galois group $\gal(\bbQ(\mu_p, \mu_{q-1})/\bbQ)$ has $\gal(\bbQ(\mu_p)/\bbQ)$ and $\gal(\bbQ(\mu_{q-1})/\bbQ)$ as subgroups in a natural way; and the are the automorphisms that we find most useful for studying Gauss sums. 
+The Galois group $\gal(\bbQ(\mu_p, \mu_{q-1})/\bbQ)$ has $\gal(\bbQ(\mu_p)/\bbQ)$ and $\gal(\bbQ(\mu_{q-1})/\bbQ)$ as subgroups in a natural way; and these are the automorphisms that we find most useful for studying Gauss sums. 
 
-Recalling that $\epsilon = e^{2 \pi i /p}$ and let $\zeta = e^{2 \pi i/ (q-1)}$ we name the following automorphisms:\\
+Recalling that $\varepsilon = e^{2 \pi i /p}$ and let $\zeta = e^{2 \pi i/ (q-1)}$ we name the following automorphisms:\\
 \pause
 \vspace{0.5cm}
 
@@ -289,21 +289,21 @@ For $c$ coprime to $q-1$, we have $\sigma_{c,1}$ naturally included in $\gal(\bb
 \[\sigma_{c,1} : \zeta \mapsto \zeta^c \text{ and } \sigma_{c,1} \text{ is identity on } \mu_p\]
 \pause
 \vspace{0.5cm}
-For $v$ coprime to $p$, we have $\sigma_{1,v}$ naturally included in $\gal(\bbQ(\mu_{p}/\bbQ)$.
+For $v$ coprime to $p$, we have $\sigma_{1,v}$ naturally included in $\gal(\bbQ(\mu_{p})/\bbQ)$.
 \[\sigma_{1,v} : \varepsilon \mapsto \varepsilon^v \text{ and } \sigma_{1,v} \text{ is identity on } \mu_{q-1}\]
 \end{frame}
 
 \begin{frame}{More Properties of Gauss Sums }
-Using properties of the Galois groups of $\bbQ(\mu_p, \mu_{q-1})$ and it's subextensions, we have that \[S(\chi^p) = S(\chi)\] 
+Using properties of the Galois groups of $\bbQ(\mu_p, \mu_{q-1})$ and its subextensions, we have that \[S(\chi^p) = S(\chi)\] 
 \pause
 \vspace{0.5cm}
 
-More generally; we have that \[\sigma_{c,1}S(\chi) = S(\chi^c) \text{ and } \sigma_{1,v} S(\chi) = \overline{\chi}(v)S(\chi)\]
+More generally, we have that \[\sigma_{c,1}S(\chi) = S(\chi^c) \text{ and } \sigma_{1,v} S(\chi) = \overline{\chi}(v)S(\chi)\]
 \end{frame}
 
 \begin{frame}{Kummer's Approximation}
 \begin{theorem}[Kummer's Approximation]
-For any integer $k$, we have \[\frac{S(\omega^{-k})}{(\varepsilon - 1)^{s(k)}} \equiv \frac{-1}{\gamma(k)} \mod \fP.\]
+For any integer $k$, we have \[\frac{S(\omega^{-k})}{(\pi)^{s(k)}} \equiv \frac{-1}{\gamma(k)} \mod \fP.\]
 So \[\ord_{\fP} \langle S(\omega^{-k} ) \rangle= s(k).\]
 \end{theorem}
 \end{frame}
@@ -365,7 +365,7 @@ It suffices to prove \[s(k) = (p-1)\sum_{i=0}^{n-1} \left \langle \frac{k p^i}{q
 One application of of Stickelberger's theorem is as a step in proving a local converse theorem for finite fields.\\
 \pause
 \vspace{0.5cm}
-Such a local converse theorem says roughly that if $\chi_1$ and $\chi_2$ are characters of $\bbF_q^\times$; and $S(\chi_1 \otimes \sigma) = S(\chi_2 \otimes \sigma)$ for all characters $\sigma$ of $\bbF_p^\times$ then $\chi_1 = \chi_2^{p^i}$ for some $0 \leq p^i \leq p^{n-1}$.
+Such a local converse theorem says roughly that if $\chi_1$ and $\chi_2$ are characters of $\bbF_q^\times$; and $S(\chi_1 \otimes \widetilde{\sigma}) = S(\chi_2 \otimes \widetilde{\sigma})$ for all characters $\sigma$ of $\bbF_p^\times$; then $\chi_1 = \chi_2^{p^i}$ for some $0 \leq p^i \leq p^{n-1}$. Here $\widetilde{\sigma} = \sigma \circ N_{\bbF_q / \bbF_p}$.
 \\
 \pause
 \vspace{0.5cm}
