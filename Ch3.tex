@@ -81,7 +81,14 @@ We let $\hat{F}$ be the group of additive characters of $F$, which are a group u
 \begin{defn}
   Let $\psi \in \hat{F}$ with $\psi \neq 1$. The \textbf{level} of $\psi$ is the smallest integer $d$ such that $\fp^d \subseteq \ker \psi$.
 \end{defn}
-
+We then have the following proposition mostly characterising the additive characters of $F$.
+\begin{prop}
+  Let $\psi \in \hat{F}$ with $\psi \neq 1$ be a level $d$ character.
+  \begin{enumerate}
+    \item Let $a \in F$. The map $a \psi : x \mapsto \psi(ax)$ is a character of $F$. If $a \neq 0$, then the character $a \psi$ has level $d - v_F(a)$, where $v_F$ is the valuation on $F$.
+    \item The map $a \mapsto a \psi$ is a group isomoprhism $F \cong \hat{F}$.
+  \end{enumerate}
+\end{prop}
 \section{Weil Groups of Local Fields}
 
 \section{Local Class Field Theory}
