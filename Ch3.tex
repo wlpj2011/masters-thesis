@@ -72,23 +72,70 @@ A local field is isomorphic as a topological field to $\bbR$, $\bbC$, a finite e
 $\bbR$ and $\bbC$ are Archimedean local fields, so extensions of $\bbQ_p$ and $\bbF_q((T))$ will be the examples of the non-Archimdean local fields under consideration.
 \\
 
+For a DVR $\fo$ or for a local field $F$, we define a special element called the uniformizer, denoted by $\varpi$, which is a prime in $\fo$, so that $\varpi \fo = \fp$ is the unique prime ideal.
+This choise is unique up to units.
 \section{$L$ Functions and $\epsilon$ Factors of Local Fields}
 Though we are interested in the representation theory of the Weil group, and how we can tell apart the representations of the Weil group, in order to define the objects we will use to do so, we must first define them for local fields.
 Generally, a local converse theorem for local fields would deal with representations of $GL_n(F)$; however, all of the tools we need are developed while studying $GL_1(F) = F^\times$.\\
 
-An additive character of a local group $F$ is a continuous homomorphism $\psi: F \to \bbC^\times$; equivalently, $\ker \psi$ is open in the topology defined by the valuation.
+An additive character of a local field $F$ is a continuous homomorphism $\psi: F \to \bbC^\times$; these are the $1$ dimensional representations of the additive group of $F$.
+Equivalently to saying $\psi$ is continuous, $\ker \psi$ is open in the topology defined by the valuation.
 We let $\hat{F}$ be the group of additive characters of $F$, which are a group under pointwise multiplication.
 \begin{defn}
-  Let $\psi \in \hat{F}$ with $\psi \neq 1$. The \textbf{level} of $\psi$ is the smallest integer $d$ such that $\fp^d \subseteq \ker \psi$.
+  Let $\psi \in \hat{F}$ with $\psi \neq 1$.
+  The \textbf{level} of $\psi$ is the smallest integer $d$ such that $\fp^d \subseteq \ker \psi$.
 \end{defn}
 We then have the following proposition mostly characterising the additive characters of $F$.
 \begin{prop}
   Let $\psi \in \hat{F}$ with $\psi \neq 1$ be a level $d$ character.
   \begin{enumerate}
     \item Let $a \in F$. The map $a \psi : x \mapsto \psi(ax)$ is a character of $F$. If $a \neq 0$, then the character $a \psi$ has level $d - v_F(a)$, where $v_F$ is the valuation on $F$.
-    \item The map $a \mapsto a \psi$ is a group isomoprhism $F \cong \hat{F}$.
+    \item The map $a \mapsto a \psi$ is a group isomorphism $F \cong \hat{F}$.
   \end{enumerate}
 \end{prop}
+
+We also define multiplicative characters of $F$ which are the $1$ dimensional representations of the multiplicative group of $F$.
+In this setting, a multiplicative character of a local field $F$ is a continuous homomorphism $\chi : F^\times \to \bbC^\times$.
+We also define level for multiplicative characters with a slight modification.
+\begin{defn}
+  Let $\chi$ be a non-trivial character of $F^\times$.
+  The \textbf{level} of $\chi$ is defined to be the smallest integer $n \geq 0$ such that $U^{n+1}_F \subseteq \ker \chi$.
+  We further say that $\chi$ is \textbf{unramified} if $U_F \subseteq \ker \chi$.
+\end{defn}
+
+
+The final thing we need to define the $L$ functions and $\epsilon$ factors for representations of $F^\times$ is a measure that we can define an integral with respect to.
+\textcolor{red}{do we actually need this?}
+
+
+We define \textcolor{red}{?} the $L$ function for a character of $F^\times$ as a variable of a complex variable $s$ by
+\[L(\chi, s) = \begin{cases} (1 - \chi(\varpi) q^{-s})^{-1} & \text{ if } \chi \text{ is unramified,} \\ 1 & \text{ otherwise} \end{cases}.\]
+This will be independent of the choice of uniformizer because unramified characters $\chi$ are trivial on units.
+\\
+
+\textcolor{red}{What about $\gamma$? Defining $\gamma$ requires defining the $\zeta$ integrals which requires Fourier transforms; measures, etc... and need to define $\check{\chi}$ either way}
+
+We define the $\epsilon$ factor as
+\[\epsilon(\chi, s, \psi) = \gamma(\chi, s, \psi) \frac{L(\chi,s)}{L(\check{\chi},1-s)}\]
+where $\gamma$ is the unique rational function defining a certain equation\textcolor{red}{...}
+For unramified characters $\chi$ and level one characters $\psi$, we find that
+\[\epsilon(\chi, s, \psi) = q^{s - \frac{1}{2}} \chi(\varpi)^{-1}.\]
+
+\begin{theorem}
+  For characters $\chi$ of $F^\times$ with level $n \geq 0$ and not unramified, and $\psi \in \hat{F}$ with level one, we have that
+  \[\epsilon(\chi, s, \psi) = q^{n(\frac{1}{2} - s)} \sum_{x \in U_F/U_F^{n+1}} \chi(\alpha x)^{-1} \psi(\alpha x)/q^{(n+1)/2}\]
+  for any $\alpha \in F^\times$ such that $v(\alpha) = -n$.
+\end{theorem}
+
+Finally, we will need a theorem that describes how $\epsilon$ factors change as we twist them by high level characters.
+\label{thm:Stability}
+\begin{theorem}[Stability Theorem]
+  Let $\theta, \chi$ be characters of $F^\times$ of level $ l \geq 0$ and $n \geq 1$.
+  Suppose that $2l < n$.
+  Let $\psi \in \hat{F}$ with $\psi \neq 1$ and let $c \in F$ satisfy $\chi(1+x) = \psi(cx)$ for $x \in \fp^{\lfloor n/2 \rfloor + 1}$.
+  Then
+  \[ \epsilon(\theta \chi, s, \psi) = \theta(c)^{-1} \epsilon(\chi, s, \psi).\]
+\end{theorem}
 \section{Weil Groups of Local Fields}
 
 \section{Local Class Field Theory}
