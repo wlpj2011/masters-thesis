@@ -74,6 +74,7 @@ $\bbR$ and $\bbC$ are Archimedean local fields, so extensions of $\bbQ_p$ and $\
 
 For a DVR $\fo$ or for a local field $F$, we define a special element called the uniformizer, denoted by $\varpi$, which is a prime in $\fo$, so that $\varpi \fo = \fp$ is the unique prime ideal.
 This choise is unique up to units.
+\label{sec:Leps-LF}
 \section{$L$ Functions and $\epsilon$ Factors of Local Fields}
 Though we are interested in the representation theory of the Weil group, and how we can tell apart the representations of the Weil group, in order to define the objects we will use to do so, we must first define them for local fields.
 Generally, a local converse theorem for local fields would deal with representations of $GL_n(F)$; however, all of the tools we need are developed while studying $GL_1(F) = F^\times$.\\
@@ -160,8 +161,20 @@ Then $F_\infty/F$ will be the unique maximal unramified extensions of $F$ in $\o
     \item Let $\alpha : F \to F'$ be an isomorphism of fields. The map $\alpha$ induces an isomorphism $\alpha: \cW^{\text{ab}}_F \to \cW^{\text{ab}}_{F'}$, and the diagram \textcolor{red}{insert here} commmutes.
   \end{enumerate}
 \end{theorem}
+
+
 \section{$L$ Functions and $\epsilon$ Factors of Weil Groups}
 
+\begin{defn}
+  If $\chi$ is a character of $\cW_F$, then we define
+  \begin{align*}
+    L(\chi, s) &= L(\chi \circ \bm{a}_F, s) \\
+    \epsilon(\chi, s, \psi) &= \epsilon(\chi \circ \bm{a}_F, s, \psi)
+  \end{align*}
+  Where the functions on the right are those defined in Section \ref{sec:Leps-LF}.
+\end{defn}
+
+Now that we have defined $L$ and $\epsilon$ for $1$ dimensional characters, we can extend their definitions to $n$ dimensional representaions of $\cW_F$.
 \section{Local Converse Theorem for Characters of the Weil Group}
 
 \section{Local Converse Theorem for $2$ Dimensional Representations of the Weil Group}
