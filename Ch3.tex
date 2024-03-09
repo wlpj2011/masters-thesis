@@ -133,6 +133,7 @@ Next, we define the $\epsilon$ factor as another function of a complex variable 
 \end{defn}
 
 As a quick justifcation for only dealing with $\psi$ of level one, we have the following lemma which describes how $\epsilon(\chi, s, \psi)$ changes as $\psi$ changes.
+\label{lem:level-one-psi}
 \begin{lemma}
   Let $a \in F^\times$; then for fixed $\chi$, we have
   \[\epsilon ( \chi, s, a \psi) = \chi(a) \| a \|^{s - \frac{1}{2}} \epsilon (\chi, s, \psi)\]
@@ -146,7 +147,7 @@ Finally, we will define the $\gamma$ factor as a useful combination of the $L$-f
 The $\gamma$-factor encodes information about how $\chi$ acts on the uniformizer and how $\chi$ acts on $U_F$ in such a way that we hope the $\gamma$-factor can help distinguish characters of $F^\times$.
 
 
-Finally, we will need a theorem that describes how $\epsilon$ factors change as we twist them by high level characters.
+As well as the definitions of $L, \gamma$, and $\epsilon$, we will need a theorem that describes how $\epsilon$ factors change as we twist them by high level characters.
 \label{thm:Stability}
 \begin{theorem}[Stability Theorem]
   Let $\theta, \chi$ be characters of $F^\times$ of level $ l \geq 0$ and $n \geq 1$.
@@ -155,6 +156,43 @@ Finally, we will need a theorem that describes how $\epsilon$ factors change as 
   Then
   \[ \epsilon(\theta \chi, s, \psi) = \theta(c)^{-1} \epsilon(\chi, s, \psi).\]
 \end{theorem}
+
+To prove this; we first convert the $\epsilon$-factor into a Gauss sum and then prove a lemma about this Gauss sum.
+If we define the \textbf{Gauss sum of $\chi$ (relative to $\psi$)} as
+\[\tau(\chi, \psi) = \sum_{x \in U_F/U_F^{n+1}} \check{\chi}(cx) \psi(cx),\]
+then this allows us to take the $s$ dependence out of the $\epsilon$-factor.
+Specifically, we have from our definition above that for ramified $\chi$ of level $n \geq 0$
+\[\epsilon(\chi, s, \psi) = q^{n(\frac{1}{2} - s)} \tau(\chi, \psi)/ q^{(n+1)/2}.\]
+Then we have the following lemma
+
+\begin{lemma}
+  Suppose that $\chi$ has level $n \geq 1$.
+  Let $c \in F$ satisfy
+  \[ \chi(1 +x) = \psi(cx), \textrm{for all } x\in \fp^{\lfloor n/2 \rfloor + 1}\]
+  Then
+  \[\tau(\chi, \psi) = q^{\lfloor (n+1)/2 \rfloor} \sum_y \check{\chi}(cy) \psi(cy)\]
+  where $y \in U_F^{\lfloor (n+1)/2 \rfloor} / U_F^{\lfloor n/2 \rfloor + 1}$.
+\end{lemma}
+
+\begin{proof}
+  Recall that for a level $n$ character $\chi$
+  \[\tau(\chi, \psi) = \sum_{x \in U_F/U_F^{n+1}} \check{\chi}(cx) \psi(cx).\]
+  We will make the change of variable $x = y(1+z)$ with $y \in U_F/U_F^{\lfloor n/2 \rfloor + 1}$ and $z \in \fp^{\lfloor n/2 \rfloor + 1}/\fp^{n+1}$. Then we can rewrite the $\check{\chi}(cx) \psi(cx)$ in the sum as
+  \[\check{\chi}(cy(1+z))\psi(cy(1+z)) = \check{\chi}(cy)\psi(cy) \psi(c(y-1)z).\]
+  This follows because 
+\end{proof}
+
+With this lemma in hand, we can now provide a proof of the stability theorem.
+
+\begin{proof}
+  We only need to consider $\psi$ level one because Lemma \ref{lem:level-one-psi} tells us how to convert to $\psi$ of other levels.
+  Since $\theta$ is level $l$ and $\chi$ is level $n$ with $2l < n$, we have that $\theta\chi$ will be a level $n$ character because it is trivial on $U_F^{n+1}$.
+  Similarly, we have that $\theta \chi$ agrees with $\theta$ on $U_F^{l+1}$.
+  More usefully, because $2l < n$, we have that $\theta \chi$ agrees with $\theta$ on $U_F^{\lfloor (n+1)/2 \rfloor}$.
+\end{proof}
+
+Finally, for ramified characters of $F^\times$; we can relate to the Gauss sum in $\epsilon$ to a gauss sum for a finite field.
+\textcolor{red}{Get back to this.}
 \section{Weil Groups of Local Fields}
 Let $F$ be a non-Archimedean local field and pick a separable algebraic closure $\overline{F}$ of $F$.
 Then we can define the absolute Galois group $\Omega_F = \gal(\overline{F}/F)$ which gets a natural topology as
