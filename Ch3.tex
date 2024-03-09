@@ -232,6 +232,7 @@ If an element of $\Omega_F$ has $\Phi_F$ as its image in $\gal(F_\infty/F)$, we 
 We then define $\cI_F = \gal(\overline{F}/F_\infty)$ to be the \textbf{inertia group} of $F$.
 This subgroup $\cI_F \subseteq \Omega_F$ roughly corresponds to the units $U_F$ of $F$.
 There is another subgroup called the wild inertia group, denoted $\cP_F$, which roughly corresponds to the units $U_F^1$, and is the unique pro $p$-Sylow subgroup of $\cI_F$.
+These correspondences are made precise in Theorem \ref{thm:LCFT}
 \\
 
 We can then define the Weil group $\cW_F$ as a subgroup of $\Omega_F$.
@@ -260,6 +261,7 @@ Due to this proposition, we indentify $\cW_E$ with the subgroup $\cW^E_F$ of $\c
 
 The representations of $\cW_F$ form a particularly nice subcollection of the representations of $\Omega_F$, and it is these representations that we will be studying.
 \section{Local Class Field Theory}
+\label{thm:LCFT}
 \begin{theorem}
   There is a canonical continuous group homomorphism
   \[\bm{a}_F : \cW_F \to F^\times\]
@@ -273,8 +275,11 @@ The representations of $\cW_F$ form a particularly nice subcollection of the rep
   \end{enumerate}
 \end{theorem}
 
+One consequence of Theorem \ref{thm:LCFT} is that the map $\bm{a}_F$, which we call the Artin reciprocity map, gives an isomorphism $\chi \mapsto \chi \circ \bm{a}_F$ between the group of characters of $F^\times$ and the group of characters of $\cW_F$.
+More precisely, we have that unramified characters of $F^\times$ (trivial on $U_F$) correspond to unramified characters of $\cW_F$ (trivial on $\cI_F$); and tamely ramified charactesrs of $F^\times$ (trivial on $U_F^1$, level $n=0$) correspond to characters of $\cW_F$ trivial on $\cP_F$.
+We can use these correspondences to define the $L$-functions, $\epsilon$-factors, and $\gamma$-factors for representations of the Weil group.
 
-\section{$L$ Functions and $\epsilon$ Factors of Weil Groups}
+\section{$L$-Functions and $\epsilon$-Factors of Weil Groups}
 
 \begin{defn}
   If $\chi$ is a character of $\cW_F$, then we define
@@ -286,7 +291,31 @@ The representations of $\cW_F$ form a particularly nice subcollection of the rep
 \end{defn}
 
 Now that we have defined $L$ and $\epsilon$ for $1$ dimensional characters, we can extend their definitions to $n$ dimensional representaions of $\cW_F$.
-\section{Local Converse Theorem for Characters of the Weil Group}
+
+The $L$ function is then easy to extend to semi-simple representations of $\cW_F$.
+We simply say that $L(\sigma,s) = 1$ for irreducible representations $\sigma$ with dimensions $\geq 2$.
+Then we make $L$ multiplicative by requiring that
+\[L(\sigma_1 \oplus \sigma_2,s) = L(\sigma_1,s)L(\sigma_2,s).\]
+\\
+
+It takes more work to define the $\epsilon$-factor for all semi-simple representations of $\cW_F$.
+The main properties we need are that if $\rho_1, \rho_2$ are semi-simple representations of $\cW_E$ with $E/F$ a finite separable extension, then
+\[\epsilon(\rho_1 \oplus \rho_2,s,\psi_E) = \epsilon(\rho_1,s,\psi_E)\epsilon(\rho_2,s,\psi_E)\]
+where $\psi_E = \psi \circ \tr_{E/F}$, which is the multipicativity that we expect.
+We also have an additional property that allows for inudction of characters.
+This is
+\label{prop:local-constant-induction}
+\begin{prop}
+  If $\rho$ is a semi-simple $n$-dimensional representation of $\cW_E$ and $E\supset K \supset F$, then
+  \[\frac{\epsilon(\ind_{E/K} \rho, s, \psi_K)}{\epsilon(\rho,s,\psi_E)} = \frac{\epsilon(R_{E/K},s,\psi_K)^n}{\epsilon(1_E,s,\psi_E)^n}.\]
+  Where $1_E$ is the trivial character on $\cW_E$ and $R_{E/K} = \ind^E_K 1_E$.
+\end{prop}
+Multiplicativity and Proposition \ref{prop:local-constant-induction} allows us to define the $\epsilon$ factor for any semi-simple representation because any irreducible representation of $\cW_F$ is the induced representation of a character from an appropriate finite extension.
+Specifically, we have the following theorem, which will allow us to work only with characters for $\cW_E$ for appropriate extensions $E/F$.
+\begin{theorem}
+\textcolor{red}{What is this theorem exactly...?}
+\end{theorem}
+
 
 \section{Local Converse Theorem for $2$ Dimensional Representations of the Weil Group}
 
