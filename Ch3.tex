@@ -133,7 +133,7 @@ Next, we define the $\epsilon$ factor as another function of a complex variable 
 \end{defn}
 
 As a quick justifcation for only dealing with $\psi$ of level one, we have the following lemma which describes how $\epsilon(\chi, s, \psi)$ changes as $\psi$ changes.
-\label{lem:level-one-psi}
+\label{lem:level-one-psi-reduction}
 \begin{lemma}
   Let $a \in F^\times$; then for fixed $\chi$, we have
   \[\epsilon ( \chi, s, a \psi) = \chi(a) \| a \|^{s - \frac{1}{2}} \epsilon (\chi, s, \psi)\]
@@ -164,7 +164,7 @@ then this allows us to take the $s$ dependence out of the $\epsilon$-factor.
 Specifically, we have from our definition above that for ramified $\chi$ of level $n \geq 0$
 \[\epsilon(\chi, s, \psi) = q^{n(\frac{1}{2} - s)} \tau(\chi, \psi)/ q^{(n+1)/2}.\]
 Then we have the following lemma
-
+\label{lem:Gauss-sum-reduction}
 \begin{lemma}
   Suppose that $\chi$ has level $n \geq 1$.
   Let $c \in F$ satisfy
@@ -179,16 +179,33 @@ Then we have the following lemma
   \[\tau(\chi, \psi) = \sum_{x \in U_F/U_F^{n+1}} \check{\chi}(cx) \psi(cx).\]
   We will make the change of variable $x = y(1+z)$ with $y \in U_F/U_F^{\lfloor n/2 \rfloor + 1}$ and $z \in \fp^{\lfloor n/2 \rfloor + 1}/\fp^{n+1}$. Then we can rewrite the $\check{\chi}(cx) \psi(cx)$ in the sum as
   \[\check{\chi}(cy(1+z))\psi(cy(1+z)) = \check{\chi}(cy)\psi(cy) \psi(c(y-1)z).\]
-  This follows because 
+  This follows because $\check{\chi}(cy(1+z)) = \check{\chi}(cy) \check{\chi}(1+z) = \check{\chi}(cy)\chi(1+z)^{-1}$ and by the assumptions of the lemma, $\chi(1+z)^{-1} = \psi(cz)^{-1} = \psi(-cz)$.
+  Now, we can rewrite the sum as
+  \[\tau(\chi, \psi) = \sum_x \check{\chi}(cx) \psi(cx) = \sum_y \check{\chi}(cy) \psi(cy)\left( \sum_z \psi(c(y-1)z)\right).\]
+  The sum over $y \in U_F/U_F^{\lfloor n/2 \rfloor +1}$ looks superficially like what we want; but note that the desired sum is actually over $y \in U_F^{\lfloor (n+1)/2 \rfloor} /U_F^{\lfloor n/2 \rfloor +1}$.
+  So we need to show that the sum over $z \in \fp^{\lfloor n/2 \rfloor +1} / \fp^{n+1}$ works out as necessary.
+  Since $c(y-1) \in \fp^{-n}$, we find that $z \mapsto \psi(c(y-1)z)$ is a character of $\fp^{\lfloor n/2 \rfloor +1}/\fp^{n+1}$.
+  In fact, $z \mapsto \psi(c(y-1)z)$ will be the trivial character if and only if $y \equiv 1 \mod \fp^{n - \lfloor n/2 \rfloor}$; i.e. $y \in U_F^{\lfloor (n+1)/2\rfloor}$.
+  Since the sum of a character over its group is $0$ except for the trivial character; we find that this sum vanishes except when $y \in U_F^{\lfloor (n+1)/2 \rfloor}$ when the sum is $(\fp^{\lfloor n/2 \rfloor +1} : \fp^{n+1}) = q^{\lfloor (n+1)/2 \rfloor}$.
+  Making this substitution, we find as desired that
+  \[ \tau(\chi, \psi) = q^{\lfloor (n+1)/2\rfloor} \sum_y \check{\chi}(cy) \psi(cy) \]
+  where the sum is now over $y \in U_F^{\lfloor (n+1)/2 \rfloor} /U_F^{\lfloor n/2 \rfloor +1}$.
 \end{proof}
 
 With this lemma in hand, we can now provide a proof of the stability theorem.
 
 \begin{proof}
-  We only need to consider $\psi$ level one because Lemma \ref{lem:level-one-psi} tells us how to convert to $\psi$ of other levels.
+  We only need to consider $\psi$ level one because Lemma \ref{lem:level-one-psi-reduction} tells us how to convert to $\psi$ of other levels.
   Since $\theta$ is level $l$ and $\chi$ is level $n$ with $2l < n$, we have that $\theta\chi$ will be a level $n$ character because it is trivial on $U_F^{n+1}$.
   Similarly, we have that $\theta \chi$ agrees with $\theta$ on $U_F^{l+1}$.
   More usefully, because $2l < n$, we have that $\theta \chi$ agrees with $\theta$ on $U_F^{\lfloor (n+1)/2 \rfloor}$.
+  Applying Lemma \ref{lem:Gauss-sum-reduction} to the gauss sum portion of $\epsilon(\theta\chi,s,\psi)$, we get
+  \[\tau(\theta \chi, \psi) = q^{\lfloor (n+1)/2\rfloor} \sum_y \check{\theta}\check{\psi}\]
+  with the sum over $y \in U_F^{\lfloor (n+1)/2 \rfloor}/U_F^{\lfloor n/2 \rfloor + 1}$.
+  Since $\theta$ is trivial on $U_F^{\lfloor (n+1)/2 \rfloor}$, this becomes $\theta(c)^{-1} \tau(\chi, \psi)$ as we expect.
+  Substituting this into the expression for the $\epsilon$-factor, we find that
+  \[\epsilon(\theta\chi, s, \psi) = \theta(c)^{-1} \epsilon(\chi, s, \psi)\]
+  as desired.
 \end{proof}
 
 Finally, for ramified characters of $F^\times$; we can relate to the Gauss sum in $\epsilon$ to a gauss sum for a finite field.
