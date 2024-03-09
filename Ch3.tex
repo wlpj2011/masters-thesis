@@ -104,29 +104,47 @@ We also define level for multiplicative characters with a slight modification.
   We further say that $\chi$ is \textbf{unramified} if $U_F \subseteq \ker \chi$.
 \end{defn}
 
-
-The final thing we need to define the $L$ functions and $\epsilon$ factors for representations of $F^\times$ is a measure that we can define an integral with respect to.
-\textcolor{red}{do we actually need this?}
-
-
-We define \textcolor{red}{?} the $L$ function for a character of $F^\times$ as a variable of a complex variable $s$ by
-\[L(\chi, s) = \begin{cases} (1 - \chi(\varpi) q^{-s})^{-1} & \text{ if } \chi \text{ is unramified,} \\ 1 & \text{ otherwise} \end{cases}.\]
-This will be independent of the choice of uniformizer because unramified characters $\chi$ are trivial on units.
+The final thing we need to define the functions of interest is the concept of a duality for representations of $F^\times$.
+Because we are working with topological spaces, we need a definition of duality that respects the topological structure which will be called the \textbf{smooth dual} of a character $\chi$ and will be denoted by $\check{\chi}$.
+If $(\chi, V)$ is a smooth representation of $F^\times$, then let $V^* = \hom_\bbC(V,\bbC)$ and let $(v^* , v) \mapsto \langle v^*, v\rangle$ be the canonical evaluation map.
+Then we can define a representation $\chi^*$ of $F^\times$ on the space $V^*$ by
+\[\langle \pi^*(g)v^*, v\rangle = \langle v^* , \pi(g^{-1})v\rangle.\]
+This is not necessarily a smooth representation, but we can define $\check{V} = \cup_K (V^*)^K$ where $K$ ranges over compact open subgroups of $F^\times$ and the $(V^*)^K$ are the subspaces of $K$ fixed vectors in the representation.
+Then we define $\check{\chi}$ as the restriction to $\aut_\bbC(\check{V})$.
+This $(\check{\chi},\check{V})$ is the smooth dual of the character $(\chi, V)$.
 \\
 
-\textcolor{red}{What about $\gamma$? Defining $\gamma$ requires defining the $\zeta$ integrals which requires Fourier transforms; measures, etc... and need to define $\check{\chi}$ either way}
+Now we can define the $L$ function and the  $\epsilon$ and $\gamma$ factors for characters of $F^\times$.
+We define the $L$ function for a character of $F^\times$ as a variable of a complex variable $s$.
 
-We define the $\epsilon$ factor as
-\[\epsilon(\chi, s, \psi) = \gamma(\chi, s, \psi) \frac{L(\chi,s)}{L(\check{\chi},1-s)}\]
-where $\gamma$ is the unique rational function defining a certain equation\textcolor{red}{...}
-For unramified characters $\chi$ and level one characters $\psi$, we find that
-\[\epsilon(\chi, s, \psi) = q^{s - \frac{1}{2}} \chi(\varpi)^{-1}.\]
+\begin{defn}
+  Let $\chi$ be a characters of $F^\times$ and $q$ be the size of the residue field of $F$. Then we define the \textbf{$L$-function of $\chi$} as $L(\chi, s) : \bbC \to \bbC$ by 
+  \[L(\chi, s) = \begin{cases} (1 - \chi(\varpi) q^{-s})^{-1} & \text{ if } \chi \text{ is unramified,} \\ 1 & \text{ otherwise} \end{cases}.\]
+  This will be independent of the choice of uniformizer because unramified characters $\chi$ are trivial on units.
+\end{defn}
 
-\begin{theorem}
-  For characters $\chi$ of $F^\times$ with level $n \geq 0$ and not unramified, and $\psi \in \hat{F}$ with level one, we have that
+Next, we define the $\epsilon$ factor as another function of a complex variable which is a sum of over the units of the ring of integers of $F$.
+\begin{defn}
+  For characters $\chi$ of $F^\times$ with level $n \geq 0$ and not unramified, and $\psi \in \hat{F}$ with level one, we define the \textbf{$\epsilon$-factor of $\chi$ (relative to $\psi$)} as
   \[\epsilon(\chi, s, \psi) = q^{n(\frac{1}{2} - s)} \sum_{x \in U_F/U_F^{n+1}} \chi(\alpha x)^{-1} \psi(\alpha x)/q^{(n+1)/2}\]
   for any $\alpha \in F^\times$ such that $v(\alpha) = -n$.
-\end{theorem}
+  For characters $\chi$ of $F^\times$ that are unramified; we define the $\epsilon$-factor by
+  \[\epsilon(\chi, s, \psi) = q^{s - \frac{1}{2}} \chi(\varpi)^{-1}.\]
+\end{defn}
+
+As a quick justifcation for only dealing with $\psi$ of level one, we have the following lemma which describes how $\epsilon(\chi, s, \psi)$ changes as $\psi$ changes.
+\begin{lemma}
+  Let $a \in F^\times$; then for fixed $\chi$, we have
+  \[\epsilon ( \chi, s, a \psi) = \chi(a) \| a \|^{s - \frac{1}{2}} \epsilon (\chi, s, \psi)\]
+\end{lemma}
+
+Finally, we will define the $\gamma$ factor as a useful combination of the $L$-functions and $\epsilon$-factors.
+\begin{defn}
+  For characters $\chi$ of $F^\times$ and $\psi$ of $F$, then we define the \textbf{$\gamma$-factor of $\chi$ (relative to $\psi$)} by
+  \[\gamma(\chi, s, \psi) = \epsilon(\chi, s, \psi) \frac{L(\check{\chi}, 1-s)}{L(\chi,s)}.\]
+\end{defn}
+The $\gamma$-factor encodes information about how $\chi$ acts on the uniformizer and how $\chi$ acts on $U_F$ in such a way that we hope the $\gamma$-factor can help distinguish characters of $F^\times$.
+
 
 Finally, we will need a theorem that describes how $\epsilon$ factors change as we twist them by high level characters.
 \label{thm:Stability}
