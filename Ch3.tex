@@ -332,8 +332,9 @@ What has been proven in the most general case using the Langlands correspondence
 \textcolor{red}{What exactly does $\cong$ mean here...?}
 
 What we would like to prove here is a local converse theorem specifically for the case $n=2$. This can be states slightly more simply as follows:
-\label{thm:LCTn=2}
+
 \begin{theorem}[Local Converse Theorem on $\cW_F$ with $n=2$]
+  \label{thm:LCTn=2}
   Let $\rho_1$ and $\rho_2$ be $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that for all characters $\chi$ of  $\cW_F$, we have
   \[\gamma(\rho_1 \otimes \chi,s,\psi) = \gamma(\rho_2 \otimes \chi,s,\psi).\]
   Then $\rho_1 \cong \rho_2$.
@@ -341,8 +342,9 @@ What we would like to prove here is a local converse theorem specifically for th
 
 Overall, this theorem can be split into three cases depending on the number of poles of $\gamma$, then two of those cases can be further split into two more cases each depending on the nature of the representations involved. We shall prove each of those cases first as lemmas, then we shall prove that those are the only cases and so the local converse theorem on $\cW_F$ holds for $n=2$.
 
-\label{lem:gamma-two-poles}
+
 \begin{lemma}[$\gamma$ has $2$ poles]
+  \label{lem:gamma-two-poles}
   Suppose $\rho_1$ and $\rho_2$ are $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that
   \[\gamma(\rho_1,s,\psi) = \gamma(\rho_2,s,\psi),\]
   and $\gamma(\rho_i,s,\psi)$ has $2$ poles.
@@ -375,8 +377,9 @@ Overall, this theorem can be split into three cases depending on the number of p
   This tells us that $\theta_1 = \theta_2$ and $\theta_1' = \theta_2'$, so we clearly find that \[\rho_1 = \rho_2\] which is what we wanted to show.
 \end{proof}
 
-\label{lem:gamma-one-pole}
+
 \begin{lemma}[$\gamma$ has $1$ poles]
+  \label{lem:gamma-one-pole}
   Suppose $\rho_1$ and $\rho_2$ are $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that for all characters $\chi$ of $\cW_F$, we have
   \[\gamma(\rho_1 \otimes \chi,s,\psi) = \gamma(\rho_2 \otimes \chi,s,\psi),\]
   and $\gamma(\rho_i,s,\psi)$ has $1$ poles.
@@ -384,11 +387,42 @@ Overall, this theorem can be split into three cases depending on the number of p
 \end{lemma}
 
 \begin{proof}
+  Suppose $\rho_1$ and $\rho_2$ are $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that for all characters $\chi$ of $\cW_F$, we have
+  \[\gamma(\rho_1 \otimes \chi,s,\psi) = \gamma(\rho_2 \otimes \chi,s,\psi),\]
+  and $\gamma(\rho_i,s,\psi)$ has $1$ poles.
+  As was mentioned in the proof of Lemma \ref{lem:gamma-two-poles}, the only source of poles in $\gamma(\rho_i,s,\psi)$ is the poles of $L(\check{\rho_i},s,\psi)$.
+  So in order to have only one pole we must either have that the $\rho_i$ are the sum of an unramified character and a tamely ramified character; or the $\rho_i$ are a sum of two unramified characters and that somehow a pole of $L(\check{\rho_i},1-s)$ cancels out with a zero of $L(\rho_i,s)$.
+  We will need to show that those two cases cannot coexist, and then prove the converse theorem in each case.
+  We can separate these cases by looking at the zeroes of $\gamma(\rho_i,s ,\psi)$ as well as the poles.
+  First, suppose $\rho_i = \theta_i \oplus \xi_i$ with $\theta_i$ unramified and $\xi_i$ tamely ramified.
+  Then we find that $\gamma(\theta_i \oplus \xi_i,s,\psi)$ has a pole at
+  \[s = \log_q(q\theta_i(\varpi)) = 1 + \log_q(\theta_i(\varpi))\]
+  coming from $L(\check{\theta}_i,1-s)$ and a zero at
+  \[s = \log_q(\theta_i(\varpi))\]
+  coming from $L(\theta_i,s)$.
+  On the other hand, suppose that $\rho_i = \theta_i \oplus \theta_i'$ with $\theta_i$ and $\theta_i'$ both unramified. Then as before, we have that (without cancellation of zeroes and poles)  $\gamma(\rho_i,s,\psi)$ has poles at
+  \[s = \log_q(q\theta_i(\varpi), \log_q(q\theta_i'(\varpi))\]
+  and has zeroes at
+  \[s = \log_q(\theta_i(\varpi), \log_q(\theta_i'(\varpi)).\]
 
+
+  In order to only have a single pole in this case, we must have that one of the zeroes cancels out one of the poles.
+  Without loss of generality, we say that \[\log_q(q\theta_i(\varpi)) = \log_q(\theta_i'(\varpi))\]
+  Then we have that $\theta_i'(\varpi) = q\theta_i(\varpi)$.
+  Since an unramified character $\theta_i'$ is defined fully by the value it takes on $\varpi$, we have that there is only one choice for $\theta_i'$ for any given $\theta$.
+  The left over zeroes and poles are then required to be a pole coming from $L(\check{\theta_i'},1-s)$ at 
+  \[s = \log_q(q \theta_i'(\varpi)) = \log_q(q^2 \theta_i(\varpi)) = 2 + \log_q(\theta_i(\varpi))\]
+  and a zero coming from $L(\theta_i,s)$ at
+  \[s = \log_q(\theta_i(\varpi))\]
+  What is of note here is that in the case when $\rho_i = \theta_i \oplus \xi_i$ is the sum of an unramified character and a tamely-ramified character, then the distance between the pole and the zero of $\gamma(\rho_i,s,\psi)$ is
+  \[1 = \log_q(q\theta_i(\varpi)) - \log_q(\theta_i(\varpi)).\]
+  On the other hand, when $\rho_i = \theta_i \oplus \theta_i'$ is the sum of two unramified characters with poles and zeroes that cancel out, then the distance between the pole and the zero of $\gamma(\rho_i,s,\psi)$ is
+  \[2 = \log_q(q^2 \theta_i(\varpi)) - \log_q(\theta_i(\varpi)).\]
 \end{proof}
 
-\label{lem:gamma-zero-poles}
+
 \begin{lemma}[$\gamma$ has $0$ poles]
+  \label{lem:gamma-zero-poles}
   Suppose $\rho_1$ and $\rho_2$ are $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that for all characters $\chi$ of $\cW_F$, we have
   \[\gamma(\rho_1 \otimes \chi,s,\psi) = \gamma(\rho_2 \otimes \chi,s,\psi),\]
   and $\gamma(\rho_i,s,\psi)$ has $0$ poles.
@@ -396,14 +430,19 @@ Overall, this theorem can be split into three cases depending on the number of p
 \end{lemma}
 
 \begin{proof}
-
+  Suppose $\rho_1$ and $\rho_2$ are $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that for all characters $\chi$ of $\cW_F$, we have
+  \[\gamma(\rho_1 \otimes \chi,s,\psi) = \gamma(\rho_2 \otimes \chi,s,\psi),\]
+  and $\gamma(\rho_i,s,\psi)$ has $0$ poles.
+  We will need to show that there is no way for all the poles to cancel out if one of the $\rho_i$ has an unramified character as a subrepresentation.
+  Then the two ways in which we can have no poles are either that the $\rho_i$ are the sum of two tamely ramified characters or the $\rho_i$ are two dimensional tamely ramified irreducibles.
+  First we will need a way to distinguish between these two cases; then we will show that the converse theorem holds in each case.
 \end{proof}
 
-Now that we have the necessary lemmas, we can assemble them into a proof of Theorem \ref{thm:LCTn=2}
+Now that we have the necessary lemmas, we can assemble them into a proof of Theorem \ref{thm:LCTn=2}.
 \begin{proof}
   Suppose that $\rho_1$ and $\rho_2$ are two $2$-dimensional tamely ramifed semi-simple representations of $\cW_F$, such that for all characters $\chi$ of $\cW_F$ we have
   \[\gamma(\rho_1 \otimes \chi,s,\psi) = \gamma(\rho_2 \otimes \chi, s, \psi)\]
-  As mentioned before, the only place poles can come from is the factor of $L(\check{rho_i} \otimes \check{\chi},1-s)$, so there can be at most two poles of $\gamma(\rho_i \otimes \chi, s, \psi)$.
+  As mentioned before, the only place poles can come from is the factor of $L(\check{\rho_i} \otimes \check{\chi},1-s)$, so there can be at most two poles of $\gamma(\rho_i \otimes \chi, s, \psi)$.
   In the case when there are two poles, Lemma \ref{lem:gamma-two-poles} proves the converse theorem without using any twists.
   Alternatively, this can be viewed as twisiting only by the trivial character which could be thought of as a zero dimensional thing.
   In the case where this is one pole, Lemma \ref{lem:gamma-one-pole} proves the converse theorem using \textcolor{red}{what twists here?}.
