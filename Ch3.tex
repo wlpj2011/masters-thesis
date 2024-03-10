@@ -289,7 +289,7 @@ We can use these correspondences to define the $L$-functions, $\epsilon$-factors
   \end{align*}
   Where the functions on the right are those defined in Section \ref{sec:Leps-LF}.
 \end{defn}
-
+Going forward, we will use $\chi$ instead of $\chi \circ \bm{a}_F$ when it is clear we mean the character of $F^\times$ corresponding to the character of $\cW_F$.
 Now that we have defined $L$ and $\epsilon$ for $1$ dimensional characters, we can extend their definitions to $n$ dimensional representaions of $\cW_F$.
 
 The $L$ function is then easy to extend to semi-simple representations of $\cW_F$.
@@ -341,10 +341,10 @@ What we would like to prove here is a local converse theorem specifically for th
 Overall, this theorem can be split into three cases depending on the number of poles of $\gamma$, then two of those cases can be further split into two more cases each depending on the nature of the representations involved. We shall prove each of those cases first as lemmas, then we shall prove that those are the only cases and so the local converse theorem on $\cW_F$ holds for $n=2$.
 
 \begin{lemma}[$\gamma$ has $2$ poles]
-  Suppose $\rho_1$ and $\rho_2$ are $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that for all characters $\chi$ of $\cW_F$, we have
-  \[\gamma(\rho_1 \otimes \chi,s,\psi) = \gamma(\rho_2 \otimes \chi,s,\psi),\]
+  Suppose $\rho_1$ and $\rho_2$ are $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that
+  \[\gamma(\rho_1,s,\psi) = \gamma(\rho_2,s,\psi),\]
   and $\gamma(\rho_i,s,\psi)$ has $2$ poles.
-  Then $\rho_1 \cong \rho_2$.
+  Then $\rho_1 = \rho_2$.
 \end{lemma}
 
 \begin{proof}
@@ -352,6 +352,25 @@ Overall, this theorem can be split into three cases depending on the number of p
   Recall that
   \[\gamma(\rho_i,s,\psi) = \epsilon(\rho_i,s,\psi) \frac{L(\check{\rho_i},1-s)}{L(\rho_i,s)}.\]
   So $\gamma(\rho_i,s,\psi)$ has poles only when $\epsilon(\rho_i,s,\psi)$ has poles, when $L(\check{\rho_i},1-s)$ has poles, and when $L(\rho_i,s)$ has zeroes.
+  However, $\epsilon(\rho_i,s,\psi)$ never has poles because it's only $s$ dependence comes from the $q^{n(\frac{1}{2}-s)}$ factor not unramified level $n$ characters, or the $q^{s - \frac{1}{2}}$ factor for unramified characters.
+  Similarly, $L(\rho_i,s)$ never has zeroes because it is defined multiplicatively as $1$ for non-characters and not unramified characters and $(1 - \chi(\varpi)q^{-s})^{-1}$ for unramified characters.
+  Specifically, we see that $L(\check{rho_i},1-s)$ has one pole for each unramified character in $\check{\rho_i}$.
+  Since $L(\check{\rho_i}, 1-s)$ is the only source of poles in $\gamma(\rho_i,s,\psi)$, we must have that $L(\check{\rho_i},1-s)$ has two poles and therefore $\rho_i$ each contain two unramified characters.
+  Since the $\rho_i$ are two dimensional characters of $\cW_F$, we therefore have that each $\rho_i$ is in fact a direct sum of two unramified characters of $\cW_F$.
+
+  Write $\rho_i = \theta_i \oplus \theta_i'$, with $\theta_i, \theta_i'$ both unramified characters of $\cW_F$.
+  Since $\gamma(\rho_1,s,\psi) = \gamma(\rho_2,s,\psi)$ have the same two poles, we must have that $L(\check{\rho_1},1-s)$ and $L(\check{\rho_2},1-s)$ have the same poles which is equivalent to $L(\rho_1,s)$ and $L(\rho_2,s)$ having the same poles.
+  Becuase the $L$-function is multiplicative we have that
+  \[L(\theta_1,s)L(\theta_1',s) = L(\theta_2,s)L(\theta_2',s)\]
+  and because we know that all the characters involved are unramified, we find that treating the $\theta_i,\theta_i'$ as characters of $F^\times$ we have
+  \[(1 - \theta_1(\varpi)q^{-s})^{-1}(1 - \theta_1'(\varpi)q^{-s})^{-1} = (1 - \theta_2(\varpi)q^{-s})^{-1}(1 - \theta_2'(\varpi)q^{-s})^{-1}.\]
+  The left side has poles at $s = \log_q \theta_1(\varpi), \log_q \theta_1'(\varpi)$ and the right side has poles at $s = \log_q \theta_2(\varpi), \log_q \theta_2'(\varpi)$.
+  These must be the same, so without loss of generality, we can say $\theta_1(\varpi) = \theta_2(\varpi)$ and $\theta_1'(\varpi) = \theta_2'(\varpi)$.
+  However, unramified characters of $\cW_F$ correspond to unramfied characters of $F^\times$ which are trivial on $U_F$.
+  Since every element of $x \in F^\times$ can be written as $u\varpi^m$ for some $u \in U_F$ and $m \in \bbZ$, we have that
+  \[\theta(x) = \theta(u\varpi^m) = \theta(u) \theta(\varpi)^m = \theta(\varpi)^m.\]
+  So every unamified character of $F^\times$ is fully determined by its value on $\varpi$, and similarly for characters of $\cW_F$.
+  This tells us that $\theta_1 = \theta_2$ and $\theta_1' = \theta_2'$, so we clearly find that \[\rho_1 = \rho_2\] which is what we wanted to show.
 \end{proof}
 
 \begin{lemma}[$\gamma$ has $1$ poles]
