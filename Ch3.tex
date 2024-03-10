@@ -316,7 +316,68 @@ Specifically, we have the following theorem, which will allow us to work only wi
 \textcolor{red}{What is this theorem exactly...?}
 \end{theorem}
 
+Finally, as was the case for $F^\times$, we still define the $\gamma$-factor for semi-simple representation $\rho$ of $\cW_F$ as
+\[\gamma(\rho, s ,\psi) = \epsilon(\rho, s, \psi) \frac{L(\check{\rho},1-s)}{L(\rho,s)}.\]
 
 \section{Local Converse Theorem for $2$ Dimensional Representations of the Weil Group}
+Finally, we have all the pieces necessary to state the local converse theorem for representations of the Weil Group.
+What has been proven in the most general case using the Langlands correspondence is the following theorem:
+
+\begin{theorem}[Local Converse Theorem]
+  Let $\rho_1$ and $\rho_2$ be $n$-dimensional tamely ramified semi-simple representations of $\cW_F$, with $n \geq 2$, such that for all semi-simple representations of $\cW_F$ with dimension $k \leq \lfloor \frac{n}{2} \rfloor$ we have
+  \[\gamma(\rho_1 \otimes \sigma,s,\psi) = \gamma(\rho_2 \otimes \sigma,s,\psi).\]
+  Then $\rho_1 \cong \rho_2$.
+\end{theorem}
+
+\textcolor{red}{What exactly does $\cong$ mean here...?}
+
+What we would like to prove here is a local converse theorem specifically for the case $n=2$. This can be states slightly more simply as follows:
+\begin{theorem}[Local Converse Theorem on $\cW_F$ with $n=2$]
+  Let $\rho_1$ and $\rho_2$ be $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that for all characters $\chi$ of  $\cW_F$, we have
+  \[\gamma(\rho_1 \otimes \chi,s,\psi) = \gamma(\rho_2 \otimes \chi,s,\psi).\]
+  Then $\rho_1 \cong \rho_2$.
+\end{theorem}
+
+Overall, this theorem can be split into three cases depending on the number of poles of $\gamma$, then two of those cases can be further split into two more cases each depending on the nature of the representations involved. We shall prove each of those cases first as lemmas, then we shall prove that those are the only cases and so the local converse theorem on $\cW_F$ holds for $n=2$.
+
+\begin{lemma}[$\gamma$ has $2$ poles]
+  Suppose $\rho_1$ and $\rho_2$ are $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that for all characters $\chi$ of $\cW_F$, we have
+  \[\gamma(\rho_1 \otimes \chi,s,\psi) = \gamma(\rho_2 \otimes \chi,s,\psi),\]
+  and $\gamma(\rho_i,s,\psi)$ has $2$ poles.
+  Then $\rho_1 \cong \rho_2$.
+\end{lemma}
+
+\begin{proof}
+  Suppose that $\gamma(\rho_1,s,\psi) = \gamma(\rho_2,s,\psi)$ has two poles.
+  Recall that
+  \[\gamma(\rho_i,s,\psi) = \epsilon(\rho_i,s,\psi) \frac{L(\check{\rho_i},1-s)}{L(\rho_i,s)}.\]
+  So $\gamma(\rho_i,s,\psi)$ has poles only when $\epsilon(\rho_i,s,\psi)$ has poles, when $L(\check{\rho_i},1-s)$ has poles, and when $L(\rho_i,s)$ has zeroes.
+\end{proof}
+
+\begin{lemma}[$\gamma$ has $1$ poles]
+  Suppose $\rho_1$ and $\rho_2$ are $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that for all characters $\chi$ of $\cW_F$, we have
+  \[\gamma(\rho_1 \otimes \chi,s,\psi) = \gamma(\rho_2 \otimes \chi,s,\psi),\]
+  and $\gamma(\rho_i,s,\psi)$ has $1$ poles.
+  Then $\rho_1 \cong \rho_2$.
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{lemma}[$\gamma$ has $0$ poles]
+  Suppose $\rho_1$ and $\rho_2$ are $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that for all characters $\chi$ of $\cW_F$, we have
+  \[\gamma(\rho_1 \otimes \chi,s,\psi) = \gamma(\rho_2 \otimes \chi,s,\psi),\]
+  and $\gamma(\rho_i,s,\psi)$ has $0$ poles.
+  Then $\rho_1 \cong \rho_2$.
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{proof}
+
+\end{proof}
 
 \endinput
