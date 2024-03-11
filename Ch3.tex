@@ -148,8 +148,9 @@ The $\gamma$-factor encodes information about how $\chi$ acts on the uniformizer
 
 
 As well as the definitions of $L, \gamma$, and $\epsilon$, we will need a theorem that describes how $\epsilon$ factors change as we twist them by high level characters.
-\label{thm:Stability}
+
 \begin{theorem}[Stability Theorem]
+  \label{thm:Stability}
   Let $\theta, \chi$ be characters of $F^\times$ of level $ l \geq 0$ and $n \geq 1$.
   Suppose that $2l < n$.
   Let $\psi \in \hat{F}$ with $\psi \neq 1$ and let $c \in F$ satisfy $\chi(1+x) = \psi(cx)$ for $x \in \fp^{\lfloor n/2 \rfloor + 1}$.
@@ -418,6 +419,42 @@ Overall, this theorem can be split into three cases depending on the number of p
   \[1 = \log_q(q\theta_i(\varpi)) - \log_q(\theta_i(\varpi)).\]
   On the other hand, when $\rho_i = \theta_i \oplus \theta_i'$ is the sum of two unramified characters with poles and zeroes that cancel out, then the distance between the pole and the zero of $\gamma(\rho_i,s,\psi)$ is
   \[2 = \log_q(q^2 \theta_i(\varpi)) - \log_q(\theta_i(\varpi)).\]
+  So we can tell apart these cases by looking at the zeroes and poles of $\gamma(\rho_i,s,\psi)$.
+
+
+  Now, let us show that both of these types of representations satisfy the converse theorem.
+  We will start with the case where $\rho_i = \theta_i \oplus \theta_i'$ is the sum of two unramified characters with $\theta_i'(\varpi) = q \theta_i (\varpi)$.
+  Since we have
+  \[\gamma(\theta_1 \oplus \theta_1', s, \psi) = \gamma(\theta_2 \oplus \theta_2',s,\psi)\]
+  we again must have that the poles are equal on each side.
+  As mentioned above, $\gamma(\theta_i \oplus \theta_i' ,s, \psi)$ must have a pole at $s = 2 + \log_q(\theta_i(\varpi))$ if $\theta_i$ and $\theta_i'$ are both unramified and their poles and zeroes cancel.
+  But \[2 + \log_q(\theta_1(\varpi)) = 2 + \log_q(\theta_2(\varpi)\]
+  clearly implies $\theta_1(\varpi) = \theta_2(\varpi)$ and so $\theta_1 = \theta_2$ and $\theta_1' = \theta_2'$.
+  As desired, this gives us $\rho_1 = \rho_2$ for the unramified case.
+
+  Next, consider the case of $\rho_i = \theta_i \oplus \xi_i$ with $\theta_i$ unramified and $\xi_i$ tamely ramified (level $n = 0$).
+  We have that $L(\rho_i,s) = L(\theta_i \oplus \xi_i ,s) = L(\theta_i,s)L(\xi_i,s) = L(\theta_i,s)$ because not unramified characters have trivial $L$ functions.
+  So we can still identify that the poles of $\gamma(\rho_1,s,\psi)$ and $\gamma(\rho_2,s,\psi)$ are the same so $\theta_1(\varpi) = \theta_2(\varpi)$ which like the previous cases tells us that $\theta_1 = \theta_2$, so just call it $\theta$.
+  The conditions of the converse theorem tell us that
+  \[ \gamma((\theta \oplus \xi_1) \otimes \chi,s,\psi) = \gamma((\theta \oplus \xi_2) \otimes \chi,s,\psi\]
+  for all characters $\chi$ of $\cW_F$.
+  However, because $(\theta \oplus \xi_1)\otimes \chi = (\theta \otimes \chi) \oplus (\xi_1 \otimes \chi)$ and $\gamma$ is multiplicative, we have that
+  \[\gamma (\xi_1 \otimes \chi,s,\psi) = \gamma(\xi_2 \otimes \chi,s,\psi)\]
+  for all characters $\chi$ of $\cW_F$.
+  However, because a twist of a tamely ramified character can not be unramified (level of a twist is max level of the characters) \textcolor{red}{Unless you twist by the inverse? Is this actually true?}, we have that all the $L$-functions that appear in the $\gamma$-factor are $1$.
+  This means we infact have that
+  \[\epsilon(\xi_1 \otimes \chi , s, \psi) = \epsilon(\xi_2 \otimes \chi,s,\psi)\]
+  for all characters $\chi$ of $\cW_F$ \textcolor{red}{$\neq \xi_i^{-1}$?}
+  Let us consider the twist of by the character defined by $\chi(1+x) = \psi(\varpi^{-1}x)$ for $x \in \fp$.
+  Because $\psi$ is a level $1$ character, it is trivial on $\fp$.
+  This makes $\chi(1+x) = \psi(\varpi^{-1}x)$ trivial for $x \in \fp^2$ and so $\chi(1+x)$ is trivial on $U_F^2$ making $\chi$ a level one character.
+  \textcolor{red}{How do we define $\chi$ outside of $U^1_F$? It shouldn't matter, but would be nice to fully define.}
+  Note that $\xi_1,\xi_2$ are level $0$ because we are only allowing tamely ramified characrters and $2 \cdot 0 < 1$ so we can apply the stability theorem.
+  Applying Theorem \ref{thm:Stability} to both sides, we get that
+  \[\xi_1(\varpi^{-1})^{-1}\epsilon(\chi,s,\psi) = \xi_2(\varpi^{-1})^{-1} \epsilon(\chi,s,\psi).\]
+  With a little bit of algebraic manipulation, we find that $\xi_1(\varpi) = \xi_2(\varpi)$.
+  If $\xi_1,\xi_2$ were unramified, we would be done now; but because they are only tamely ramified, we must show that $\xi_1$ and $\xi_2$ behave the same way on $U_F$ as well.
+  \textcolor{red}{Appeal to finite Gauss sums}
 \end{proof}
 
 
@@ -447,7 +484,7 @@ Now that we have the necessary lemmas, we can assemble them into a proof of Theo
   Alternatively, this can be viewed as twisiting only by the trivial character which could be thought of as a zero dimensional thing.
   In the case where this is one pole, Lemma \ref{lem:gamma-one-pole} proves the converse theorem using \textcolor{red}{what twists here?}.
   Finally, in the case where there are zero poles, Lemma \ref{lem:gamma-zero-poles} proves the converse theorem using \textcolor{red}{how many twists?}
-  Since we can have at most two poles and can't have fewer than zero; this covers all posibilities and conclues the proof of Theorem \ref{thm:LCTn=2}.
+  Since we can have at most two poles and can't have fewer than zero; this covers all posibilities and concludes the proof of Theorem \ref{thm:LCTn=2}.
 \end{proof}
 
 \endinput
