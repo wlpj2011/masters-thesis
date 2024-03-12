@@ -473,6 +473,18 @@ Overall, this theorem can be split into three cases depending on the number of p
   We will need to show that there is no way for all the poles to cancel out if one of the $\rho_i$ has an unramified character as a subrepresentation.
   Then the two ways in which we can have no poles are either that the $\rho_i$ are the sum of two tamely ramified characters or the $\rho_i$ are two dimensional tamely ramified irreducibles.
   First we will need a way to distinguish between these two cases; then we will show that the converse theorem holds in each case.
+
+  The proof of Lemma \ref{lem:gamma-one-poles} shows us why it is not possible for $\gamma$ to have no poles if there is an unramified portion of the $\rho_i$.
+  Now, suppose first that $\rho_i = \xi_i \oplus \xi_i'$ with $\xi_i,\xi_i'$ both tamely ramified (level $n=0$).
+  Then we have
+  \[\epsilon(\rho_i,s,\psi) = \epsilon(\xi_i,s,\psi)\epsilon(\xi_i',s,\psi).\]
+  Twisting by a level $n=1$ character $\chi$, we then have that
+  \[\epsilon(\rho_i \otimes \chi,s,\psi) = \epsilon(\xi_i \otimes \chi,s,\psi) \epsilon(\xi_i',s,\psi).\]
+  Finally, from the definition of the $\epsilon$-factor for level $n \geq 0$ characters, we have that $|\epsilon(\xi_i \otimes \chi,s,\psi)| = q^{\frac{1}{2}-s}$.
+  The same applies to $\xi_i'\otimes \chi$ so overall, we then find that
+  \[|\epsilon(\rho_i \otimes \chi,s,\psi)| = q^{1 - 2s}\]
+  On the other hand, if $\rho_i$ is a two dimensional irreducible representation of $\cW_F$, then there is some unramified quadratic extension $E/F$ and tamely ramified character $\xi_i$ of $\cW_E$ such that $\rho_i = \ind{E/F} \xi_i$.
+  Then we find that \textcolor{red}{Need to right down the stuff with induction again to figure this out}
 \end{proof}
 
 Now that we have the necessary lemmas, we can assemble them into a proof of Theorem \ref{thm:LCTn=2}.
