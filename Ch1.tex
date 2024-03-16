@@ -13,4 +13,52 @@
 \item Just state the definitions enough to fully define the theorem
 
 \end{itemize}
+
+A local converse theorem is, broadly speaking, a theorem which says that although we cannot uniquely identify an $n$-dimensional representation by its $\gamma$-factor; we can uniquely identify an $n$-dimensional representation, up to an appropriate notion of equivalence, using the $\gamma$-factors of all its twists by representations of dimension at most $k$ for some $k < n$.
+The exact details of a local converse theorem depend on the setting in which the theorem is stated, but the case when $k = \lfloor \frac{n}{2} \rfloor$ came to be known as Jacquet's conjecture after \cite{Jacquet1983}.
+Here we shall establish an $n = 2$, $k=1 = \lfloor \frac{n}{2}\rfloor$ local converse theorem for characters of $\bbF_{p^n}$; then we will use that theorem to prove an $n=2$, $k=1$ local converse theorem for tamely ramified representation of $\cW_F$, the Weil group of a local field $F$.
+\\
+
+Both theorems have been proven previously: the finite field version of Jacquet's conjecture in \cite{Nien2014}; the local field version of Jacquet's conjecture independently as a corollary of \cite{Jacquet2017} and \cite{Chai2016}, both pushed through the local Langlands correspondence.
+Our contribution here is a simplified proof of the $n=2$ finite field converse theorem more in the vein of \cite{Nien2018} and a more elementary proof of the $n=2$ local fields which appeals directly to the finite field converse theorem instead of requiring the local Langlands correspondence.
+We leave open the possibility of generalizing these proofs for $n > 2$.
+\\
+
+\section{Finite Fields}
+On the finite fields side of things, we use Stickelberger's theorem to prove that if $\chi_1$ and $\chi_2$ are characters of $\bbF_{p^2}^\times$ and the Gauss sums satisfy
+\[S(\chi_1 \otimes \sigma \circ N_{\bbF_{p^2} / \bbF_p}) = S(\chi_2 \otimes \sigma \circ N_{\bbF_{p^2} / \bbF_p})\]
+for all $\sigma$, a character of $\bbF_p^\times$, then $\chi_1 = \chi_2$ or $\chi_1 = \chi_2^p$.
+\\
+
+We define the objects of interest in this case in Section \ref{sec:finite-fields-intro}.
+In Section \ref{sec:stickelberger} we state and prove Stickelberger's theorem, a main tool in our theorem which allows us to reduce from a statement about characters to a statement about integers.
+Finally, in Section \ref{sec:n=2-LCT-FF}, we prove the $n=2$ local converse theorem for finite fields.
+\\
+
+At this time, we have only proven the $n=2$ local converse theorem for the extension $\bbF_{p^n}/\bbF_{p}$.
+A useful extension would be to use the same or similar methods to prove the $n=2$ local converse theorem for the extension $\bbF_{q^n}/\bbF_q$; this would make the proof of the local converse theorem for $\cW_F$ more self contained.
+More generally, extending the $k = 1$ finite field local converse theorem to $n = 3,4,5$ should be possible, but may require using the Gross-Koblitz theorem, a far reaching generalization of Stickelberger's theorem.
+These extensions may allow proving the $k = 1$ Weil group local converse theorem for $n = 3$ and either $k = 1$ or $k =2 $ for $n = 4,5$.
+\\
+
+\section{Weil Groups}
+On the Weil Group side of things, our main tools are the stability theorem for characters of $F^\times$ and the previously proven local converse theorem for finite fields.
+What we end up proving is that if $\rho_1$ and $\rho_2$ are $2$-dimensional, tamely ramified, semisimple representations of the Weil group $\cW_F$ of a local field $F$ and the $\gamma$-factors satisfy
+\[\gamma(\rho_1 \otimes \chi, s, \psi) = \gamma(\rho_2 \otimes \chi, s, \psi)\]
+for all characters $\chi$ of $\cW_F$, then $\rho_1 \cong \rho_2$.
+\\
+
+We first have to define what the objects of interest look like for $F^\times$ which we do in Section \ref{sec:local-fields} and Section \ref{sec:Leps-LF}.
+We then define the Weil group in Section \ref{sec:weil-group}.
+Local class field theory is stated in brief in Section \ref{sec:LCFT} which we can use to the objects of interest for $\cW_F$ in Section \ref{sec:Leps-weil-group}.
+Finally, in Section \ref{sec:n=2-LCT-weil-group}, we state and prove the $n=2$ local converse theorem for tamely ramified semisimple representations of the Weil group.
+\\
+
+Like for the finite field case, at this time we have only proven the $n=2$ local converse theorem for $\cW_F$, and only for tamely ramified semisimple representations of $\cW_F$.
+Given a finite field $n=3$ local converse theorem, it should be fairly simple to prove an $n=3$ local converse theorem for $\cW_F$ using the same methods.
+For $n=2$ highly ramified representations, the methods displayed here fail due only specificying a representation up to its behaviour on $\varpi^l$ for some $l > 1$, not $\varpi$ like for tamely ramified representations.
+It is possibly that further elementary methods could allow a full proof of an $n=2$ local converse theorem for highly ramified representations of $\cW_F$.
+No speculation will be made of the applicability of these techniques towards non-semisimple representations.
+\textcolor{red}{What do the $GL_n(F)$ local converse theorems say about non-semisimple or non-tamely ramified?}
+\\
 \endinput
