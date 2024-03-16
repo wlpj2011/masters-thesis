@@ -46,6 +46,7 @@
 \end{itemize}
 
 \section{Local Fields}
+\label{sec:local-fields}
 We are interested in a local converse theorem for smooth representations of the Weil group of a local field.We are interested in a local converse theorem for smooth representations of the Weil group of a local field.
 Most of the material on local fields will echo that in Jean-Pierre Serre's \textit{Local Fields} \cite{Serre1979}, with the material on local class field theory coming from from Bushnell and Henniart's \textit{The Local Langlands Conjecture for $GL(2)$} \cite{Bushnell2006}.
 Adopting the notation in the second of these references, we will have the following notation for local fields.\\
@@ -74,8 +75,9 @@ $\bbR$ and $\bbC$ are Archimedean local fields, so extensions of $\bbQ_p$ and $\
 
 For a DVR $\fo$ or for a local field $F$, we define a special element called the uniformizer, denoted by $\varpi$, which is a prime in $\fo$, so that $\varpi \fo = \fp$ is the unique prime ideal.
 This choise is unique up to units.
-\label{sec:Leps-LF}
+
 \section{$L$ Functions and $\epsilon$ Factors of Local Fields}
+\label{sec:Leps-LF}
 Though we are interested in the representation theory of the Weil group, and how we can tell apart the representations of the Weil group, in order to define the objects we will use to do so, we must first define them for local fields.
 Generally, a local converse theorem for local fields would deal with representations of $GL_n(F)$; however, all of the tools we need are developed while studying $GL_1(F) = F^\times$.\\
 
@@ -212,6 +214,7 @@ With this lemma in hand, we can now provide a proof of the stability theorem.
 Finally, for ramified characters of $F^\times$; we can relate to the Gauss sum in $\epsilon$ to a gauss sum for a finite field.
 \textcolor{red}{Get back to this.}
 \section{Weil Groups of Local Fields}
+\label{sec:weil-group}
 Let $F$ be a non-Archimedean local field and pick a separable algebraic closure $\overline{F}$ of $F$.
 Then we can define the absolute Galois group $\Omega_F = \gal(\overline{F}/F)$ which gets a natural topology as
 \[\Omega_F = \lim_{\leftarrow} \gal(E/F)\]
@@ -262,8 +265,9 @@ Due to this proposition, we indentify $\cW_E$ with the subgroup $\cW^E_F$ of $\c
 
 The representations of $\cW_F$ form a particularly nice subcollection of the representations of $\Omega_F$, and it is these representations that we will be studying.
 \section{Local Class Field Theory}
-\label{thm:LCFT}
+\label{sec:LCFT}
 \begin{theorem}
+\label{thm:LCFT}
   There is a canonical continuous group homomorphism
   \[\bm{a}_F : \cW_F \to F^\times\]
   with the following properties.
@@ -281,7 +285,7 @@ More precisely, we have that unramified characters of $F^\times$ (trivial on $U_
 We can use these correspondences to define the $L$-functions, $\epsilon$-factors, and $\gamma$-factors for representations of the Weil group.
 
 \section{$L$-Functions and $\epsilon$-Factors of Weil Groups}
-
+\label{sec:Leps-weil-group}
 \begin{defn}
   If $\chi$ is a character of $\cW_F$, then we define
   \begin{align*}
@@ -321,6 +325,7 @@ Finally, as was the case for $F^\times$, we still define the $\gamma$-factor for
 \[\gamma(\rho, s ,\psi) = \epsilon(\rho, s, \psi) \frac{L(\check{\rho},1-s)}{L(\rho,s)}.\]
 
 \section{Local Converse Theorem for $2$ Dimensional Representations of the Weil Group}
+\label{sec:n=2-LCT-weil-group}
 Finally, we have all the pieces necessary to state the local converse theorem for representations of the Weil Group.
 What has been proven in the most general case using the Langlands correspondence is the following theorem:
 
