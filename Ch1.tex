@@ -1,18 +1,6 @@
-\chapter{Introduction}	%Chapter title
-\begin{itemize}
+\chapter{Main Statements}	%Chapter title
 
-\item What is the local converse theorem for representations of the Weil group?
-\item Conjugacy/equivalence of representations
-\item How has the local converse theorem for representation of the Weil group been proven before? And what precisely has been proven? Mention Langlands briefly
-\item $\lfloor \frac{n}{2} \rfloor$ is sharp generally
-\item What is the local converse theorem for gauss sums/characters of finite fields?
-\item What precisely has been proven here? Has Nien's conjecture been proven?
-\item Draw the analogs between the finite field and finite dimension cases?
-\item What are future directions for the problem?
-\item Does the general introductory material on Gauss sums, finite fields, and Weil groups go here, or in chapters 2 and 3?
-\item Just state the definitions enough to fully define the theorem
-
-\end{itemize}
+\section{Introduction}
 
 A local converse theorem is, broadly speaking, a theorem which says that although we cannot uniquely identify an $n$-dimensional representation by its $\gamma$-factor; we can uniquely identify an $n$-dimensional representation, up to an appropriate notion of equivalence, using the $\gamma$-factors of all its twists by representations of dimension at most $k$ for some $k < n$.
 The exact details of a local converse theorem depend on the setting in which the theorem is stated, but the case when $k = \lfloor \frac{n}{2} \rfloor$ came to be known as Jacquet's conjecture after \cite{Jacquet1983}.
@@ -21,7 +9,7 @@ Here we shall establish an $n = 2$, $k=1 = \lfloor \frac{n}{2}\rfloor$ local con
 
 Both theorems have been proven previously: the Gauss sum version of Jacquet's conjecture as a corollary of  \cite{Nien2014} pushed through a correspondence between representations of $\textrm{GL}_n(\bbF_q)$ and characters of $\bbF_{q^n}^\times$; the local field version of Jacquet's conjecture independently as a corollary of \cite{Jacquet2017} and \cite{Chai2016}, both pushed through the local Langlands correspondence.
 Our contribution here is a more direct proof of the $n=2$ Gauss sum converse theorem in the vein of the proof of the $n = 4, 5$ cases in  \cite{Nien2018}, but using simpler tools due to the need to only prove the $n=2$ case.
-The other contribution is a more elementary proof of the $n=2$ local fields converse theorem which appeals directly to the Gauss sum converse theorem instead of requiring the local Langlands correspondence.
+The other contribution is a more elementary proof of the $n=2$ local fields converse theorem for tamely ramified representations which appeals directly to the Gauss sum converse theorem instead of requiring the local Langlands correspondence.
 We leave open the possibility of generalizing these proofs for $n > 2$.
 \\
 
@@ -57,9 +45,8 @@ Finally, in Section \ref{sec:n=2-LCT-weil-group}, we state and prove the $n=2$ l
 
 Like for the finite field case, at this time we have only proven the $n=2$ local converse theorem for $\cW_F$, and only for tamely ramified semisimple representations of $\cW_F$.
 Given a Gauss sum $n=3$ local converse theorem, it should be fairly simple to prove an $n=3$ local converse theorem for $\cW_F$ using the same methods.
-For $n=2$ highly ramified representations, the methods displayed here fail due only specificying a representation up to its behaviour on $\varpi^l$ for some $l > 1$, not $\varpi$ like for tamely ramified representations.
+For $n=2$ highly ramified representations, the methods displayed here fail due to only specifying a representation up to its behaviour on $\varpi^l$ for some $l > 1$, but not defining it on $\varpi$ like for tamely ramified representations.
 It is possibly that further elementary methods could allow a full proof of an $n=2$ local converse theorem for highly ramified representations of $\cW_F$.
-No speculation will be made of the applicability of these techniques towards non-semisimple representations.
-\textcolor{red}{What do the $GL_n(F)$ local converse theorems say about non-semisimple or non-tamely ramified? Or more accurately, what do non-semisimple or non-tamely ramified representations correspond to throught the local Langlands correspondence?}
+Additionally, since $\gamma$-factors are equal for representations with isomorphic semisimplifications, we do not need to consider a local converse theorem for non-semisimple representations.
 \\
 \endinput
