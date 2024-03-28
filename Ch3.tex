@@ -416,26 +416,18 @@ Next is the case when $\gamma(\rho_i, X,\psi)$ only has one pole, which can occu
   Next, consider the case of $\rho_i = \theta_i \oplus \xi_i$ with $\theta_i$ unramified and $\xi_i$ tamely ramified (level $n = 0$).
   We have that $L(\rho_i,s) = L(\theta_i \oplus \xi_i ,s) = L(\theta_i,s)L(\xi_i,s) = L(\theta_i,s)$ because not unramified characters have trivial $L$ functions.
   So we can still identify that the poles of $\gamma(\rho_1,s,\psi)$ and $\gamma(\rho_2,s,\psi)$ are the same so $\theta_1(\varpi) = \theta_2(\varpi)$ which like the previous cases tells us that $\theta_1 = \theta_2$, so just call it $\theta$.
+  
   The conditions of the converse theorem tell us that
-  \[ \gamma((\theta \oplus \xi_1) \otimes \chi,s,\psi) = \gamma((\theta \oplus \xi_2) \otimes \chi,s,\psi\]
+  \[ \gamma((\theta \oplus \xi_1) \otimes \chi,X,\psi) = \gamma((\theta \oplus \xi_2) \otimes \chi,X,\psi)\]
   for all characters $\chi$ of $\cW_F$.
   However, because $(\theta \oplus \xi_1)\otimes \chi = (\theta \otimes \chi) \oplus (\xi_1 \otimes \chi)$ and $\gamma$ is multiplicative, we have that
-  \[\gamma (\xi_1 \otimes \chi,s,\psi) = \gamma(\xi_2 \otimes \chi,s,\psi)\]
-  for all characters $\chi$ of $\cW_F$.
-  However, because a twist of a tamely ramified character can not be unramified (level of a twist is max level of the characters) \textcolor{red}{Unless you twist by the inverse? Is this actually true?}, we have that all the $L$-functions that appear in the $\gamma$-factor are $1$.
-  This means we infact have that
-  \[\epsilon(\xi_1 \otimes \chi , s, \psi) = \epsilon(\xi_2 \otimes \chi,s,\psi)\]
-  for all characters $\chi$ of $\cW_F$ \textcolor{red}{$\neq \xi_i^{-1}$?}
-  Let us consider the twist of by the character defined by $\chi(1+x) = \psi(\varpi^{-1}x)$ for $x \in \fp$.
-  Because $\psi$ is a level $1$ character, it is trivial on $\fp$.
-  This makes $\chi(1+x) = \psi(\varpi^{-1}x)$ trivial for $x \in \fp^2$ and so $\chi(1+x)$ is trivial on $U_F^2$ making $\chi$ a level one character.
-  \textcolor{red}{How do we define $\chi$ outside of $U^1_F$? It shouldn't matter, but would be nice to fully define.}
-  Note that $\xi_1,\xi_2$ are level $0$ because we are only allowing tamely ramified characrters and $2 \cdot 0 < 1$ so we can apply the stability theorem.
-  Applying Theorem \ref{thm:Stability} to both sides, we get that
-  \[\xi_1(\varpi^{-1})^{-1}\epsilon(\chi,s,\psi) = \xi_2(\varpi^{-1})^{-1} \epsilon(\chi,s,\psi).\]
-  With a little bit of algebraic manipulation, we find that $\xi_1(\varpi) = \xi_2(\varpi)$.
-  If $\xi_1,\xi_2$ were unramified, we would be done now; but because they are only tamely ramified, we must show that $\xi_1$ and $\xi_2$ behave the same way on $U_F$ as well.
-  \textcolor{red}{Appeal to finite Gauss sums}
+  \[\gamma (\xi_1 \otimes \chi,X,\psi) = \gamma(\xi_2 \otimes \chi,X,\psi)\]
+  Now, consider twisting by $\chi = \xi_1^{-1}$.
+  Then we have that \[\gamma(\xi_1 \otimes \xi_1^{-1},X,\psi) = \gamma(\xi_2 \otimes \xi_1^{-1} , X, \psi).\]
+  $\xi_1 \otimes \xi_1^{-1}$ is the trivial character and is clearly unramified.
+  Since $\gamma(\xi_2 \otimes \xi_1^{-1}, X, \psi)$ must have the same poles and zeros as $\gamma(\xi_1 \otimes \xi_1^{-1}, X, \psi)$, we find that $\xi_2 \otimes xi_1^{-1}$ must also be unramified, and agree with $\xi_1\otimes \xi_1^{-1}$ on $\varpi$, making $\xi_1 \otimes \xi_1^{-1} = \xi_2 \otimes \xi_1^{-1}$.
+  This is equivalent to $\xi_1 = \xi_2$.
+  Combined with $\theta_1 = \theta_2$, we find that $\rho_1 = \rho_2$ as desired.
 \end{proof}
 
 
