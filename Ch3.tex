@@ -1,49 +1,4 @@
 \chapter{Local Converse Theorem for Smooth Representations of the Weil Group}	%Chapter title
-\begin{itemize}
-\item Definition of Local field
-\item unique maximal unramified extension and unique sub extensions of each degree prime to characteristic
-\item Definition of Frobenius
-\item Definition of Weil Group 
-\item Definition of Smooth Representations of Weil Group; and semi-simple
-\item Definition of Inertia subgroup 
-\item Explain unramified/tamely ramified/highly ramified and inertia/wild-inertia and level of characters.
-\item Explain what is necessary of additive characters and how we can choose a level 1?0? additive character and everything changes predictably if we change it
-\item Definitions of $L$ functions and $\epsilon$ factors for characters of $F^\times$
-\item Brief highlights for local class field theory
-\item Definition of L function of representations of Weil group
-\item Definition of $\epsilon$ factor of representation 
-\item Definition of $\gamma$ factor of representation 
-\item Definition of $\epsilon_0$ factor of representation 
-\item Relate this to Gauss sums/what are the gauss sums the naturally appear in the $\epsilon$ factor? and what can they be reduced to?
-\item Stability Theorem for characters of $F^\times$ from BH 23.8
-\item 1D Local Converse Theorem
-\begin{itemize}
-\item $\gamma$ has $1$ pole; so dealing with an unramified character uniquely defined by it's pole/zero
-\item $\gamma$ has no poles; use stability and twist by highly ramified characters 
-\end{itemize}
-\item 2D Local Converse Theorem 
-\begin{itemize}
-\item $\gamma$ has $2$ poles, 
-\begin{itemize} 
-\item $\rho$ is the sum of two unramified characters
-\end{itemize}
-\item $\gamma$ has $1$ pole
-\begin{itemize}
-\item $\rho$ is the sum of an unramified character and a tamely ramified character
-\item $\rho$ is the sum of two unramified characters, one of which is $1/q$ times the other cancelling out a pole and a zero in $\gamma$
-\end{itemize}
-\item $\gamma$ has no poles:
-\begin{itemize}
-\item $\rho$ is the sum of two tamely ramified characters; then twisting by a level $1$ character gives $|\epsilon| \sim q^{1-2s}$. We have $\chi_1 \oplus \chi_2$ and $\chi_1' \oplus \chi_2'$. Twist both by $\chi_1^{-1}$ to force an unramified character, the poles of $\gamma$ must match, so either $\chi_1^{-1} \otimes \chi_1'$ or $\chi_1^{-1} \otimes \chi_2'$ must be unramified and infact equal to identity. Then we only have one character and can use stability. If we end up with $\chi_1 = \chi_2$ we get two poles after twisting and same on the other side.
-\item $\rho$ is a $2$ dimensional tamely ramified irreducible induced by a tamely ramified character of an unramified quadratic extension; then twisting by a level $1$ character gives $|\epsilon| \sim q^{\frac{1}{2}-s}$. In this case, both characters must be induced by a tamely ramified character of the same unramified quadratic extension, so we can deal with the character instead of the dim $2$ irreducible. There we just use stability to prove the characters are the same. There will need to be a discussion of the Langlands constant and induction of $\epsilon$ here.
-\end{itemize}
-\end{itemize}
-\item Do we ever actually need the finite field local converse theorem? 
-\item Can we use finite field local converse theorem instead of stability?
-\item Why does this proof technique break down eventually?
-\item How far can it get? Can it prove $n = 3,4,5?$ Is $n=6$ when you start needing dim $2$ twists?
-\item Can you get highly ramified $n=2$? Stability doesn't work as well here because of the level restrictions. What changes with non-semisimple $n=2$?
-\end{itemize}
 
 Most of the introductory material on local fields will echo that in Jean-Pierre Serre's \textit{Local Fields} \cite{Serre1979}, with the material on local class field theory coming from from Bushnell and Henniart's \textit{The Local Langlands Conjecture for $GL(2)$} Chapter 29 \cite{Bushnell2006}.
 Adopting the notation in the second of these references, we will have the following notation for local fields.\\
@@ -64,7 +19,9 @@ $\rho$ and $\sigma$ will be semisimple representations of $\cW_F$ and $\rho$ wil
 
 \section{Local Fields}
 \label{sec:local-fields}
-We are interested in a local converse theorem for smooth representations of the Weil group of a local field.We are interested in a local converse theorem for smooth representations of the Weil group of a local field.
+We are interested in a local converse theorem for smooth tamely ramified $2$-dimensional representations of the Weil group of a local field.
+First, we need to be able to define all the terms in stating the theorem.
+Even though we are proving a theorem about representations of the Weil group $\cW_F$ of a local field $F$, the terms in the theorem must first be defined for the mulitplicative group $F^\times$ of the field.
 \begin{defn}
   A \textbf{discrete valuation ring} is a principal ideal domain $\fo$ with a unique non-zero prime ideal $\fp$.
 \end{defn}
@@ -337,57 +294,68 @@ Finally, as was the case for $F^\times$, we still define the $\gamma$-factor for
 Finally, we have all the pieces necessary to state the local converse theorem for representations of the Weil Group.
 What has been proven in the most general case using the Langlands correspondence is the following theorem:
 
-\begin{theorem}[Local Converse Theorem]
-  Let $\rho_1$ and $\rho_2$ be $n$-dimensional tamely ramified semi-simple representations of $\cW_F$, with $n \geq 2$, such that for all semi-simple representations of $\cW_F$ with dimension $k \leq \lfloor \frac{n}{2} \rfloor$ we have
+\begin{theorem}[Local Converse Theorem for Weil Groups]
+  Let $\rho_1$ and $\rho_2$ be $n$-dimensional semi-simple representations of $\cW_F$, with $n \geq 2$, such that for all semi-simple representations $\sigma$ of $\cW_F$ with dimension $k \leq \lfloor \frac{n}{2} \rfloor$ we have
   \[\gamma(\rho_1 \otimes \sigma,s,\psi) = \gamma(\rho_2 \otimes \sigma,s,\psi).\]
   Then $\rho_1 \cong \rho_2$.
 \end{theorem}
 
-\textcolor{red}{What exactly does $\cong$ mean here...?}
 
 What we would like to prove here is a local converse theorem specifically for the case $n=2$. This can be states slightly more simply as follows:
 
 \begin{theorem}[Local Converse Theorem on $\cW_F$ with $n=2$]
   \label{thm:LCTn=2}
-  Let $\rho_1$ and $\rho_2$ be $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that for all characters $\chi$ of  $\cW_F$, we have
+  Let $\rho_1$ and $\rho_2$ be $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that for all characters $\chi$ of $\cW_F$, we have
   \[\gamma(\rho_1 \otimes \chi,s,\psi) = \gamma(\rho_2 \otimes \chi,s,\psi).\]
   Then $\rho_1 \cong \rho_2$.
 \end{theorem}
 
 Overall, this theorem can be split into three cases depending on the number of poles of $\gamma$, then two of those cases can be further split into two more cases each depending on the nature of the representations involved. We shall prove each of those cases first as lemmas, then we shall prove that those are the only cases and so the local converse theorem on $\cW_F$ holds for $n=2$.
 
+For the most part, we are not interested in how $\gamma$ behaves as a function of $s \in \bbC$, so we instead write $\gamma(\rho, X, \psi) = \gamma(\rho,s,\psi)$ where $X = q^{-s}$.
+Then we also have that $\gamma(\rho,1-s,\psi) = \gamma(\rho,\frac{1}{qX},\psi)$ and the same for $\epsilon$ and $L$.
+This simplifies the discussion around the number of poles of $\gamma$, so we can say that $\gamma$ has either $2$, $1$, or $0$ poles without worrying about the periodicity of $q^{-s}$.
+In this notation, we will have the following definitions for $\epsilon$, $L$, and $\gamma$ restated here for simplicity.
+
+As expected, the $\gamma$-factor modification is easy and we just get that \[\gamma(\chi, X, \psi) = \epsilon(\chi, X, \psi) \frac{L(\check{\chi}, \frac{1}{qX})}{L(\chi, X)}.\]
+$L$ is simple as well and we find that 
+\[L(\chi, X) = \begin{cases} (1 - \chi(\varpi) X)^{-1} & \text{ if } \chi \text{ is unramified,} \\ 1 & \text{ otherwise.} \end{cases}\]
+Finally, the $\epsilon$-factor takes a bit more to convert to an expression in terms of $X$, but we find that
+\[\displaystyle\epsilon(\chi, X, \psi) = \begin{cases} \frac{X^n}{\sqrt{q}} \sum_{x \in U_F/U_F^{n+1}} \chi(\alpha x)^{-1} \psi(\alpha x) & \text{ for } \chi \text{ of level } n \text{ and } v_F(\alpha) = -n \\ \frac{1}{\sqrt{q}X\chi(\varpi)} & \text{ for } \chi \text{ unramified.}\end{cases}\]
+With these definitions, we can now begin proving the individual cases of Theorem \ref{thm:LCTn=2}.
 
 \begin{lemma}[$\gamma$ has $2$ poles]
   \label{lem:gamma-two-poles}
   Suppose $\rho_1$ and $\rho_2$ are $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that
-  \[\gamma(\rho_1,s,\psi) = \gamma(\rho_2,s,\psi),\]
-  and $\gamma(\rho_i,s,\psi)$ has $2$ poles.
+  \[\gamma(\rho_1,X,\psi) = \gamma(\rho_2,X,\psi),\]
+  and $\gamma(\rho_i,X,\psi)$ has $2$ poles.
   Then $\rho_1 = \rho_2$.
 \end{lemma}
 
 \begin{proof}
-  Suppose that $\gamma(\rho_1,s,\psi) = \gamma(\rho_2,s,\psi)$ has two poles.
+  Suppose that $\gamma(\rho_1,X,\psi) = \gamma(\rho_2,X,\psi)$ has two poles.
   Recall that
-  \[\gamma(\rho_i,s,\psi) = \epsilon(\rho_i,s,\psi) \frac{L(\check{\rho_i},1-s)}{L(\rho_i,s)}.\]
-  So $\gamma(\rho_i,s,\psi)$ has poles only when $\epsilon(\rho_i,s,\psi)$ has poles, when $L(\check{\rho_i},1-s)$ has poles, and when $L(\rho_i,s)$ has zeroes.
-  However, $\epsilon(\rho_i,s,\psi)$ never has poles because it's only $s$ dependence comes from the $q^{n(\frac{1}{2}-s)}$ factor not unramified level $n$ characters, or the $q^{s - \frac{1}{2}}$ factor for unramified characters.
-  Similarly, $L(\rho_i,s)$ never has zeroes because it is defined multiplicatively as $1$ for non-characters and not unramified characters and $(1 - \chi(\varpi)q^{-s})^{-1}$ for unramified characters.
-  Specifically, we see that $L(\check{rho_i},1-s)$ has one pole for each unramified character in $\check{\rho_i}$.
-  Since $L(\check{\rho_i}, 1-s)$ is the only source of poles in $\gamma(\rho_i,s,\psi)$, we must have that $L(\check{\rho_i},1-s)$ has two poles and therefore $\rho_i$ each contain two unramified characters.
+  \[\gamma(\rho_i,X,\psi) = \epsilon(\rho_i,X,\psi) \frac{L(\check{\rho_i},\frac{1}{qX})}{L(\rho_i,X)}.\]
+  So $\gamma(\rho_i,X,\psi)$ has poles only when $\epsilon(\rho_i,X,\psi)$ has poles, when $L(\check{\rho_i},\frac{1}{qX})$ has poles, and when $L(\rho_i,X)$ has zeroes.
+  However, $\epsilon(\rho_i,X,\psi)$ never has poles because it's only $X$ dependence comes from the $X^n$ factor for not unramified level $n$ characters, or the $\frac{1}{\sqrt{q}X}$ factor for unramified characters.
+  Note that as an actual complex function, $X \neq 0$ because $X = q^{-s}$, so we discount this possibility for a pole.
+  Similarly, $L(\rho_i,X)$ never has zeroes because it is defined multiplicatively as $1$ for non-characters and not unramified characters and $(1 - \chi(\varpi)X)^{-1}$ for unramified characters.
+  Specifically, we see that $L(\check{\rho_i},\frac{1}{qX})$ has one pole for each unramified character in $\check{\rho_i}$.
+  Since $L(\check{\rho_i}, \frac{1}{qX})$ is the only source of poles in $\gamma(\rho_i,X,\psi)$, we must have that $L(\check{\rho_i},\frac{1}{qX})$ has two poles and therefore $\rho_i$ each contain two unramified characters.
   Since the $\rho_i$ are two dimensional characters of $\cW_F$, we therefore have that each $\rho_i$ is in fact a direct sum of two unramified characters of $\cW_F$.
 
   Write $\rho_i = \theta_i \oplus \theta_i'$, with $\theta_i, \theta_i'$ both unramified characters of $\cW_F$.
-  Since $\gamma(\rho_1,s,\psi) = \gamma(\rho_2,s,\psi)$ have the same two poles, we must have that $L(\check{\rho_1},1-s)$ and $L(\check{\rho_2},1-s)$ have the same poles which is equivalent to $L(\rho_1,s)$ and $L(\rho_2,s)$ having the same poles.
+  Since $\gamma(\rho_1,X,\psi) = \gamma(\rho_2,X,\psi)$ have the same two poles, we must have that $L(\check{\rho_1},\frac{1}{qX})$ and $L(\check{\rho_2},\frac{1}{qX}$ have the same poles which is equivalent to $L(\rho_1,X)$ and $L(\rho_2,X)$ having the same poles.
   Becuase the $L$-function is multiplicative we have that
-  \[L(\theta_1,s)L(\theta_1',s) = L(\theta_2,s)L(\theta_2',s)\]
+  \[L(\theta_1,X)L(\theta_1',X) = L(\theta_2,X)L(\theta_2',X)\]
   and because we know that all the characters involved are unramified, we find that treating the $\theta_i,\theta_i'$ as characters of $F^\times$ we have
-  \[(1 - \theta_1(\varpi)q^{-s})^{-1}(1 - \theta_1'(\varpi)q^{-s})^{-1} = (1 - \theta_2(\varpi)q^{-s})^{-1}(1 - \theta_2'(\varpi)q^{-s})^{-1}.\]
-  The left side has poles at $s = \log_q \theta_1(\varpi), \log_q \theta_1'(\varpi)$ and the right side has poles at $s = \log_q \theta_2(\varpi), \log_q \theta_2'(\varpi)$.
+  \[(1 - \theta_1(\varpi)X)^{-1}(1 - \theta_1'(\varpi)X)^{-1} = (1 - \theta_2(\varpi)X)^{-1}(1 - \theta_2'(\varpi)X)^{-1}.\]
+  The left side has poles at $X =  \frac{1}{\theta_1(\varpi)}, \frac{1}{\theta_1'(\varpi)}$ and the right side has poles at $X =  \frac{1}{\theta_2(\varpi)}, \frac{1}{\theta_2'(\varpi)}$.
   These must be the same, so without loss of generality, we can say $\theta_1(\varpi) = \theta_2(\varpi)$ and $\theta_1'(\varpi) = \theta_2'(\varpi)$.
-  However, unramified characters of $\cW_F$ correspond to unramfied characters of $F^\times$ which are trivial on $U_F$.
+  However, unramified characters of $\cW_F$ correspond to unramified characters of $F^\times$ which are trivial on $U_F$.
   Since every element of $x \in F^\times$ can be written as $u\varpi^m$ for some $u \in U_F$ and $m \in \bbZ$, we have that
   \[\theta(x) = \theta(u\varpi^m) = \theta(u) \theta(\varpi)^m = \theta(\varpi)^m.\]
-  So every unamified character of $F^\times$ is fully determined by its value on $\varpi$, and similarly for characters of $\cW_F$.
+  So every unramified character of $F^\times$ is fully determined by its value on $\varpi$, and similarly for characters of $\cW_F$.
   This tells us that $\theta_1 = \theta_2$ and $\theta_1' = \theta_2'$, so we clearly find that \[\rho_1 = \rho_2\] which is what we wanted to show.
 \end{proof}
 
