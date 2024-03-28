@@ -359,48 +359,48 @@ With these definitions, we can now begin proving the individual cases of Theorem
   This tells us that $\theta_1 = \theta_2$ and $\theta_1' = \theta_2'$, so we clearly find that \[\rho_1 = \rho_2\] which is what we wanted to show.
 \end{proof}
 
+Next is the case when $\gamma(\rho_i, X,\psi)$ only has one pole, which can occur in two different ways. 
 
 \begin{lemma}[$\gamma$ has $1$ poles]
   \label{lem:gamma-one-pole}
   Suppose $\rho_1$ and $\rho_2$ are $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that for all characters $\chi$ of $\cW_F$, we have
-  \[\gamma(\rho_1 \otimes \chi,s,\psi) = \gamma(\rho_2 \otimes \chi,s,\psi),\]
-  and $\gamma(\rho_i,s,\psi)$ has $1$ poles.
+  \[\gamma(\rho_1 \otimes \chi,X,\psi) = \gamma(\rho_2 \otimes \chi,X,\psi),\]
+  and $\gamma(\rho_i,X,\psi)$ has $1$ poles.
   Then $\rho_1 \cong \rho_2$.
 \end{lemma}
 
 \begin{proof}
   Suppose $\rho_1$ and $\rho_2$ are $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that for all characters $\chi$ of $\cW_F$, we have
-  \[\gamma(\rho_1 \otimes \chi,s,\psi) = \gamma(\rho_2 \otimes \chi,s,\psi),\]
-  and $\gamma(\rho_i,s,\psi)$ has $1$ poles.
-  As was mentioned in the proof of Lemma \ref{lem:gamma-two-poles}, the only source of poles in $\gamma(\rho_i,s,\psi)$ is the poles of $L(\check{\rho_i},s,\psi)$.
-  So in order to have only one pole we must either have that the $\rho_i$ are the sum of an unramified character and a tamely ramified character; or the $\rho_i$ are a sum of two unramified characters and that somehow a pole of $L(\check{\rho_i},1-s)$ cancels out with a zero of $L(\rho_i,s)$.
+  \[\gamma(\rho_1 \otimes \chi,X,\psi) = \gamma(\rho_2 \otimes \chi,X,\psi),\]
+  and $\gamma(\rho_i,X,\psi)$ has $1$ poles.
+  As was mentioned in the proof of Lemma \ref{lem:gamma-two-poles}, the only source of poles in $\gamma(\rho_i,X,\psi)$ is the poles of $L(\check{\rho_i},X,\psi)$.
+  So in order to have only one pole we must either have that the $\rho_i$ are the sum of an unramified character and a tamely ramified character; or the $\rho_i$ are a sum of two unramified characters and that somehow a pole of $L(\check{\rho_i},\frac{1}{qX})$ cancels out with a zero of $L(\rho_i,X)$.
   We will need to show that those two cases cannot coexist, and then prove the converse theorem in each case.
-  We can separate these cases by looking at the zeroes of $\gamma(\rho_i,s ,\psi)$ as well as the poles.
+  We can separate these cases by looking at the zeroes of $\gamma(\rho_i,X,\psi)$ as well as the poles.
   First, suppose $\rho_i = \theta_i \oplus \xi_i$ with $\theta_i$ unramified and $\xi_i$ tamely ramified.
-  Then we find that $\gamma(\theta_i \oplus \xi_i,s,\psi)$ has a pole at
-  \[s = \log_q(q\theta_i(\varpi)) = 1 + \log_q(\theta_i(\varpi))\]
-  coming from $L(\check{\theta}_i,1-s)$ and a zero at
-  \[s = \log_q(\theta_i(\varpi))\]
-  coming from $L(\theta_i,s)$.
-  On the other hand, suppose that $\rho_i = \theta_i \oplus \theta_i'$ with $\theta_i$ and $\theta_i'$ both unramified. Then as before, we have that (without cancellation of zeroes and poles)  $\gamma(\rho_i,s,\psi)$ has poles at
-  \[s = \log_q(q\theta_i(\varpi), \log_q(q\theta_i'(\varpi))\]
+  Then we find that $\gamma(\theta_i \oplus \xi_i,X,\psi)$ has a pole at
+  \[X= \frac{1}{q\theta_i(\varpi)}\]
+  coming from $L(\check{\theta}_i,\frac{1}{qX})$ and a zero at
+  \[X = \frac{1}{\theta_i(\varpi)}\]
+  coming from $L(\theta_i,X)$.
+  On the other hand, suppose that $\rho_i = \theta_i \oplus \theta_i'$ with $\theta_i$ and $\theta_i'$ both unramified.
+  Then as before, we have that (without cancellation of zeroes and poles)  $\gamma(\rho_i,X,\psi)$ has poles at
+  \[X = \frac{1}{q\theta_i(\varpi)}, \frac{1}{q\theta_i'(\varpi)}\]
   and has zeroes at
-  \[s = \log_q(\theta_i(\varpi), \log_q(\theta_i'(\varpi)).\]
+  \[X = \frac{1}{\theta_i(\varpi)}, \frac{1}{\theta_i'(\varpi)}.\]
 
 
   In order to only have a single pole in this case, we must have that one of the zeroes cancels out one of the poles.
-  Without loss of generality, we say that \[\log_q(q\theta_i(\varpi)) = \log_q(\theta_i'(\varpi))\]
-  Then we have that $\theta_i'(\varpi) = q\theta_i(\varpi)$.
+  Without loss of generality, we say that 
+  \[\theta_i'(\varpi) = q\theta_i(\varpi).\]
   Since an unramified character $\theta_i'$ is defined fully by the value it takes on $\varpi$, we have that there is only one choice for $\theta_i'$ for any given $\theta$.
-  The left over zeroes and poles are then required to be a pole coming from $L(\check{\theta_i'},1-s)$ at 
-  \[s = \log_q(q \theta_i'(\varpi)) = \log_q(q^2 \theta_i(\varpi)) = 2 + \log_q(\theta_i(\varpi))\]
-  and a zero coming from $L(\theta_i,s)$ at
-  \[s = \log_q(\theta_i(\varpi))\]
-  What is of note here is that in the case when $\rho_i = \theta_i \oplus \xi_i$ is the sum of an unramified character and a tamely-ramified character, then the distance between the pole and the zero of $\gamma(\rho_i,s,\psi)$ is
-  \[1 = \log_q(q\theta_i(\varpi)) - \log_q(\theta_i(\varpi)).\]
-  On the other hand, when $\rho_i = \theta_i \oplus \theta_i'$ is the sum of two unramified characters with poles and zeroes that cancel out, then the distance between the pole and the zero of $\gamma(\rho_i,s,\psi)$ is
-  \[2 = \log_q(q^2 \theta_i(\varpi)) - \log_q(\theta_i(\varpi)).\]
-  So we can tell apart these cases by looking at the zeroes and poles of $\gamma(\rho_i,s,\psi)$.
+  The left over zeroes and poles are then required to be a pole coming from $L(\check{\theta_i'},\frac{1}{qX})$ at 
+  \[X = \frac{1}{q^2 \theta_i(\varpi)}\]
+  and a zero coming from $L(\theta_i,X)$ at
+  \[X = \frac{1}{\theta_i(\varpi)}\]
+  What is of note here is that in the case when $\rho_i = \theta_i \oplus \xi_i$ is the sum of an unramified character and a tamely-ramified character, then the ratio between the pole and the zero of $\gamma(\rho_i,X,\psi)$ is $q$.
+  On the other hand, when $\rho_i = \theta_i \oplus \theta_i'$ is the sum of two unramified characters with poles and zeroes that cancel out, then the ratio between the pole and the zero of $\gamma(\rho_i,X,\psi)$ is $q^2$.
+  So we can tell these cases apart just by looking at the zeroes and poles of $\gamma(\rho_i,X,\psi)$.
 
 
   Now, let us show that both of these types of representations satisfy the converse theorem.
@@ -408,9 +408,9 @@ With these definitions, we can now begin proving the individual cases of Theorem
   Since we have
   \[\gamma(\theta_1 \oplus \theta_1', s, \psi) = \gamma(\theta_2 \oplus \theta_2',s,\psi)\]
   we again must have that the poles are equal on each side.
-  As mentioned above, $\gamma(\theta_i \oplus \theta_i' ,s, \psi)$ must have a pole at $s = 2 + \log_q(\theta_i(\varpi))$ if $\theta_i$ and $\theta_i'$ are both unramified and their poles and zeroes cancel.
-  But \[2 + \log_q(\theta_1(\varpi)) = 2 + \log_q(\theta_2(\varpi)\]
-  clearly implies $\theta_1(\varpi) = \theta_2(\varpi)$ and so $\theta_1 = \theta_2$ and $\theta_1' = \theta_2'$.
+  As mentioned above, $\gamma(\theta_i \oplus \theta_i' ,s, \psi)$ must have a pole at $X = \frac{1}{q^2 \theta(\varpi)}$ if $\theta_i$ and $\theta_i'$ are both unramified and their poles and zeroes cancel.
+  But \[\frac{1}{q^2 \theta_1(\varpi)} = \frac{1}{q^2 \theta_2(\varpi)}\]
+  clearly implies $\theta_1(\varpi) = \theta_2(\varpi)$ and so $\theta_1 = \theta_2$ and $\theta_1' = \theta_2'$ because they are unramified and so determined by their value at $\varpi$.
   As desired, this gives us $\rho_1 = \rho_2$ for the unramified case.
 
   Next, consider the case of $\rho_i = \theta_i \oplus \xi_i$ with $\theta_i$ unramified and $\xi_i$ tamely ramified (level $n = 0$).
