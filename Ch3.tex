@@ -283,7 +283,8 @@ This is
 Multiplicativity and Proposition \ref{prop:local-constant-induction} allows us to define the $\epsilon$ factor for any semi-simple representation because any irreducible representation of $\cW_F$ is the induced representation of a character from an appropriate finite extension.
 Specifically, we have the following theorem, which will allow us to work only with characters for $\cW_E$ for appropriate extensions $E/F$.
 \begin{theorem}
-\textcolor{red}{What is this theorem exactly...?}
+  \textcolor{red}{What is this theorem exactly...?}
+  \textcolor{red}{It's Bushnell-Henniart 34.1}
 \end{theorem}
 
 Finally, as was the case for $F^\times$, we still define the $\gamma$-factor for semi-simple representation $\rho$ of $\cW_F$ as
@@ -366,7 +367,7 @@ Next is the case when $\gamma(\rho_i, X,\psi)$ only has one pole, which can occu
   Suppose $\rho_1$ and $\rho_2$ are $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that for all characters $\chi$ of $\cW_F$, we have
   \[\gamma(\rho_1 \otimes \chi,X,\psi) = \gamma(\rho_2 \otimes \chi,X,\psi),\]
   and $\gamma(\rho_i,X,\psi)$ has $1$ poles.
-  Then $\rho_1 \cong \rho_2$.
+  Then $\rho_1 = \rho_2$.
 \end{lemma}
 
 \begin{proof}
@@ -430,35 +431,49 @@ Next is the case when $\gamma(\rho_i, X,\psi)$ only has one pole, which can occu
   Combined with $\theta_1 = \theta_2$, we find that $\rho_1 = \rho_2$ as desired.
 \end{proof}
 
+Now we turn our attention to the final case when $\gamma$ has no poles, which is when there are no unramified characters present.
+Then we have the following lemma.
 
 \begin{lemma}[$\gamma$ has $0$ poles]
   \label{lem:gamma-zero-poles}
+  Let $F$ be a local field with residue field $\bk_F = \bbF_q$ where $q = p^n$ and $p \neq 2$.
   Suppose $\rho_1$ and $\rho_2$ are $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that for all characters $\chi$ of $\cW_F$, we have
-  \[\gamma(\rho_1 \otimes \chi,s,\psi) = \gamma(\rho_2 \otimes \chi,s,\psi),\]
-  and $\gamma(\rho_i,s,\psi)$ has $0$ poles.
+  \[\gamma(\rho_1 \otimes \chi,X,\psi) = \gamma(\rho_2 \otimes \chi,X,\psi),\]
+  and $\gamma(\rho_i,X,\psi)$ has $0$ poles.
   Then $\rho_1 \cong \rho_2$.
 \end{lemma}
 
 \begin{proof}
-  Suppose $\rho_1$ and $\rho_2$ are $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that for all characters $\chi$ of $\cW_F$, we have
-  \[\gamma(\rho_1 \otimes \chi,s,\psi) = \gamma(\rho_2 \otimes \chi,s,\psi),\]
-  and $\gamma(\rho_i,s,\psi)$ has $0$ poles.
+  Let $F$ be a local field with a residue field not of characteristic $2$, and suppose $\rho_1$ and $\rho_2$ are $2$-dimensional tamely ramified semi-simple representations of $\cW_F$, such that for all characters $\chi$ of $\cW_F$, we have
+  \[\gamma(\rho_1 \otimes \chi,X,\psi) = \gamma(\rho_2 \otimes \chi,X,\psi),\]
+  and $\gamma(\rho_i,X,\psi)$ has $0$ poles.
   We will need to show that there is no way for all the poles to cancel out if one of the $\rho_i$ has an unramified character as a subrepresentation.
   Then the two ways in which we can have no poles are either that the $\rho_i$ are the sum of two tamely ramified characters or the $\rho_i$ are two dimensional tamely ramified irreducibles.
-  First we will need a way to distinguish between these two cases; then we will show that the converse theorem holds in each case.
+  Next we will need a way to distinguish between these two cases; then we will show that the converse theorem holds in each case.
 
   The proof of Lemma \ref{lem:gamma-one-pole} shows us why it is not possible for $\gamma$ to have no poles if there is an unramified portion of the $\rho_i$.
   Now, suppose first that $\rho_i = \xi_i \oplus \xi_i'$ with $\xi_i,\xi_i'$ both tamely ramified (level $n=0$).
-  Then we have
+  Then in terms of $s$ instead of $X$, we have
   \[\epsilon(\rho_i,s,\psi) = \epsilon(\xi_i,s,\psi)\epsilon(\xi_i',s,\psi).\]
   Twisting by a level $n=1$ character $\chi$, we then have that
-  \[\epsilon(\rho_i \otimes \chi,s,\psi) = \epsilon(\xi_i \otimes \chi,s,\psi) \epsilon(\xi_i',s,\psi).\]
+  \[\epsilon(\rho_i \otimes \chi,s,\psi) = \epsilon(\xi_i \otimes \chi,s,\psi) \epsilon(\xi_i'\otimes \chi,s,\psi).\]
   Finally, from the definition of the $\epsilon$-factor for level $n \geq 0$ characters, we have that $|\epsilon(\xi_i \otimes \chi,s,\psi)| = q^{\frac{1}{2}-s}$.
   The same applies to $\xi_i'\otimes \chi$ so overall, we then find that
   \[|\epsilon(\rho_i \otimes \chi,s,\psi)| = q^{1 - 2s}\]
-  On the other hand, if $\rho_i$ is a two dimensional irreducible representation of $\cW_F$, then there is some unramified quadratic extension $E/F$ and tamely ramified character $\xi_i$ of $\cW_E$ such that $\rho_i = \ind_{E/F} \xi_i$.
-  Then we find that \textcolor{red}{Need to write down the stuff with induction again to figure this out.}
-  \textcolor{red}{Then apply stability and then finite gauss sums of $\bbF_{q^2}$ twisted by those of $\bbF_q$.}
+  On the other hand, if $\rho_i$ is a two dimensional irreducible representation of $\cW_F$, then there is some unramified quadratic extension $E_i/F$ and tamely ramified character $\xi_i$ of $\cW_{E_i}$ such that $\rho_i = \ind_{E_i/F} \xi_i$.
+  \textcolor{red}{This comes from Bushnell-Henniart Ch 34.1 and is the reason we need $p\neq 2$.}
+  Since there s a unique unramified quadratic extension of $F$ inside a given separable closure $\overline{F}$, we just call it $E$ and let $\rho_i = \ind_{E/F}$.
+  Recall that by Proposition \ref{prop:local-constant-induction} we have
+  \[\frac{\epsilon(\ind_{E/K} \rho, s, \psi_K)}{\epsilon(\rho,s,\psi_E)} = \frac{\epsilon(R_{E/K},s,\psi_K)^n}{\epsilon(1_E,s,\psi_E)^n}.\]
+  Rearranging this and rewriting in terms of $X$ and the representations we are interested in, we have that
+  \[\epsilon(\rho_i,X_F,\psi_F) = \epsilon(\ind_{E/F} \xi_i, X_F, \psi_F) = \epsilon(\xi_i, X_E, \psi_E) \frac{\epsilon(\ind_{E/F} 1_E,X_F,\psi_F)^2}{\epsilon(1_E,X_E,\psi_E)^2}.\]
+  Now, note that $(\ind_{E/F} \xi_i )\otimes \chi = \ind_{E/F} (\xi_i \otimes \chi \circ N_{E/F})$.
+  This means that if we twist $\ind_{E/F} \xi_i$ by a level $1$ character $\chi$, this corresponds to twisting $\xi_i$ by the character $\chi \circ N_{E/F}$ which is also level $1$ becuase $U_F = U_E$ and $U_F^1 = U_E^1$.
+  Then by the definition of $\epsilon$ again, we find that twisting by a level $n=1$ character gives us something of the following magnituede:
+  \[|\epsilon(\ind_{E/F} (\xi_i \otimes \chi \circ N_{E/F}),s,\psi_E)| = (q^2)^{\frac{1}{2}-s} = q^{1 - 2s}.\]
+  Since the parts in the fraction depend only on the extension $E$ which is fixed, we in fact have that if $\epsilon(\rho_1,X,\psi_F) = \epsilon(\rho_2,X,\psi_F)$, then $\epsilon(\xi_1 ,X,\psi_E) = \epsilon(\xi_2, X,\psi_E)$.
+
+  
 \end{proof}
 
 Now that we have the necessary lemmas, we can assemble them into a proof of Theorem \ref{thm:LCTn=2}.
