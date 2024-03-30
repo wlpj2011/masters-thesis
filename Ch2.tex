@@ -163,7 +163,30 @@ Out main tool for doing this will be a lemma describing how the digit sum change
 \end{lemma}
 
 \begin{proof}
-
+  This proof is mainly a simple computation in which we have to keep track of the possible for cases when we have carry in the $1$'s place or in the $p$'s place.
+  Specifically, we will have a carry from the $1$'s into the $p$'s place when $t - i \geq \ell$ which causes $p + t - i - \ell \geq p$.
+  Similarly, we get a carry from the $p$'s place in to the $1$'s place when either $i \geq \ell$ or $1+i \geq \ell$, depending on if the previous carry happens.
+  Since $0 \leq p - \ell \leq p-2$ and $0 \leq i,t-i \leq p-1$, these are the only carry's that can happen because the max value for each digit after summing before carrying is $2p-3$.
+  This gives us the following calculation that proves the lemma.
+  \begin{align*}
+s((t-i) + (i)p + (p - \ell)(p+1)) &= s((p + t - i - \ell) + (p + i -\ell)p) \\ 
+&=\begin{cases}
+  s((t - i - \ell) + (p + 1 + i -\ell)p) & t -i  \geq \ell \\
+  s((p + t - i - \ell) + (p + i -\ell)p) & t - i <  \ell 
+\end{cases}\\
+&=\begin{cases}
+  s((t + 1 - i - \ell) + ( 1 + i -\ell)p) & t -i  \geq \ell \text{ and } 1+i \geq \ell \\
+  s((t - i - \ell) + (p + 1 + i -\ell)p) & t -i  \geq \ell  \text{ and } 1 + i < \ell \\
+  s((p + t - i - \ell) + (p + i -\ell)p) & t - i <  \ell \text{ and } i < \ell \\
+  s((p + t +1 - i - \ell) + (1 + i -\ell)p) & t - i <  \ell \text{ and } i \geq \ell
+\end{cases} \\
+s((t-i)+(i)p + (p-\ell)(p+1))
+&= \begin{cases}
+  p+t-2\ell + 1 & i \leq \ell - 2 \\
+  t-2\ell + 2 & i > \ell -2
+\end{cases}
+\end{align*}
+\\
 \end{proof}
 
 With Lemma \ref{lem:digit-sum-twist} in hand, we can now prove Theorem \ref{thm:local-converse-FF-rewrite}.
