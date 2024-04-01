@@ -154,7 +154,7 @@ Then $p+1 \nmid \alpha, \beta$ ensures that $\chi_1 = \omega^\alpha$ and $\chi_2
 \end{proof}
 
 Now that we only need to prove Theorem \ref{thm:local-converse-FF-rewrite}, we shall prove the $n=2$ local converse theorem for finite fields.
-Out main tool for doing this will be a lemma describing how the digit sum changes with twists.
+Our main tool for doing this will be a lemma describing how the digit sum changes with twists.
 
 \begin{lemma}
   \label{lem:digit-sum-twist}
@@ -186,7 +186,10 @@ s((t-i)+(i)p + (p-\ell)(p+1))
   t-2\ell + 2 & i > \ell -2
 \end{cases}
 \end{align*}
-\\
+  \\
+
+  Note that the only way to have $p + t - 2 \ell + 1 = t - 2 \ell + 2$ is to have $p = 1$, which is not a prime, so we will always have that $s((t-i)+ip + (p - \ell)(p+1))$ takes on different values for $i \leq  \ell - 2$ and $i > \ell - 2$.
+  
 \end{proof}
 
 With Lemma \ref{lem:digit-sum-twist} in hand, we can now prove Theorem \ref{thm:local-converse-FF-rewrite}.
@@ -195,8 +198,22 @@ Note that we only need to consider the case of fixed $\alpha$ and can vary $\bet
 
 We would like to show that the condition $s(\alpha + k(p+1)) = s(\beta + k(p+1))$ for all $0 \leq k < p-1$ implies that $\alpha \equiv p \beta \mod p^2 -1$ or $\alpha \equiv \beta \mod p^2 - 1$. 
 Another way of stating this is that if $s(\alpha + k(p+1)) = s(\beta+k(p+1))$ for all $0 \leq k < p-1$ then $\omega^{\-\alpha}$ and $\omega^{-\beta}$ are in the same Frobenius orbit.
+Let $s(\alpha) = t = s(\beta)$ be our fixed digit sum before twists, and let $r = \left \lceil \frac{t}{2} \right \rceil - 1$.
+Then the set of possible Frobenius orbits with a fixed digit sum $t$ is 
+\[\{\{t,tp\}, \{(t-1)+p, 1 + (t-1)p\},\{t-2)+2p, 2+(t-2)p\}, \ldots, \{(t-r)+rp, r + (t-r)p\}\}.\]
+This takes the $t+1$ integers with digit sum $t$ and splits them into orbits of size $2$ in a way that corresponds to (cyclically) permutting the digits.
+When $t$ is even, there is a degenerate orbit $\{(r+1)+(r+1)p\}$ where permuting the digits doesn't change the number or the underlying character; these correspond to non-regular characters, or characters of $\bbF_p$.
+We write a generic element of an orbit as $(t - i) +ip$ since it doesn't matter which element of the orbit we pick.
+
+Our goal is then to show that with an appropriate set of twists, we can distinguish between these orbits.
+I claim that it is sufficient to consider the twists by $k = p - \ell$ for $2 \leq \ell \leq r +1 < t$; note that there are only $\ell$ satisfying these inequalities for $t \geq 4$, so we will deal with the $t = 1,2,3$ cases by hand.
 
 
+Now, let us first consider what happens when we twist by $k = p-2$.
+Lemma \ref{lem:digit-sum-twist} tells us that $s((t-i)+ip)$ is either $p+t-3$ for $i \leq 0$ or $t - 2$ for $i > 0$.
+These are different values and so twisting by $k = p-2$ allows us to distinguish $\{t,tp\}$ from $\{(t-i)+ip,i+(t-i)p\}$ for all $i > 0$.
+
+Similarly, twisiting by $p - \ell$ allows us to distinguish between $\{(t-\ell+2)+(\ell-2)p,(\ell-2) + (t-\ell+2)p\}$ and $\{(t-\ell+1)+(\ell-1)p,(\ell-1)+(t-\ell+1)p\}$. By letting $\ell$ very from $2$ up to $r+1$, we are thus able to distinguish between all the non-degenerate Frobenius orbits.
 
 
 
