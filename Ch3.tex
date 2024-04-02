@@ -468,8 +468,19 @@ Then we have the following lemma.
   However, we further have that $\gamma(\rho_i \otimes \chi,s,\psi)$ will never have a pole because $\ind_{E/F} (\xi_i)$ is irreducible if and only if $\xi$ is different than its conjugate, i.e.  $\xi_i \neq \xi_i^{\sigma}$.
   This is also equivalent to saying that $\xi_i$ doesn't factor through the norm.
   So twisting a $\xi_i$ that doesn't factor through the norm by $\chi \circ N_{E/F}$ will never produce something that does factor through the norm, meaning that $(\ind_{E/F} \xi_i )\otimes \chi$ is irreducible and so $\gamma(\rho_i \otimes \chi, s, \psi)$ will never have a pole.
-
   This allows us to tell apart $\rho_i = \xi_i \oplus \xi_i'$ and $\rho_i = \ind_{E/F} \xi_i$ because the first case will have some twist $\chi$ that gives $\gamma(\rho_i,X,\psi)$ at least one pole and the second case will never have such a $\chi$.
+
+  
+  Now, let us deal with the $\rho_i = \xi_i \oplus \xi_i'$ with $\xi_i, \xi_i'$ tamely ramified case.
+  This case works out much like the case when $\gamma$ has one pole and $\rho$ is a sum of an unramified and a tamely ramified character.
+  First, consider the twist by $\chi = \xi_1^{-1}$.
+  We get \[\gamma(1_F \oplus (\xi_1' \otimes \xi_1^{-1}),X,\psi) = \gamma((\xi_2 \otimes \xi_1^{-1})\oplus(\xi_2' \otimes \xi_1^{-1}),X,\psi)\]
+  Because $1_F$ is unramified, we must have at least one pole, possibly two poles.
+  Either we are in the case of Lemma \ref{lem:gamma-one-pole} or Lemma \ref{lem:gamma-two-poles}, but either way, we find that, without loss of generality, $\xi_1 = \xi_2$ and $\xi_1' = \xi_2'$ and so $\rho_1 = \rho_2$.
+  
+  Finally, let us deal with the case when $\rho_i = \ind_{E/F} \xi_i$ with $\xi_i$ a tamely ramified character of $\cW_E$.
+  We will first use stability to find the value of $\xi_i$ on $\varpi$, then we will use the Gauss sum local converse to show that $\xi_1$ and $\xi_2$ agree sufficiently on $U_F$ to have $\xi_1 \cong \xi_2$.
+
 
 
   
