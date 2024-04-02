@@ -1,29 +1,4 @@
 \chapter{Local Converse Theorem for Finite Fields}	%Chapter title
-\begin{itemize}
-\item Finite Fields 
-\begin{itemize}
-\item additive characters of $\hat{\bbF}_p$
-\item multiplicative characters of $\mathbb{F}_p^\times$ and $\mathbb{F}_{p^n}^\times$
-\item Trace $\mathbb{F}_{p^n}^\times \to \mathbb{F}_{p}^\times$
-\item Regular characters
-\end{itemize}
-\item Gauss Sums 
-\item Teichmuller Characters 
-\item Stickelberger Theorem 
-\begin{itemize}
-\item A description of the prime ideals involved?
-\item $p$-adic expansions and how they relate to Gauss sums on a first order of approximation, especially if Gross-Koblitz gets included
-\end{itemize}
-\item Gross-Koblitz Formula if necessary 
-\begin{itemize}
-\item If I include this, then I need $p$-adic gamma function
-\end{itemize}
-\item Restate the converse theorem in terms of $s(k)$ instead of $S(\omega^{-k})$.
-\item Do I need a $1$D analog converse for characters of $\mathbb{F}_p^\times$ or $\mathbb{F}_q^\times$ 
-\item $2$D analog converse for characters of $\mathbb{F}_{p^2}^\times$ twisted by characters of $\mathbb{F}_{p}^\times$ 
-\item If necessary, converse for characters of $\mathbb{F}_{q^2}^\times$ twisted by characters of $\mathbb{F}_{q}^\times$; need to look into a proof of this.
-\item If possible, converse for characters of $\mathbb{F}_{p^3}^\times$ twisted by characters of $\mathbb{F}_{p}^\times$ 
-\end{itemize}
 
 \noindent We will use the following notation in this chapter; mostly following the notation choices in \cite{Lang1990}.\\
 $\bbF_p$ will be the finite field with $p$ elements.\\
@@ -179,197 +154,69 @@ Then $p+1 \nmid \alpha, \beta$ ensures that $\chi_1 = \omega^\alpha$ and $\chi_2
 \end{proof}
 
 Now that we only need to prove Theorem \ref{thm:local-converse-FF-rewrite}, we shall prove the $n=2$ local converse theorem for finite fields.
+Our main tool for doing this will be a lemma describing how the digit sum changes with twists.
+
+\begin{lemma}
+  \label{lem:digit-sum-twist}
+  Let $0 \leq i, t-i \leq p-1$ and $2 \leq \ell \leq p$, then 
+  \[ s((t-i)+ip+(p-\ell)(p+1)) = \begin{cases} p + t-2\ell+1 & i \leq \ell - 2 \\ t - 2 \ell + 2 & i > \ell -2\end{cases}.\]
+\end{lemma}
 
 \begin{proof}
-Note that we only need to consider the case of fixed $\alpha$ and can vary $\beta$ to find those that satisfy the equality of gauss sums. 
-For the case $n=2$ we have the $\omega^{-\alpha}$ is regular as long as $(p+1)\nmid \alpha$.
-
-In this case we find that \[S(\omega^{-(\alpha + \hat{k})}) = S(\omega^{-(\beta + \hat{k})})\] for all $0 \leq k < p-1$ clearly implies that $S(\omega^{-(\alpha+\hat{k})})$ and $S(\omega^{-(\beta + \hat{k})})$ have the same factorization for all $0 \leq k < p-1$ which by Stickelberger's theorem, is equivalent to the condition that $s(\alpha + k(p+1)) = s(\beta + k(p+1))$ for all $0 \leq k < p-1$. 
-We would like to show that this condition implies that $\alpha \equiv p \beta \mod p^2 -1$ or $\alpha \equiv \beta \mod p^2 - 1$. 
-Another way of stating this is that if $s(\alpha + k(p+1)) = s(\beta+k(p+1))$ for all $0 \leq k < p-1$ then $\alpha$ and $\beta$ are in the same Frobenius orbit.
-
-We will first do a few simple cases, and then consider the general case.
-We will let $s(\alpha) = t$ be the sum of the digits of $\alpha$ in base $p$ and note that when we split into cases for different $t$, we are splitting into the cases where $S(\omega^\alpha)$ and  $S(\omega^\beta)$ have the same factorization without considering any twists.
-\\
-
-\subsection{$t = 1$:} If $t = 1 = s(\alpha)$, then $\alpha = 1$ and $\alpha = p$ are the only possibilities. 
-These are both clearly in the same Frobenius orbit $\{1,p\}$ and no twisting is necessary here.
-\\
-
-\subsection{$t = 2$:} If $s(\alpha) = t = 2$, then the possibilities are $\alpha = 2, 1+p, 2p$. 
-We can rule out $1+p$ because $1+p \mid 1+p$ means that $\alpha = 1+p$ does not give a regular character. 
-Then $\alpha = 2, 2p$ are clearly in the same Frobenius orbit $\{2,2p\}$ and again, no twisting is necesary. 
-Now let us look at a case where twisting is necessary.
-\\
-
-\subsection{$t = 3$:} If $s(\alpha) = t= 3$, then the possibilites are $\alpha = 3,2+p,1+2p,3p$. 
-We have that the two Frobenius orbits are $\{3,3p\}$ and $\{2+p, 1+2p\}$ and we would like to show that taking the digit sum of some twists will let us distinguish between them when digit sums of the $\alpha$ alone do not.
-
-Let us consider what happens when $k = p-3$ for $p > 3$ and compute $s(\alpha + k(p+1))$ for one $\alpha$ in each Frobenius orbit. 
-We find that \[s(3 + (p-3)(p+1)) = s(((p-3)+3)+(p-3)p) = s((p-3+1)p) = s((p-2)p) = p-2.\] 
-On the other hand, we have that \[s((p+2)+(p-3)(p+1)) = ((p-3)+1) + ((p-3)+2) =2p-3\]
-Since $p-2 \neq 2p-3$ for all $p \neq 1$ (and therefore all primes) we have that twisting by $k = p-3$ enables us to differentiate between the two Frobenius orbits having $t = 3$ for $p > 3$. 
-For $p = 2,3$, the case of $t = 3$ is not a concern because $t =3 > p-1$ which is not under consideration right now. 
-We will deal with the case of $t > p-1$ later.
-\\
-
-Now that we have looked at a few specific cases, let us consider the general $0 \leq t \leq p-1$. 
-Then we having the following list of possibilites of $\alpha$: \[\alpha = t, (t-1) + p, (t-2) +2 p, \cdots 2 + (t-2)p , 1 + (t-1)p, tp.\] 
-These possibilities can be indexed by some $0 \leq i \leq t$ and then we find that $\{ (t-i) + i p \mid 0 \leq i \leq t\}$ is our set of possibilites. 
-It will be simplest to split into two cases, the even case and the odd case.
-We will let $r = \left\lfloor \frac{t}{2} \right\rfloor$ in both cases.
-Then we have that $t = 2r$ in the even case and $t = 2r+1$ in the odd case.
-The main difference is that when $t$ is even, $\alpha = r + rp$ is a possible character that we eliminate by restricting to only regular characters.
-
-\subsection{$t = 2r$:}
-We can split into the Frobenius orbits that we wish to distinguish between. 
-They pair up nicely and we get that the orbits are \[\{t, tp\}, \{(t-1)+p, 1+(t-1)p\}, \cdots, \{(r-1) + (r+1) p, (r+1) + (r-1) p\}.\] 
-Written more generally, the orbits for $s(\alpha) = t$ look like $\{(t-i) + ip, i + (t-i)p\}$ for integers $0 \leq i < r $, where $i=r$ would give the degenerate orbit/non-regular character and $i > r$ just repeats the list again. 
-Our goal is then to distinguish between these orbits by looking at some twists of these values.
-I claim that it is sufficient to consider $k = p - \ell$ for $2 \leq \ell \leq r < t$.
-We are always considering $t < p$, so $k = p - \ell \geq p - t > 0$.
-\\
-
-\textcolor{red}{NOTE: It seems like $2 \leq \ell \leq r+1$ has the same distinguishing power as $r+2 \leq \ell \leq 2r=t$?}
-\\
-
-We shall proceed by direct computation for $t > 3$.
-First, let us consider the two extremes. 
-We have that with $\ell = 2$ the twists have the following digit sum:
-\begin{align*}
- s((t-i) + (i)p + (p - 2)(p+1)) &= s((p + t - i - 2) + (p + i -2)p) \\ 
- &= \begin{cases}
-   s((t-2) + (p-2+1)p) & i = 0 \\
-   s((t-i-2) + (p+i-1)p)& i \neq 0
- \end{cases} \\
- &= \begin{cases}
-   p+t - 3 & i = 0 \\
-   s((t-i-1)+(i-1)p) & i \neq 0
- \end{cases} \\
- s((t-i) + ip + (p - 2)(p+1)) &= \begin{cases}
-   p+t - 3 & i = 0 \\
-   t-2 & i \neq 0
- \end{cases}
-\end{align*}
-All we have done here is moved a $p$ from one coefficient to the other other and turned it into a carry of $1$ whenever a coefficient was $\geq p$. 
-Note that this assumes that $t \geq 2$ to have that $p+t-2 \geq p$, but the only even $t < 2$ is $t =0$ which gives only the trivial character.
-\\
-
-On the other hand, let's see what happens for the other extreme. 
-When $\ell = r$, we have the following digit sums:
-\begin{align*}
- s((t-i) + (i)p + (p - r)(p+1)) &= s((p + t- i - r) +(p + i -r) p) \\ 
- &=s((p + r - i) + (p -r + i)p) \\
- &= \begin{cases}
-s((r-i) + (p+i-r+1)p) & i < r
- \end{cases} \\
- &= \begin{cases}
-s((r-i) + (p+i-r+1)p) & i < r-1 \\
- s((r-i+1) + (i-r+1)p) & i = r-1
- \end{cases} \\
-  s((2r-i) + ip + (p - r)(p+1)) &= \begin{cases}
-p+1 & i < r-1 \\
-2 & i = r-1
- \end{cases}
-\end{align*}
-Here, we use $i < r$, but we already mentioned above that this is just choosing the element of the orbit with the smaller coefficient for $p$ and is not actually limiting the cases computed. 
-We also implicitly assume $r < p$, but this is fine, because for now we are dealing with the case of $t < p$ and $t = 2r$ so $ r < p/2$.
-\\
-
-There are two interesting things we see in these computations. 
-The first is that depending on what $\ell$ is, twisting by $k = p - \ell$ seems to split into two separate cases which have distinct digit sums (and note that $p+1 \neq 2$ and $p+2r-3 \neq 2r-2$ for all primes $p$). 
-The second is that twisting with $\ell = 2$, the smallest $\ell$ we can twist by distinguishes the orbit with $i = 0$, the smallest orbit, and likewise, $\ell = r$, the largest $\ell$ we choose to twist by distinguishes the orbit with $i = r-1$, the largest $i$ necessary to consider. 
-It is too much to hope that each $\ell$ we use to twist will distinguish a single orbit, but we will see that each $\ell$ separates the orbits in to two classes, and taken together, they can be used to distinguish all the orbits.
-\\
-
-The general case here will just be to twist by $k = p- \ell$ with $2 \leq \ell \leq r$. 
-Then we have the following possible digit sums:
-\begin{align*}
-s((2r-i) + (i)p + (p - \ell)(p+1)) &= s((p + 2r - i - \ell) + (p + i -\ell)p) \\ 
+  This proof is mainly a simple computation in which we have to keep track of the possible for cases when we have carry in the $1$'s place or in the $p$'s place.
+  Specifically, we will have a carry from the $1$'s into the $p$'s place when $t - i \geq \ell$ which causes $p + t - i - \ell \geq p$.
+  Similarly, we get a carry from the $p$'s place in to the $1$'s place when either $i \geq \ell$ or $1+i \geq \ell$, depending on if the previous carry happens.
+  Since $0 \leq p - \ell \leq p-2$ and $0 \leq i,t-i \leq p-1$, these are the only carry's that can happen because the max value for each digit after summing before carrying is $2p-3$.
+  This gives us the following calculation that proves the lemma.
+  \begin{align*}
+s((t-i) + (i)p + (p - \ell)(p+1)) &= s((p + t - i - \ell) + (p + i -\ell)p) \\ 
 &=\begin{cases}
-  s((2r - i - \ell) + (p + 1 + i -\ell)p) & 2r -i  \geq \ell \\
-  s((p + 2r - i - \ell) + (p + i -\ell)p) & 2r - i <  \ell 
+  s((t - i - \ell) + (p + 1 + i -\ell)p) & t -i  \geq \ell \\
+  s((p + t - i - \ell) + (p + i -\ell)p) & t - i <  \ell 
 \end{cases}\\
 &=\begin{cases}
-  s((2r + 1 - i - \ell) + ( 1 + i -\ell)p) & 2r -i  \geq \ell \text{ and } 1+i \geq \ell \\
-  s((2r - i - \ell) + (p + 1 + i -\ell)p) & 2r -i  \geq \ell  \text{ and } 1 + i < \ell \\
-  s((p + 2r - i - \ell) + (p + i -\ell)p) & 2r - i <  \ell \text{ and } i < \ell \\
-  s((p + 2r +1 - i - \ell) + (1 + i -\ell)p) & 2r - i <  \ell \text{ and } i \geq \ell
+  s((t + 1 - i - \ell) + ( 1 + i -\ell)p) & t -i  \geq \ell \text{ and } 1+i \geq \ell \\
+  s((t - i - \ell) + (p + 1 + i -\ell)p) & t -i  \geq \ell  \text{ and } 1 + i < \ell \\
+  s((p + t - i - \ell) + (p + i -\ell)p) & t - i <  \ell \text{ and } i < \ell \\
+  s((p + t +1 - i - \ell) + (1 + i -\ell)p) & t - i <  \ell \text{ and } i \geq \ell
 \end{cases} \\
-s((2r-i)+(i)p + (p-\ell)(p+1))
+s((t-i)+(i)p + (p-\ell)(p+1))
 &= \begin{cases}
-  p+2r-2\ell + 1 & i \leq \ell - 2 \\
-  2r-2\ell + 2 & i > \ell -2
+  p+t-2\ell + 1 & i \leq \ell - 2 \\
+  t-2\ell + 2 & i > \ell -2
 \end{cases}
 \end{align*}
-\\
+  \\
 
-We can reduce from the four cases down to two for a few reasons.
-First, note that $1 + i \geq \ell \implies i \geq \ell - i \implies i > \ell -2$ for integers $i$.
-Additionally, $2r -i \geq \ell$ is the only possibly case because $i < r$ and $\ell \leq r$ so the smallest possible $2r-i$ is bigger than the biggest possible $\ell$.
-Finally, in the $2r - i \geq \ell$ and $1 + i < \ell$ case, $1 + i < \ell \implies i < \ell -1 \implies i \leq \ell -2$ for integers $i$; and $i \leq \ell -2$ means that $p + 1 + i - \ell \leq p-1$ so no further reduction is necessary.
-
-\subsection{$t = 2r+1$:}
-For the case when $t$ is odd, much of the same analysis follows through in the same way with a few $+1$'s scattered throughout.
-Again, we can split into the Frobenius orbits that we wish to distinguish between. 
-They pair up nicely, this time with no degeneracy and we get that the orbits are \[\{t, tp\}, \{(t-1)+p, 1+(t-1)p\}, \cdots, \{r + (r+1) p, (r+1) + r p\}.\] 
-Written more generally, the orbits for $s(\alpha) = t$ look like $\{(t-i) + ip, i + (t-i)p\}$ for integers $0 \leq i \leq r $ where $i > r$ just repeats the same list again.
-Our goal is then to distinguish between these orbits by looking at some twists of these values.
-I claim that it is sufficient to consider $k = p - \ell$ for $2 \leq \ell \leq r + 1 < t$ (this last equality only true for odd $t > 1$).
-We are always considering $t < p$, so $k = p - \ell \geq p - t > 0$.
-\\
-
-We shall proceed by direct computation for $t \geq 3$, and deal only with the general case.
-The general case here will just be to twist by $k = p- \ell$ with $2 \leq \ell \leq r+1$. 
-Then we have the following possible digit sums:
-\begin{align*}
-s((2r+1-i) + ip + (p - \ell)(p+1)) &= s((p + 2r+1 - i - \ell) + (p + i -\ell)p) \\ 
-&=\begin{cases}
-  s((2r +1- i - \ell) + (p + 1 + i -\ell)p) & 2r+1-i  \geq \ell \\
-\end{cases}\\
-&=\begin{cases}
-  s((2r + 1 - i - \ell) + ( 1 + i -\ell)p) &  1+i \geq \ell \\
-  s((2r +1- i - \ell) + (p + 1 + i -\ell)p) & 1 + i < \ell \\
-\end{cases} \\
-s((2r+1-i)+ip + (p-\ell)(p+1))
-&= \begin{cases}
-  p+2r+1-2\ell + 1 & i \leq \ell - 2 \\
-  2r+1-2\ell + 2 & i > \ell -2
-\end{cases}
-\end{align*}
-\\
-
-As before, we only have the $2r+1-e \geq \ell$ case because $i < r$ and $\ell \leq r+1$ so the smallest possible $2r+1-i$ is bigger than the biggest possible $\ell$.
-Then, note that $1 + i \geq \ell \implies i \geq \ell - i \implies i > \ell -2$ for integers $i$.
-Finally, in the $1 + i < \ell$ case, $1 + i < \ell \implies i < \ell -1 \implies i \leq \ell -2$ for integers $i$; and $i \leq \ell -2$ means that $p + 1 + i - \ell \leq p-1$ so no further reduction is necessary.
-\\
-
-
-\textcolor{red}{TODO: It would be cleaner to separate out the equivalence for $s((t-i)+ip+(p-\ell)(p+1))$ into it's own lemma with the even and odd casework moved into that portion, or even two lemmas with a joint corollary.}
-\\
-
-\subsection{rest of the proof}
-Now that we have (what will be a lemma) our main idea:
-\[ s((t-i)+ip+(p-\ell)(p+1)) = \begin{cases} p + t-2\ell+1 & i \leq \ell - 2 \\ t - 2 \ell + 2 & i > \ell -2\end{cases},\]
-we can finish up the rest of the proof.
-The idea here is that as we twist by more $\ell$'s, we distinguish one additional orbit each time.
-Recall for the $\ell = 2$ twist we had that the $i = 0$ orbit was distinguished from all the others because it has a different digit sum after the twist.
-Then, for the $\ell = 3$ twist, we find that $i=0,1$ are separated from $i > 1$, but since $i =0$ is already distinguished, we do not have to distinguish it agin, and so we have distinguished $i = 1$.
-It is clear that the $\ell$ twist will separate the orbits into those with $i \leq \ell - 2$ and those with $i > \ell -2$.
-Then we have that if we consider all the twists $2 \leq \ell \leq m \leq \left\lceil \frac{t}{2} \right\rceil$, then we have fully distinguished all the $i \leq m-2$ but cannot tell apart any of the $m-2 < i < \left\lceil \frac{t}{2} \right\rfloor$ orbits.
-With $m = \left\lceil \frac{t}{2} \right\rceil$, we are able to fully distinguish all of the orbits with a given $t < p$.
-\\
-\textcolor{red}{TODO: Turn this bit into a lemma.}
-\\
-\textcolor{red}{TODO: Make this use $t$ instead of $\alpha$.}
-Finally, we need to show that this still holds for $p \leq \alpha \leq 2p - 2$. 
-Note that we have that $s(p^2 - \alpha) = 2p-1  - s(\alpha)$ because if $\alpha = ip+j$ then \[s(p^2 -\alpha) = s((p-i)p -j) = s((p -i - 1)p + (p-j) )= 2p-1 - (i+j) = 2p - 1 - s(\alpha).\]
+  Note that the only way to have $p + t - 2 \ell + 1 = t - 2 \ell + 2$ is to have $p = 1$, which is not a prime, so we will always have that $s((t-i)+ip + (p - \ell)(p+1))$ takes on different values for $i \leq  \ell - 2$ and $i > \ell - 2$.
+  
 \end{proof}
 
-This means that if $s(\alpha) \geq p$, then $s(p^2 - \alpha) = s(-\alpha) < p$, which will allow us to finish distinguishing between the different $\alpha$'s. 
-Specifically, suppose that $\omega^{-\alpha}$ and $\omega^{-\beta}$ satisfy the conditions of the conjecture and $s(\alpha) \geq p$. 
-Then $S(\omega^{-\alpha}) = S(\omega^{-\beta}) \implies s(\alpha) = s(\beta) \geq p$. 
-Then we also have that $s(p^2 - \alpha) = s(p^2 - \beta) < p$. 
-By our lemma \textcolor{red}{??? (because $S(\omega^{-\alpha}) = \omega^{\alpha}(-1)S(\omega^{\alpha})$)}, $S(\omega^\alpha) = S(\omega^\beta)$ if and only if $S(\omega^{-\alpha}) = S(\omega^{-\beta})$ and so using the prior part of the theorem to distinguish between $p^2 - \alpha$ and $p^2 - \beta$, we can also distinguish between $\alpha$ and $\beta$ since twisting $-\alpha$ by $k$ is the same as twisting $\alpha$ by $-k$ 
+With Lemma \ref{lem:digit-sum-twist} in hand, we can now prove Theorem \ref{thm:local-converse-FF-rewrite}.
+\begin{proof}
+Note that we only need to consider the case of fixed $\alpha$ and can vary $\beta$ to find those that satisfy the equality of gauss sums. 
+
+We would like to show that the condition $s(\alpha + k(p+1)) = s(\beta + k(p+1))$ for all $0 \leq k < p-1$ implies that $\alpha \equiv p \beta \mod p^2 -1$ or $\alpha \equiv \beta \mod p^2 - 1$. 
+Another way of stating this is that if $s(\alpha + k(p+1)) = s(\beta+k(p+1))$ for all $0 \leq k < p-1$ then $\omega^{\-\alpha}$ and $\omega^{-\beta}$ are in the same Frobenius orbit.
+Let $s(\alpha) = t = s(\beta)$ be our fixed digit sum before twists, and let $r = \left \lceil \frac{t}{2} \right \rceil - 1$.
+Then the set of possible Frobenius orbits with a fixed digit sum $t$ is 
+\[\{\{t,tp\}, \{(t-1)+p, 1 + (t-1)p\},\{t-2)+2p, 2+(t-2)p\}, \ldots, \{(t-r)+rp, r + (t-r)p\}\}.\]
+This takes the $t+1$ integers with digit sum $t$ and splits them into orbits of size $2$ in a way that corresponds to (cyclically) permutting the digits.
+When $t$ is even, there is a degenerate orbit $\{(r+1)+(r+1)p\}$ where permuting the digits doesn't change the number or the underlying character; these correspond to non-regular characters, or characters of $\bbF_p$.
+We write a generic element of an orbit as $(t - i) +ip$ since it doesn't matter which element of the orbit we pick.
+
+Our goal is then to show that with an appropriate set of twists, we can distinguish between these orbits.
+I claim that it is sufficient to consider the twists by $k = p - \ell$ for $2 \leq \ell \leq r +1 < t$; note that there are only $\ell$ satisfying these inequalities for $t \geq 4$, so we will deal with the $t = 1,2,3$ cases by hand.
+
+
+Now, let us first consider what happens when we twist by $k = p-2$.
+Lemma \ref{lem:digit-sum-twist} tells us that $s((t-i)+ip)$ is either $p+t-3$ for $i \leq 0$ or $t - 2$ for $i > 0$.
+These are different values and so twisting by $k = p-2$ allows us to distinguish $\{t,tp\}$ from $\{(t-i)+ip,i+(t-i)p\}$ for all $i > 0$.
+
+Similarly, twisiting by $p - \ell$ allows us to distinguish between $\{(t-\ell+2)+(\ell-2)p,(\ell-2) + (t-\ell+2)p\}$ and $\{(t-\ell+1)+(\ell-1)p,(\ell-1)+(t-\ell+1)p\}$. By letting $\ell$ very from $2$ up to $r+1$, we are thus able to distinguish between all the non-degenerate Frobenius orbits.
+\end{proof}
+
+As a simple corollary of Theorem \ref{thm:local-converse-FF-rewrite}, we have a proof of Theorem \ref{thm:local-converse-FF}, the Gauss sum converse theorem that we were hoping to prove.
+
 
 \endinput
