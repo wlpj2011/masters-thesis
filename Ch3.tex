@@ -452,25 +452,27 @@ Then we have the following lemma.
   Next we will need a way to distinguish between these two cases; then we will show that the converse theorem holds in each case.
 
   The proof of Lemma \ref{lem:gamma-one-pole} shows us why it is not possible for $\gamma$ to have no poles if there is an unramified portion of the $\rho_i$.
-  Now, suppose first that $\rho_i = \xi_i \oplus \xi_i'$ with $\xi_i,\xi_i'$ both tamely ramified (level $n=0$).
-  Then in terms of $s$ instead of $X$, we have
-  \[\epsilon(\rho_i,s,\psi) = \epsilon(\xi_i,s,\psi)\epsilon(\xi_i',s,\psi).\]
-  Twisting by a level $n=1$ character $\chi$, we then have that
-  \[\epsilon(\rho_i \otimes \chi,s,\psi) = \epsilon(\xi_i \otimes \chi,s,\psi) \epsilon(\xi_i'\otimes \chi,s,\psi).\]
-  Finally, from the definition of the $\epsilon$-factor for level $n \geq 0$ characters, we have that $|\epsilon(\xi_i \otimes \chi,s,\psi)| = q^{\frac{1}{2}-s}$.
-  The same applies to $\xi_i'\otimes \chi$ so overall, we then find that
-  \[|\epsilon(\rho_i \otimes \chi,s,\psi)| = q^{1 - 2s}\]
+  Now, suppose first that $\rho_i = \xi_i \oplus \xi_i'$ with $\xi_i, \xi_i'$ both tamely ramified (level n=0).
+  Consider twisting by $\chi = \xi_i^{-1}$, then we get $\rho_i \otimes \chi = 1_F \oplus (\xi_i^{-1} \otimes \xi_i')$.
+  Note that $\gamma(\rho_i \otimes \chi,s,\psi)$ will have at least one pole in this case.
+
   On the other hand, if $\rho_i$ is a two dimensional irreducible representation of $\cW_F$, then there is some unramified quadratic extension $E_i/F$ and tamely ramified character $\xi_i$ of $\cW_{E_i}$ such that $\rho_i = \ind_{E_i/F} \xi_i$.
   \textcolor{red}{This comes from Bushnell-Henniart Ch 34.1 and is the reason we need $p\neq 2$.}
-  Since there s a unique unramified quadratic extension of $F$ inside a given separable closure $\overline{F}$, we just call it $E$ and let $\rho_i = \ind_{E/F}$.
+  Since there is a unique unramified quadratic extension of $F$ inside a given separable closure $\overline{F}$, we just call it $E$ and let $\rho_i = \ind_{E/F}$.
   Recall that by Proposition \ref{prop:local-constant-induction} we have
   \[\frac{\epsilon(\ind_{E/K} \rho, s, \psi_K)}{\epsilon(\rho,s,\psi_E)} = \frac{\epsilon(R_{E/K},s,\psi_K)^n}{\epsilon(1_E,s,\psi_E)^n}.\]
   Rearranging this and rewriting in terms of $X$ and the representations we are interested in, we have that
   \[\epsilon(\rho_i,X_F,\psi_F) = \epsilon(\ind_{E/F} \xi_i, X_F, \psi_F) = \epsilon(\xi_i, X_E, \psi_E) \frac{\epsilon(\ind_{E/F} 1_E,X_F,\psi_F)^2}{\epsilon(1_E,X_E,\psi_E)^2}.\]
   Now, note that $(\ind_{E/F} \xi_i )\otimes \chi = \ind_{E/F} (\xi_i \otimes \chi \circ N_{E/F})$.
-  This means that if we twist $\ind_{E/F} \xi_i$ by a level $1$ character $\chi$, this corresponds to twisting $\xi_i$ by the character $\chi \circ N_{E/F}$ which is also level $1$ becuase $U_F = U_E$ and $U_F^1 = U_E^1$.
-  Then by the definition of $\epsilon$ again, we find that twisting by a level $n=1$ character gives us something of the following magnituede:
-  \[|\epsilon(\ind_{E/F} (\xi_i \otimes \chi \circ N_{E/F}),s,\psi_E)| = (q^2)^{\frac{1}{2}-s} = q^{1 - 2s}.\]
+  Since $L(\rho_i) = 1$ for $\rho_i$ irreducible dimension $ > 1$, we have that $\gamma(\rho_i,s,\psi)$ has no poles as expected for this case.
+  However, we further have that $\gamma(\rho_i \otimes \chi,s,\psi)$ will never have a pole because $\ind_{E/F} (\xi_i)$ is irreducible if and only if $\xi$ is different than its conjugate, i.e.  $\xi_i \neq \xi_i^{\sigma}$.
+  This is also equivalent to saying that $\xi_i$ doesn't factor through the norm.
+  So twisting a $\xi_i$ that doesn't factor through the norm by $\chi \circ N_{E/F}$ will never produce something that does factor through the norm, meaning that $(\ind_{E/F} \xi_i )\otimes \chi$ is irreducible and so $\gamma(\rho_i \otimes \chi, s, \psi)$ will never have a pole.
+
+  This allows us to tell apart $\rho_i = \xi_i \oplus \xi_i'$ and $\rho_i = \ind_{E/F} \xi_i$ because the first case will have some twist $\chi$ that gives $\gamma(\rho_i,X,\psi)$ at least one pole and the second case will never have such a $\chi$.
+
+
+  
   Since the parts in the fraction depend only on the extension $E$ which is fixed, we in fact have that if $\epsilon(\rho_1,X,\psi_F) = \epsilon(\rho_2,X,\psi_F)$, then $\epsilon(\xi_1 ,X,\psi_E) = \epsilon(\xi_2, X,\psi_E)$.
 
   
