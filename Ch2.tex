@@ -41,10 +41,14 @@ It takes a bit more to define the Teichm\"uller character.\\
 
 Consider the field $\bbQ(\mu_{q-1})$ and let $\fp$ be the prime ideal lying over $p$.
 Then the residue field of $\bbQ(\mu_{q-1})$ mod $\fp$ is isomorphic to $\mu_{q-1}$ which in turn is isomorphic to $\bbF_q^\times$.
-\begin{defn}\label{def:Teichmuller-char}
-We define the Teichm\"uller character $\omega : \bbF_q^\times \to \mu_{q-1}$ by \[\omega (u) \equiv  u \mod \fp.\]
-\end{defn}
-\noindent This character generates the character group of $\bbF_q^\times$; so for all multiplicative characters $\chi$ of $\bbF_q^\times$ there is some integer $k$ such that $\chi = \omega^k$.\\
+Because $\bbF_q^\times \cong \widehat{\bbF_q^\times}$ is a cyclic group, there is some generator for it.
+\begin{prop}\label{def:Teichmuller-char}
+  By the above isomorphisms, there is a generator $\omega : \bbF_q^\times \to \mu_{q-1}$ satisfying \[\omega (u) \equiv  u \mod \fp.\]
+  We call such a character of $\bbF_q^\times$ the \textbf{Teichm\"uller character}.
+\end{prop}
+\noindent This character generates the character group of $\bbF_q^\times$; so for all multiplicative characters $\chi$ of $\bbF_q^\times$ there is some integer $k$ such that $\chi = \omega^k$.
+We also further have that $\omega^c$ generates $\widehat{\bbF_q^\times}$ for all $c$ coprime to $q-1$.\\
+
 When we have two multiplicative character $\chi_1$ and $\chi_2$, we say that the twist of $\chi_1$ by $\chi_2$ is $\chi_1 \otimes \chi_2$.
 When written in terms of the Techm\"uller character, we have $\omega^{k_1} \otimes \omega^{k_2} = \omega^{k_1+k_2}$.
 
@@ -81,6 +85,12 @@ For $n=2$; this becomes our theorem
 Let $\chi_1$ and $\chi_2$ be two regular multiplicative characters of $\bbF_{p^2}$. If \[S(\chi_1 \otimes \sigma) = S(\chi_2 \otimes \sigma)\text{, for all } \sigma \in \widehat{\bbF_p^\times}\] then $\chi_1 = \chi_2^{p}$ or $\chi_1 = \chi_2$.
 \end{theorem}
 
+The version of this that we will actually end up proving for $n = 2$ appears at first to have weaker conditions, but in fact is equivalent in this case.
+\begin{theorem}\label{thm:local-converse-FF-ideal}
+  Let $\chi_1$ and $\chi_2$ be two regular multiplicative characters of $\bbF_{p^2}$.
+  If \[\langle S(\chi_1 \otimes \sigma) \rangle = \langle S(\chi_2 \otimes \sigma)\rangle\text{, for all } \sigma \in \widehat{\bbF_p^\times}\] then $\chi_1 = \chi_2^{p}$ or $\chi_1 = \chi_2$.
+\end{theorem}
+The difference here is that we only assume the Gauss sums of the twisted characters generate the same ideals, not that they are actually equal.
 
 \section{Stickelberger's Theorem}
 \label{sec:stickelberger}
@@ -138,18 +148,20 @@ Suppose that $\alpha, \beta \in \bbZ/(p^2 -1)\bbZ$ with $p+1 \nmid \alpha, \beta
 \end{theorem}
 
 \begin{prop}
-Theorem \ref{thm:local-converse-FF} and Theorem \ref{thm:local-converse-FF-rewrite} are equivalent.
+Theorem \ref{thm:local-converse-FF-ideal} and Theorem \ref{thm:local-converse-FF-rewrite} are equivalent.
 \end{prop}
 
 \begin{proof}
-Suppose the conditions of Theorem \ref{thm:local-converse-FF} hold. 
+Suppose the conditions of Theorem \ref{thm:local-converse-FF-ideal} hold. 
 If we write $\chi_1 = \omega^\alpha$ and $\chi_2 = \omega^\beta$ and use the fact that all the twists can be written as $\sigma = \omega^{k (p+1)}$ for $0 \leq k < p-1$; then we are claiming that $S(\omega^{\alpha + k(p+1)}) = S(\omega^{\beta+k(p+1)})$ for all $0 \leq k < p-1$. 
 However, by Theorem \ref{thm:Stickelberger} if $S(\omega^{\alpha + k(p+1)}) = S(\omega^{\beta+k(p+1)})$ for all $0 \leq k < p-1$ then $s(-(\alpha + k(p+1))) = s(-(\beta+k(p+1)))$ for all $0 \leq k < p-1$. 
 This implies the conditions of Theorem \ref{thm:local-converse-FF-rewrite}.
 \\
 
 In the other direction, suppose that the conditions of Theorem \ref{thm:local-converse-FF-rewrite} hold. 
-Then $p+1 \nmid \alpha, \beta$ ensures that $\chi_1 = \omega^\alpha$ and $\chi_2 = \omega^\beta$ are regular characters of $\bbF_{p^2}$. Then $s(\alpha + k(p+1)) = s(\beta + k(p+1))$ for all $0 \leq k < p-1$ only provides that $\ord_{\fP} S(\chi_1 \otimes \sigma) = \ord_{\fP} S(\chi_2 \otimes \sigma)$ for all twists $\sigma$. \textcolor{red}{Rewrite this! Have actual proof on paper.}
+Then $p+1 \nmid \alpha, \beta$ ensures that $\chi_1 = \omega^\alpha$ and $\chi_2 = \omega^\beta$ are regular characters of $\bbF_{p^2}$.
+Then $s(\alpha + k(p+1)) = s(\beta + k(p+1))$ for all $0 \leq k < p-1$ only provides that $\ord_{\fP} S(\chi_1 \otimes \sigma) = \ord_{\fP} S(\chi_2 \otimes \sigma)$ for all twists $\sigma$.
+However, this is we assume this is true for all $\alpha, \beta$ so we look at $c \alpha$ and $c \beta$ and because note that $ck$ are in bijection with $k$ mod $p-1$ for $c$ coprime to $p^2-1$, so we also have $s(c\alpha + ck(p+1) = s(c\beta + ck(p+1))$ which implies \[\ord_{\sigma_{c}^{-1} \fP} \langle S(\chi_1 \otimes \sigma) \rangle = \ord_{\sigma_{c}^{-1} \fP} \langle S(\chi_2 \otimes \sigma) \rangle\] for all $c$ coprime to $p^2 -1$, which tells us that $\langle S(\chi_1\otimes \sigma) \rangle = \langle S(\chi_2 \otimes \sigma) \rangle$ as desired.
 
 \end{proof}
 
