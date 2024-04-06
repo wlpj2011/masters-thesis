@@ -39,7 +39,7 @@ Then the trace $\tr : E \to F$ is defined by \[\tr : x \mapsto \sum_{\sigma \in 
 \noindent Then we can define an additive character $\lambda : \bbF_q \to \mu_p$ by $\lambda(x) = \varepsilon^{\tr(x)}$.
 It takes a bit more to define the Teichm\"uller character.\\
 
-Consider the field $\bbQ(\mu_{q-1})$ and let $\fp$ be the prime ideal lying over $p$.
+Consider the field $\bbQ(\mu_{q-1})$ and let $\fp$ be a choice of prime ideal lying over $p$.
 Then the residue field of $\bbQ(\mu_{q-1})$ mod $\fp$ is isomorphic to $\mu_{q-1}$ which in turn is isomorphic to $\bbF_q^\times$.
 Because $\bbF_q^\times \cong \widehat{\bbF_q^\times}$ is a cyclic group, there is some generator for it.
 \begin{prop}\label{def:Teichmuller-char}
@@ -77,7 +77,8 @@ The regular characters are those with Frobenius orbits of size $n$ when $q = p^n
 
 We can now state the conjectured converse theorem for Gauss sums of finite fields.
 \begin{conj}[Nien]\label{conj:local-converse-FF}
-Let $\chi_1$ and $\chi_2$ be two regular multiplicative characters of $\bbF_q$ with $q = p^n$ and $n$ prime. If \[S(\chi_1 \otimes \sigma) = S(\chi_2 \otimes \sigma)\text{, for all } \sigma \in \hat{\bbF_p^\times}\] then $\chi_1 = \chi_2^{p^i}$ for some integer $i$.
+  Let $\chi_1$ and $\chi_2$ be two regular multiplicative characters of $\bbF_q$ with $q = p^n$ and $n$ prime.
+  If \[S(\chi_1 \otimes \sigma) = S(\chi_2 \otimes \sigma)\text{, for all } \sigma \in \widehat{\bbF_p^\times}\] then $\chi_1 = \chi_2^{p^i}$ for some integer $i$.
 \end{conj}
 
 For $n=2$; this becomes our theorem 
