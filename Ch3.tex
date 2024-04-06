@@ -133,8 +133,8 @@ then this allows us to take the $s$ dependence out of the $\epsilon$-factor.
 Specifically, we have from our definition above that for ramified $\chi$ of level $n \geq 0$
 \[\epsilon(\chi, s, \psi) = q^{n(\frac{1}{2} - s)} \tau(\chi, \psi)/ q^{(n+1)/2}.\]
 Then we have the following lemma
-\label{lem:Gauss-sum-reduction}
-\begin{lemma}
+
+\begin{lemma}\label{lem:Gauss-sum-reduction}
   Suppose that $\chi$ has level $n \geq 1$.
   Let $c \in F$ satisfy
   \[ \chi(1 +x) = \psi(cx), \textrm{for all } x\in \fp^{\lfloor n/2 \rfloor + 1}\]
@@ -485,10 +485,15 @@ In this case we have the following lemma.
   Finally, let us deal with the case when $\rho_i = \ind_{E/F} \xi_i$ with $\xi_i$ a tamely ramified character of $\cW_E$.
   We will first use stability to find the value of $\xi_i$ on $\varpi$, then we will use the Gauss sum local converse to show that $\xi_1$ and $\xi_2$ agree sufficiently on $U_F$ to have $\xi_1 \cong \xi_2$.
 
-
-
-  
-  Since the parts in the fraction depend only on the extension $E$ which is fixed, we in fact have that if $\epsilon(\rho_1,X,\psi_F) = \epsilon(\rho_2,X,\psi_F)$, then $\epsilon(\xi_1 ,X,\psi_E) = \epsilon(\xi_2, X,\psi_E)$.
+  Note that the parts in the fraction for the induction constant depend only on the extension $E$ which is fixed, we in fact have that if $\epsilon(\rho_1,X,\psi_F) = \epsilon(\rho_2,X,\psi_F)$, then $\epsilon(\xi_1 ,X,\psi_E) = \epsilon(\xi_2, X,\psi_E)$.
+  Now, applying the Stability Theorem, Theorem \ref{thm:Stability}, for $E$ with a twist by the level $1$ character $\chi$ of $E$ defined by $\chi(1+x) = \psi(\varpi^{-1} x)$, we find that
+  \[\xi_1(\varpi^{-1})^{-1}\epsilon(\chi,X,\psi_E) = \xi_2(\varpi^{-1})^{-1} \epsilon(\chi,X,\psi_E).\]
+  This tells us that $\xi_1(\varpi) = \xi_2(\varpi)$ and so we only need to understand how they act on units.
+  Since the $\xi_i$ are tamely ramified, we already know that they are trivial on $U_E^1 = U_F^1$, we only need to study the character's restriction of $U_E/U_E^1 \cong \bbF_{q^2}$.
+  Similarly, when we restrict tamely ramified characters $\chi$ of $\cW_F$ to the units, we can infact study how they act on $U_F/U_F^1 \cong \bbF_q$.
+  This puts us in the case of the Gauss Sum converse theorem where we have characters of $\bbF_{q^2}$ being twisted by characters of $\bbF_q$; and Lemma \ref{lem:Gauss-sum-reduction} provides this reduction for us.
+  Applying that reduction, and then the Gauss sum local converse theorem proves that $\xi_1 \cong \xi_2$ or $\xi_1 \cong \xi_2^q$ on $U_E$.
+  However, $\ind_{E/F} \xi_1$ and $\ind_{E/F} \xi_1^q$ are isomorphic, so we do indeed have that $\rho_1 \cong \rho_2$ as desired.
 
   
 \end{proof}
