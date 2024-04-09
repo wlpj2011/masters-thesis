@@ -275,21 +275,43 @@ The main properties we need are that if $\rho_1, \rho_2$ are semisimple represen
 which is the multipicativity that we expect.
 We also have an additional property that allows for induction of the local constant $\epsilon$ for characters.
 This induction is the following property:
-\label{prop:local-constant-induction}
-\begin{prop}
+
+\begin{prop}\label{prop:local-constant-induction}
   If $\rho$ is a semisimple $n$-dimensional representation of $\cW_E$ and $E\supset F$, then
   \[\frac{\epsilon(\ind_{E/F} \rho, s, \psi_F)}{\epsilon(\rho,s,\psi_E)} = \frac{\epsilon(R_{E/F},s,\psi_F)^n}{\epsilon(1_E,s,\psi_E)^n}.\]
   Where $1_E$ is the trivial character on $\cW_E$ and $R_{E/F} = \ind^E_F 1_E$.
 \end{prop}
-Multiplicativity and Proposition \ref{prop:local-constant-induction} allows us to define the $\epsilon$ factor for any semi-simple representation because any irreducible representation of $\cW_F$ is the induced representation of a character from an appropriate finite extension.
-Specifically, we have the following theorem, which will allow us to work only with characters for $\cW_E$ for appropriate extensions $E/F$.
-\begin{theorem}
-  \textcolor{red}{What is this theorem exactly...?}
-  \textcolor{red}{It's Bushnell-Henniart 34.1}
-\end{theorem}
-
+Multiplicativity and Proposition \ref{prop:local-constant-induction} allows us to define the $\epsilon$-factor for any semi-simple representation because any irreducible representation of $\cW_F$ is the induced representation of a character from an appropriate finite extension.
 Finally, as was the case for $F^\times$, we still define the $\gamma$-factor for semi-simple representation $\rho$ of $\cW_F$ as
 \[\gamma(\rho, s ,\psi) = \epsilon(\rho, s, \psi) \frac{L(\check{\rho},1-s)}{L(\rho,s)}.\]
+
+We also will find useful a few results from \cite{Bushnell2006} on which representations are induced from a representation of an extension.
+First, we define an admissible pair.
+\begin{defn}
+  Let $E/F$ be a tamely ramified quadratic extension and $\chi$ a character of $E^\times$, we call $(E/F, \chi)$ an \textbf{admissible pair} if
+  \begin{enumerate}
+  \item $\chi$ does not factor through the norm map $N_{E/F}: E^\times \to F^\times$ and,
+    \item if $\chi|_{U_E^1}$ does factor through $N_{E/F}$, then $E/F$ is unramified.
+  \end{enumerate}
+\end{defn}
+
+We will let $\bbP_2(F)$ be the set of isomorphism classes of admissible pairs. Further, we will let $\cG_2^0$ be the set of isomorphism classes of irreducible $2$-dimensional representations of $\cW_F$ and $\cG_2^{\textrm{nr}}$ be the set of isomorphism classes $\rho \in \cG_2^0$ such that there is a non-trivial unramified character $\chi$ of $\cW_F$ such taht $\chi \otimes \rho \cong \rho$.
+With these definition, we have the following theorem, which will allow us to work only with characters for $\cW_E$ for appropriate extensions $E/F$.
+\begin{theorem}
+  If $(E/F, \xi)$ is an admissible pair, the representation $\ind_{E/F} \xi$ of $\cW_F$ is irreducible. The map $(E/F, \xi) \mapsto \ind_{E/F} \xi$ induces a bijection
+
+  \begin{align*}
+    \bbP_2(F) &\to \cG_2^0(F) \,\,  \text{ if } p \neq 2 \text{, or} \\
+    \bbP_2(F) &\to \cG_2^{\textrm{nr}}(F) \,\, \text{ if } p = 2.
+  \end{align*}
+\end{theorem} 
+
+Finally, we have another theorem from \textcolor{red}{Add citation to essentially tame BH paper}.
+For $\sigma \in \cG_2^0(F)$, they let $t(\sigma)$ be the number of (isomorphism classes) of unramified characters $\chi$ of $\cW_F$ such that $\sigma \otimes \chi \cong \sigma$.
+They say that $\sigma$ is \textbf{essentially tame} if $p$ does not divide $n / t(\sigma)$, or equivalently, that $\sigma_{\cP_F}$ is a sum of characters.
+Then the map $\bbP_2(F) \to \cG_2^{\textrm{et}}(F)$ defined by $(E/F, \xi) \mapsto \ind_{E/F} \xi$ is a bijection for all primes $p$ and all $n \geq 1$.
+Since all tamely ramified $\rho$ are essentially tame; this tells use that all tamely ramified irreducible $\rho$ are induced from a tamely ramified character of an unramified extension $E/F$.
+\textcolor{red}{Check this.}
 
 \section{Local Converse Theorem for $2$ Dimensional Representations of the Weil Group}
 \label{sec:n=2-LCT-weil-group}
@@ -326,7 +348,10 @@ $L$ is simple as well and we find that
 \[L(\chi, X) = \begin{cases} (1 - \chi(\varpi) X)^{-1} & \text{ if } \chi \text{ is unramified,} \\ 1 & \text{ otherwise.} \end{cases}\]
 Finally, the $\epsilon$-factor takes a bit more effort to convert to an expression in terms of $X$, but we find that
 \[\displaystyle\epsilon(\chi, X, \psi) = \begin{cases} \frac{X^n}{\sqrt{q}} \sum_{x \in U_F/U_F^{n+1}} \chi(\alpha x)^{-1} \psi(\alpha x) & \text{ for } \chi \text{ of level } n \text{ and } v_F(\alpha) = -n \\ \frac{1}{\sqrt{q}X\chi(\varpi)} & \text{ for } \chi \text{ unramified.}\end{cases}\]
-With these definitions, we can now begin proving the individual cases of Theorem \ref{thm:LCTn=2}.
+
+
+
+With these results, we can now begin proving the individual cases of Theorem \ref{thm:LCTn=2}.
 
 \begin{lemma}[$\gamma$ has $2$ poles]
   \label{lem:gamma-two-poles}
