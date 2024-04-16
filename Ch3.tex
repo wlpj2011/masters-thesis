@@ -6,13 +6,13 @@ $F$ and $E$ will refer to a non-Archimedean local fields.\\
 $\fo$ is the discrete valuation ring in $F$.\\
 $\fp$ is the unique maximal ideal of $\fo$.\\
 $\varpi$ is the uniformizer and a generator of $\fp$.\\
-$v_F$ will be that valuation define of $F$ by $\fo$.\\
+$v_F$ will be that valuation defined on $F$ by $\fo$.\\
 $\bk = \fo/\fp$ is the residue field of $F$.\\
 $q = p^n = |k|$ is the size of the residue field where $p$ is the characteristic.\\
 $U_F$ is the group of units of $\fo$.\\
 $U_F^n = 1 + \fp^n$ for $n \geq 1$ are subgroups of the unit group forming a filtration.\\
 $\psi$ will be an additive character of $F$ and $\widehat{F}$ will be the group of additive characters of $F$. \\
-$\chi$ and $\xi$ will be characters of $F^\times$ or of $\cW_F$ and $\widehat{F^\times}$ will be the group of multiplicative characters of $F$. \\
+$\chi$ and $\xi$ will be characters of $F^\times$ or of $\cW_F$, frequently viewed as equivalent through Local Class Field Theory, and $\widehat{F^\times}$ will be the group of multiplicative characters of $F$. \\
 $1_F$ will be the trivial character on $F^\times$ or $\cW_F$, which takes the value $1$ everywhere.
 $\Omega_F$ will be the absolute Galois group of $F$ and $\cW_F$ will be the Weil group of $F$. \\
 $\rho$ and $\sigma$ will be semisimple representations of $\cW_F$ and $\rho$ will be tamely ramified.\\
@@ -20,7 +20,7 @@ $\rho$ and $\sigma$ will be semisimple representations of $\cW_F$ and $\rho$ wil
 
 \section{Local Fields}
 \label{sec:local-fields}
-We are interested in a local converse theorem for smooth tamely ramified semisimple $2$-dimensional representations of the Weil group of a local field.
+We are interested in a local converse theorem for smooth, tamely ramified, semisimple, $2$-dimensional representations of the Weil group of a local field.
 First, we need to be able to define all the terms in stating the theorem.
 Even though we are proving a theorem about representations of the Weil group $\cW_F$ of a local field $F$, the terms in the theorem must first be defined for the mulitplicative group $F^\times$ of the field.
 \begin{defn}
@@ -29,14 +29,13 @@ Even though we are proving a theorem about representations of the Weil group $\c
 We also call such a ring $\fo$ a DVR.
 An alternative characterization of a DVR is that it is a domain $\fo$ such that its field of fractions $K$ has a non-trivial valuation $v : K \to \bbZ \cup \{ \infty \}$; that is, a function $v$ such that $v(xy) = v(x) + v(y)$, $v(x+y) \geq \min \{v(x),v(y)\}$, $v(x) = 0$ if and only if $x = 0$, and $v$ takes more values than just $0$ and $\infty$.
 \begin{defn}
-  A \textbf{local field} is a field $F$ with a valuation $v$ that is locally compact with respect to the topology provided by the valuation and has finite residue field $k$ with $|k| = q = p^n$.
+  A (non-Archimedean)\textbf{local field} is a field $F$ with a valuation $v$ that is locally compact with respect to the topology provided by the valuation and has finite residue field $k$ with $|k| = q = p^n$.
   The valuation defines a basis of open sets as the additive cosets of the $v^{-1}(\{x \in F \mid q^{-v(x)} \leq r\})$ for positive real numbers $r$.
 \end{defn}
 Given a local field $F$, it is not difficult to show that $\fo = \{x \in F \mid q^{-v(x)} \leq 1\}$ is the ring of integers of $F$ and is a DVR.
 Further, $\fp = \{x \in F \mid q^{-v(x)} < 1\}$ is unique maximal (prime) ideal of the DVR $\fo$.
 Finally, $\fo^\times = U_F = \{x \in F \mid q^{-v(x)} = 1\} = \{x \in F \mid v(x) = 0\}$ is the unit group of $\fo$.
-A local field is isomorphic as a topological field to $\bbR$, $\bbC$, a finite extension of the $p$-adic numbers $\bbQ_p$, or the field of formal Laurent series $\bbF_q((T))$ over a finite field.
-$\bbR$ and $\bbC$ are Archimedean local fields, so extensions of $\bbQ_p$ and $\bbF_q((T))$ will be the examples of the non-Archimdean local fields under consideration.
+A local field is isomorphic as a topological field to a finite extension of the $p$-adic numbers $\bbQ_p$ or the field of formal Laurent series $\bbF_q((T))$ over a finite field.
 \\
 
 For a DVR $\fo$ or for a local field $F$, we define a special element called the \textbf{uniformizer}, denoted by $\varpi$, which is a prime in $\fo$, so that $\varpi \fo = \fp$ is the unique prime ideal.
@@ -54,7 +53,7 @@ We let $\hat{F}$ be the group of additive characters of $F$, which are a group u
   Let $\psi \in \hat{F}$ with $\psi \neq 1$.
   The \textbf{level} of $\psi$ is the smallest integer $d$ such that $\fp^d \subseteq \ker \psi$.
 \end{defn}
-We then have the following proposition mostly characterising the additive characters of $F$.
+We then have the following proposition mostly characterizing the additive characters of $F$.
 \begin{prop}
   Let $\psi \in \hat{F}$ with $\psi \neq 1$ be a level $d$ character.
   \begin{enumerate}
@@ -76,7 +75,7 @@ The final thing we need to define the functions of interest is the concept of du
 Because we are working with topological spaces, we need a definition of duality that respects the topological structure which will be called the \textbf{smooth dual} of a character $\chi$ and will be denoted by $\check{\chi}$.
 If $(\chi, V)$ is a smooth representation of $F^\times$, then let $V^* = \hom_\bbC(V,\bbC)$ and let $(v^* , v) \mapsto \langle v^*, v\rangle$ be the canonical evaluation map.
 Then we can define a representation $\chi^*$ of $F^\times$ on the space $V^*$ by
-\[\langle \pi^*(g)v^*, v\rangle = \langle v^* , \pi(g^{-1})v\rangle.\]
+\[\langle \chi^*(g)v^*, v\rangle = \langle v^* , \chi(g^{-1})v\rangle.\]
 This is not necessarily a smooth representation, but we can define $\check{V} = \cup_K (V^*)^K$ where $K$ ranges over compact open subgroups of $F^\times$ and the $(V^*)^K$ are the subspaces of $K$ fixed vectors in the representation.
 Then we define $\check{\chi}$ as the restriction to $\aut_\bbC(\check{V})$.
 This $(\check{\chi},\check{V})$ is the smooth dual of the character $(\chi, V)$.
@@ -177,8 +176,8 @@ With this lemma in hand, we can now provide a proof of the stability theorem.
   as desired.
 \end{proof}
 
-Finally, for ramified characters of $F^\times$; we can relate to the Gauss sum in $\epsilon$ to a gauss sum for a finite field.
-\textcolor{red}{Get back to this.}
+
+
 \section{Weil Groups of Local Fields}
 \label{sec:weil-group}
 Let $F$ be a non-Archimedean local field and pick a separable algebraic closure $\overline{F}$ of $F$.
@@ -206,9 +205,9 @@ These correspondences are made precise in Theorem \ref{thm:LCFT}
 \\
 
 We can then define the Weil group $\cW_F$ as a subgroup of $\Omega_F$.
-We first define $_a\cW_F$ as the inverse image in $\Omega_F$ of the subgroup $\langle \Phi_F\rangle$ of $\gal(F_\infty/F)$.
+We first define ${}_a\cW_F$ as the inverse image in $\Omega_F$ of the subgroup $\langle \Phi_F\rangle$ of $\gal(F_\infty/F)$.
 This is a dense normal subgroup of $\Omega_F$ generated by the Frobenius elements.
-We then define the \textbf{Weil group of F} as a topological group with $_a\cW_F$ as the underlying abstract group, where $\cI_F$ is an open subgroup of $\cW_F$ and the topology on $\cI_F$ as a subspace coincides with the natural topology on $\cI_F$ as a subspace of $\Omega_F$.
+We then define the \textbf{Weil group of F} as a topological group with ${}_a\cW_F$ as the underlying abstract group, where $\cI_F$ is an open subgroup of $\cW_F$ and the topology on $\cI_F$ as a subspace coincides with the natural topology on $\cI_F$ as a subspace of $\Omega_F$.
 \\
 
 We then have a proposition defining a few properties of the Weil group relating to field extensions $E/F$.
@@ -216,7 +215,7 @@ We then have a proposition defining a few properties of the Weil group relating 
   \begin{enumerate}
     \item Let $E/F$ be a finite extension with $E \subseteq \overline{F}$.
     \begin{enumerate}
-      \item The group $\cW_F$ has a unique subgroup $\cW^E_F$ such that \[\bm{\iota}_F(\cW^E_F) = _a\cW_F \cap \Omega_E\] where $\bm{\iota}$ is the identity map $\cW_F \to _a\cW_F \subseteq \Omega_F$.
+      \item The group $\cW_F$ has a unique subgroup $\cW^E_F$ such that \[\bm{\iota}_F(\cW^E_F) = {}_a\cW_F \cap \Omega_E\] where $\bm{\iota}$ is the identity map $\cW_F \to {}_a\cW_F \subseteq \Omega_F$.
       \item The subgroup $\cW^E_F$ is open and of finite index in $\cW_F$; it is normal in $\cW_F$ if and only if $E/F$ is Galois.
       \item The canonical map $\cW^E_F\setminus \cW_F \to \Omega_E \setminus \Omega_F$ is a bijection.
       \item The canonical map $\bm{\iota}_E : \cW_E \to \Omega_E$ induces a topological isomorphism $\cW_E \cong \cW^E_F$.
@@ -460,7 +459,7 @@ Next is the case when $\gamma(\rho_i, X,\psi)$ only has one pole, which can occu
   As desired, this gives us $\rho_1 = \rho_2$ for the unramified case.
 
   Next, consider the case of $\rho_i = \theta_i \oplus \xi_i$ with $\theta_i$ unramified and $\xi_i$ ramified tamely ramified (level $n = 0$).
-  We have that $L(\rho_i,X) = L(\theta_i \oplus \xi_i ,X) = L(\theta_i,X)L(\xi_i,X) = L(\theta_i,X)$ because not unramified characters have trivial $L$ functions.
+  We have that $L(\rho_i,X) = L(\theta_i \oplus \xi_i ,X) = L(\theta_i,X)L(\xi_i,X) = L(\theta_i,X)$ because ramified characters have trivial $L$ functions.
   So we can still identify that the poles of $\gamma(\rho_1,X,\psi)$ and $\gamma(\rho_2,X,\psi)$ are the same so $\theta_1(\varpi) = \theta_2(\varpi)$ which like the previous cases tells us that $\theta_1 = \theta_2$, so just call it $\theta$.
   
   The conditions of the converse theorem tell us that
@@ -521,7 +520,7 @@ In this case we have the following lemma.
   In fact, consider the twist by $\chi = \xi_1^{-1}$.
   We get \[\gamma(1_F \oplus (\xi_1' \otimes \xi_1^{-1}),X,\psi) = \gamma((\xi_2 \otimes \xi_1^{-1})\oplus(\xi_2' \otimes \xi_1^{-1}),X,\psi)\]
   Because $1_F$ is unramified, we must have at least one pole, possibly two poles.
-  That is either we are in the case of Lemma \ref{lem:gamma-one-pole} or Lemma \ref{lem:gamma-two-poles};either way, we find that, without loss of generality, $\xi_1 = \xi_2$ and $\xi_1' = \xi_2'$ and so $\rho_1 = \rho_2$.
+  That is either we are in the case of Lemma \ref{lem:gamma-one-pole} or Lemma \ref{lem:gamma-two-poles}; either way, we find that, without loss of generality, $\xi_1 = \xi_2$ and $\xi_1' = \xi_2'$ and so $\rho_1 = \rho_2$.
   
   Finally, let us deal with the case when $\rho_i = \ind_{E/F} \xi_i$ with $\xi_i$ a tamely ramified character of $\cW_E$.
   We will first use stability to find the value of $\xi_i$ on $\varpi$, then we will use the Gauss sum local converse to show that $\xi_1$ and $\xi_2$ agree sufficiently on $U_F$ to have $\xi_1 \cong \xi_2$.
@@ -531,8 +530,8 @@ In this case we have the following lemma.
   \[\xi_1(\varpi^{-1})^{-1}\epsilon(\chi,X,\psi_E) = \xi_2(\varpi^{-1})^{-1} \epsilon(\chi,X,\psi_E).\]
   This tells us that $\xi_1(\varpi) = \xi_2(\varpi)$ and so we only need to understand how they act on units.
   Since the $\xi_i$ are tamely ramified, we already know that they are trivial on $U_E^1 = U_F^1$, we only need to study the character's restriction of $U_E/U_E^1 \cong \bbF_{q^2}$.
-  Similarly, when we restrict tamely ramified characters $\chi$ of $\cW_F$ to the units, we can infact study how they act on $U_F/U_F^1 \cong \bbF_q$.
-  This puts us in the case of the Gauss Sum converse theorem where we have characters of $\bbF_{q^2}$ being twisted by characters of $\bbF_q$; and Lemma \ref{lem:Gauss-sum-reduction} provides this reduction for us.
+  Similarly, when we restrict tamely ramified characters $\chi$ of $\cW_F$ to the units, we can in fact study how they act on $U_F/U_F^1 \cong \bbF_q$.
+  This puts us in the case of the Gauss sum converse theorem where we have characters of $\bbF_{q^2}$ being twisted by characters of $\bbF_q$; and Lemma \ref{lem:Gauss-sum-reduction} provides this reduction for us.
   Applying that reduction, and then the Gauss sum local converse theorem proves that $\xi_1 \cong \xi_2$ or $\xi_1 \cong \xi_2^q$ on $U_E$.
   However, $\ind_{E/F} \xi_1$ and $\ind_{E/F} \xi_1^q$ are isomorphic, so we do indeed have that $\rho_1 \cong \rho_2$ as desired.
 
