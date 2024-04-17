@@ -41,12 +41,15 @@
 \include{Ch3}				% Chapter 3, etc.
 
 % Bibliography files are included here.  Separate with a comma if more than one
-%\bibfiles{thesisbibliography.bib}
-\chapter{References}
+\bibfiles{thesisbibliography.bib}
+%\chapter{References}
 \bibliographystyle{alpha} 		% Appropriate bibliography style
 % Appropriate bibliography title, default is REFERENCES, Uncomment to change it.
-\renewcommand{\bibname}{}
+%\renewcommand{\bibname}{}
+\addcontentsline{toc}{chapter}{REFERENCES}
 \bibliography{thesisbibliography}			% Inserts and formats the reference section.
+
+
 
 %\appendix					% Include this before any appendices.
 %\include{AppA}				% First appendix.
